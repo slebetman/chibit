@@ -1,0 +1,222 @@
+<html>
+	<body>
+		<h1 id="title">CHIB and BITS</h1>
+		<div id="instruction">
+			<ul>
+				<li>W,S,A,D or Arrow Keys to move</li>
+				<li>Ctrl or Space to teleport</li>
+				<li>Shift to run</li>
+			</ul>
+		</div>
+		<div id="chibit"></div>
+		<div id="teleport"></div>
+		<style>
+			body {
+				font-family: sans-serif;
+			}
+			div#instruction {
+				position: fixed;
+				left: 0;
+				top: 70px;
+			}
+			h1#title {
+				font-size: 40pt;
+			}
+			div#chibit {
+				display: block;
+				position: absolute;
+				width: 96px;
+				height: 96px;
+				background-image: url("./character2x8d.png");
+				background-repeat: no-repeat;
+				background-position: 0px 0px;
+				top: 200px;
+				left: 400px;
+			}
+			div#teleport {
+				display: block;
+				position: absolute;
+				width: 96px;
+				height: 96px;
+				background-image: url("./character2x8d.png");
+				background-repeat: no-repeat;
+				background-position: 0px 0px;
+				opacity: 0;
+				top: 200px;
+				left: 400px;
+			}
+		</style>
+	</body>
+	<script>
+		let step = 0;
+		let cycle = 0;
+		let direction = 0;
+		let x = 400;
+		let y = 200;
+		let stepsize=2;
+		let movement = {
+			x: 0,
+			y: 0,
+		}
+		let teleport = 0;
+
+		const S = 0;
+		const SW = 1;
+		const W = 2;
+		const NW = 3;
+		const N = 4;
+		const NE = 5;
+		const E = 6;
+		const SE = 7;
+
+
+		function $ (id) {
+			return document.getElementById(id);
+		}
+
+		function updateChibit () {
+			let d = direction * 96;
+			let s = step * 96;
+			$('chibit').style.top = `${y}px`;
+			$('chibit').style.left = `${x}px`;
+			$('chibit').style.backgroundPosition = `-${d}px -${s}px`;
+		}
+
+		function updateTeleport () {
+			let d = direction * 96;
+			let s = step * 96;
+			$('teleport').style.top = `${y}px`;
+			$('teleport').style.left = `${x}px`;
+			$('teleport').style.backgroundPosition = `-${d}px -${s}px`;
+			let opacity = 0.6;
+
+			let interval = setInterval(() => {
+				opacity -= 0.01;
+
+				if (opacity < 0) {
+					opacity = 0;
+					clearInterval(interval);
+					teleport = 0;
+				}
+
+				$('teleport').style.opacity = opacity;
+			},30);
+		}
+
+		function walk () {
+			if (movement.x || movement.y) {
+				if (movement.y < 0) {
+					if (movement.x > 0) {
+						direction = NE;
+					}
+					else if (movement.x < 0) {
+						direction = NW;
+					}
+					else {
+						direction = N;
+					}
+				}
+				else if (movement.y > 0) {
+					if (movement.x > 0) {
+						direction = SE;
+					}
+					else if (movement.x < 0) {
+						direction = SW;
+					}
+					else {
+						direction = S;
+					}
+				}
+				else if (movement.x > 0) {
+					direction = E;
+				}
+				else if (movement.x < 0) {
+					direction = W;
+				}
+				else {
+					direction = S;
+				}
+
+				x += movement.x;
+				y += movement.y;
+
+				cycle = (cycle+1)%6;
+				if (cycle === 0) {
+					step = (step + 1) % 4;
+				}
+				updateChibit();
+			}
+			if (teleport === 1) {
+				teleport = 2;
+				console.log('teleport');
+				updateTeleport();
+				if ([E,NE,SE].find(i=>i===direction) !== undefined) x += 150;
+				if ([W,NW,SW].find(i=>i===direction) !== undefined) x -= 150;
+				if ([S,SW,SE].find(i=>i===direction) !== undefined) y += 150;
+				if ([N,NW,NE].find(i=>i===direction) !== undefined) y -= 150;
+				updateChibit();
+			}
+		}
+
+		document.onkeydown = function (e) {
+			console.log(e.key, e.keyCode);
+
+			switch (e.key) {
+				case 'a':
+				case 'A':
+				case 'ArrowLeft':
+					movement.x = -stepsize;
+					break;
+				case 'd':
+				case 'D':
+				case 'ArrowRight':
+					movement.x = stepsize;
+					break;
+				case 'w':
+				case 'W':
+				case 'ArrowUp':
+					movement.y = -stepsize;
+					break;
+				case 's':
+				case 'S':
+				case 'ArrowDown':
+					movement.y = stepsize;
+					break;
+				case 'Shift':
+					stepsize = 4;
+					break;
+				case 'Control':
+				case ' ':
+					if (teleport === 0) teleport = 1;
+					break;
+			}
+		}
+
+		document.onkeyup = function (e) {
+			console.log(e.key, e.keyCode);
+
+			switch (e.key) {
+				case 'a':
+				case 'A':
+				case 'd':
+				case 'D':
+				case 'ArrowLeft':
+				case 'ArrowRight':
+					movement.x = 0; break;
+				case 'w':
+				case 'W':
+				case 's':
+				case 'S':
+				case 'ArrowUp':
+				case 'ArrowDown':
+					movement.y = 0; break;
+				case 'Shift':
+					stepsize = 2;
+					break;
+			}
+		}
+
+		setInterval(walk, 10);
+
+	</script>
+</html>
