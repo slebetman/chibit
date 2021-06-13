@@ -114,10 +114,10 @@ class Character {
 			left: `${this.x}px`,
 			backgroundPosition: `-${d}px -${s}px`,
 		});
-		let opacity = 0.6;
+		let opacity = 1;
 
 		let interval = setInterval(() => {
-			opacity -= 0.01;
+			opacity -= 0.05;
 
 			if (opacity < 0) {
 				opacity = 0;
@@ -126,7 +126,7 @@ class Character {
 			}
 
 			css(this.ghostElement, {opacity: opacity});
-		},30);
+		},10);
 
 		return this;
 	}
