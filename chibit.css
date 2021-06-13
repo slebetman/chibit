@@ -9,26 +9,3 @@ div#instruction {
 h1#title {
 	font-size: 40pt;
 }
-div#chibit {
-	display: block;
-	position: absolute;
-	width: 96px;
-	height: 96px;
-	background-image: url("./character2x8d.png");
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-	top: 200px;
-	left: 400px;
-}
-div#teleport {
-	display: block;
-	position: absolute;
-	width: 96px;
-	height: 96px;
-	background-image: url("./character2x8d.png");
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-	opacity: 0;
-	top: 200px;
-	left: 400px;
-}
