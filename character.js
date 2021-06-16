@@ -23,39 +23,21 @@ class Character {
 			x: 0,
 			y: 0,
 		}
-		this.teleportTracker = 0;
+		this.spriteSheet = spritesheet;
+		this.spriteWidth = width;
+		this.spriteHeight = height;
 		this.characterElement = document.createElement('div');
 		this.characterElement.id = nextId++;
 		css(this.characterElement,{
-			backgroundImage: `url("${spritesheet}")`,
+			backgroundImage: `url("${this.spriteSheet}")`,
 			backgroundRepeat: 'no-repeat',
 			display: 'block',
 			position: 'absolute',
-			width: width,
-			height: height,
+			width: `${this.spriteWidth}px`,
+			height: `${this.spriteHeight}px`,
 			backgroundPosition: '0px 0px',
 		})
 		document.body.appendChild(this.characterElement);
-		this.ghostElement = document.createElement('div');
-		this.ghostElement.id = nextId++;
-		css(this.ghostElement,{
-			backgroundImage: `url("${spritesheet}")`,
-			backgroundRepeat: 'no-repeat',
-			display: 'block',
-			position: 'absolute',
-			width: `${width}px`,
-			height: `${height}px`,
-			backgroundPosition: '0px 0px',
-			opacity: '0'
-		})
-		document.body.appendChild(this.ghostElement);
-	}
-
-	teleport () {
-		if (this.teleportTracker === 0) {
-			this.teleportTracker = 1
-		}
-		return this;
 	}
 
 	stopHorizontalMovement () {
@@ -106,31 +88,6 @@ class Character {
 		return this;
 	}
 
-	updateTeleport () {
-		let d = this.direction * 96;
-		let s = this.step * 96;
-		css(this.ghostElement,{
-			top:  `${this.y}px`,
-			left: `${this.x}px`,
-			backgroundPosition: `-${d}px -${s}px`,
-		});
-		let opacity = 1;
-
-		let interval = setInterval(() => {
-			opacity -= 0.05;
-
-			if (opacity < 0) {
-				opacity = 0;
-				clearInterval(interval);
-				this.teleportTracker = 0;
-			}
-
-			css(this.ghostElement, {opacity: opacity});
-		},10);
-
-		return this;
-	}
-
 	checkDirection (directions) {
 		return directions.find(i=>i===this.direction) !== undefined;
 	}
@@ -175,23 +132,6 @@ class Character {
 			this.cycle = (this.cycle+1)%6;
 			if (this.cycle === 0) {
 				this.step = (this.step + 1) % 4;
-			}
-			this.update();
-		}
-		if (this.teleportTracker === 1) {
-			this.teleportTracker = 2;
-			this.updateTeleport();
-			if (this.checkDirection([DIRECTION.E,DIRECTION.NE,DIRECTION.SE])) {
-				this.x += 150;
-			}
-			if (this.checkDirection([DIRECTION.W,DIRECTION.NW,DIRECTION.SW])) {
-				this.x -= 150;
-			}
-			if (this.checkDirection([DIRECTION.S,DIRECTION.SW,DIRECTION.SE])) {
-				this.y += 150;
-			}
-			if (this.checkDirection([DIRECTION.N,DIRECTION.NW,DIRECTION.NE])) {
-				this.y -= 150;
 			}
 			this.update();
 		}
