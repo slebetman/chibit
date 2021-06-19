@@ -54,17 +54,35 @@ class Chibit extends Character {
 		if (this.teleportTracker === 1) {
 			this.teleportTracker = 2;
 			this.updateTeleport();
-			if (this.checkDirection([DIRECTION.E,DIRECTION.NE,DIRECTION.SE])) {
-				this.x += 150;
-			}
-			if (this.checkDirection([DIRECTION.W,DIRECTION.NW,DIRECTION.SW])) {
-				this.x -= 150;
-			}
-			if (this.checkDirection([DIRECTION.S,DIRECTION.SW,DIRECTION.SE])) {
-				this.y += 150;
-			}
-			if (this.checkDirection([DIRECTION.N,DIRECTION.NW,DIRECTION.NE])) {
-				this.y -= 150;
+			switch (this.direction) {
+				case DIRECTION.E:
+					this.x += 150;
+					break;
+				case DIRECTION.W:
+					this.x -= 150;
+					break;
+				case DIRECTION.S:
+					this.y += 150;
+					break;
+				case DIRECTION.N:
+					this.y -= 150;
+					break;
+				case DIRECTION.NE:
+					this.x += 150 * DIAGONAL_MOVEMENT;
+					this.y -= 150 * DIAGONAL_MOVEMENT;
+					break;
+				case DIRECTION.NW:
+					this.x -= 150 * DIAGONAL_MOVEMENT;
+					this.y -= 150 * DIAGONAL_MOVEMENT;
+					break;
+				case DIRECTION.SE:
+					this.x += 150 * DIAGONAL_MOVEMENT;
+					this.y += 150 * DIAGONAL_MOVEMENT;
+					break;
+				case DIRECTION.SW:
+					this.x -= 150 * DIAGONAL_MOVEMENT;
+					this.y += 150 * DIAGONAL_MOVEMENT;
+					break;
 			}
 			this.update();
 		}

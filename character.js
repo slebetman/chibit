@@ -11,6 +11,7 @@ const DIRECTION = {
 
 let nextId = 0;
 
+const DIAGONAL_MOVEMENT = Math.cos(Math.PI/4);
 class Character {
 	constructor (spritesheet,width,height) {
 		this.direction = 0;
@@ -88,10 +89,6 @@ class Character {
 		return this;
 	}
 
-	checkDirection (directions) {
-		return directions.find(i=>i===this.direction) !== undefined;
-	}
-
 	walk () {
 		if (this.movement.x || this.movement.y) {
 			if (this.movement.y < 0) {
@@ -126,8 +123,14 @@ class Character {
 				this.direction = DIRECTION.S;
 			}
 
-			this.x += this.movement.x;
-			this.y += this.movement.y;
+			if (this.movement.x != 0 && this.movement.y != 0) {
+				this.x += this.movement.x * DIAGONAL_MOVEMENT;
+				this.y += this.movement.y * DIAGONAL_MOVEMENT;
+			}
+			else {
+				this.x += this.movement.x;
+				this.y += this.movement.y;
+			}
 
 			this.cycle = (this.cycle+1)%6;
 			if (this.cycle === 0) {
