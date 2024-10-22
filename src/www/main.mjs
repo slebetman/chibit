@@ -4,6 +4,27 @@ let chibit = new Chibit()
 	.setXY(400,200)
 	.update();
 
+const keys = {
+	up: false,
+	down: false,
+	left: false,
+	right: false,
+	shift: false,
+}
+
+function checkKeys () {
+	if (keys.right) chibit.moveRight();
+	else if (keys.left) chibit.moveLeft();
+	else chibit.stopHorizontalMovement();
+
+	if (keys.up) chibit.moveUp();
+	else if (keys.down) chibit.moveDown();
+	else chibit.stopVerticalMovement();
+
+	if (keys.shift) chibit.stepsize = 4;
+	else chibit.stepsize = 2;
+}
+
 document.onkeydown = function (e) {
 	console.log(e.key, e.keyCode);
 
@@ -11,31 +32,33 @@ document.onkeydown = function (e) {
 		case 'a':
 		case 'A':
 		case 'ArrowLeft':
-			chibit.moveLeft();
+			keys.left = true;
 			break;
 		case 'd':
 		case 'D':
 		case 'ArrowRight':
-			chibit.moveRight();
+			keys.right = true;
 			break;
 		case 'w':
 		case 'W':
 		case 'ArrowUp':
-			chibit.moveUp();
+			keys.up = true;
 			break;
 		case 's':
 		case 'S':
 		case 'ArrowDown':
-			chibit.moveDown();
+			keys.down = true;
 			break;
 		case 'Shift':
-			chibit.stepsize = 4;
+			keys.shift = true;
 			break;
 		case 'Control':
 		case ' ':
 			chibit.teleport();
 			break;
 	}
+
+	checkKeys();
 }
 
 document.onkeyup = function (e) {
@@ -44,22 +67,30 @@ document.onkeyup = function (e) {
 	switch (e.key) {
 		case 'a':
 		case 'A':
+		case 'ArrowLeft':
+			keys.left = false;
+			break;
 		case 'd':
 		case 'D':
-		case 'ArrowLeft':
 		case 'ArrowRight':
-			chibit.stopHorizontalMovement(); break;
+			keys.right = false;
+			break;
 		case 'w':
 		case 'W':
+		case 'ArrowUp':
+			keys.up = false;
+			break;
 		case 's':
 		case 'S':
-		case 'ArrowUp':
 		case 'ArrowDown':
-			chibit.stopVerticalMovement(); break;
+			keys.down = false;
+			break;
 		case 'Shift':
-			chibit.stepsize = 2;
+			keys.shift = false;
 			break;
 	}
+
+	checkKeys();
 }
 
 setInterval(() => {
