@@ -1,23 +1,17 @@
-import { Character, DIRECTION, DIAGONAL_MOVEMENT, getNextId } from "./character.mjs";
+import { Character, DIRECTION, DIAGONAL_MOVEMENT } from "./character.mjs";
+import { Sprite } from "./sprite.mjs";
 import { css, $ } from "./util.mjs";
 
 export class Chibit extends Character {
 	constructor () {
 		super("./images/character2x8d.png",96,96);
 		this.teleportTracker = 0;
-		this.ghostElement = document.createElement('div');
-		this.ghostElement.id = getNextId();
+		this.ghoseSprite = new Sprite(this.spriteSheet, this.width, this.height);
+		this.ghostElement = this.ghoseSprite.element;
+		
 		css(this.ghostElement,{
-			backgroundImage: `url("${this.spriteSheet}")`,
-			backgroundRepeat: 'no-repeat',
-			display: 'block',
-			position: 'absolute',
-			width: `${this.spriteWidth}px`,
-			height: `${this.spriteHeight}px`,
-			backgroundPosition: '0px 0px',
 			opacity: '0'
-		})
-		document.body.appendChild(this.ghostElement);
+		});
 	}
 
 	teleport () {

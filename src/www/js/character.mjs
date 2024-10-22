@@ -1,3 +1,4 @@
+import { Sprite } from "./sprite.mjs";
 import { css, $ } from "./util.mjs";
 
 export const DIRECTION = {
@@ -13,16 +14,11 @@ export const DIRECTION = {
 
 let nextId = 0;
 
-export function getNextId () {
-	return nextId++;
-}
-
 export const DIAGONAL_MOVEMENT = Math.cos(Math.PI/4);
-export class Character {
+export class Character extends Sprite {
 	constructor (spritesheet,width,height) {
+		super(spritesheet, width, height);
 		this.direction = 0;
-		this.x = 0;
-		this.y = 0;
 		this.step = 0;
 		this.cycle = 0;
 		this.stepsize = 2;
@@ -30,21 +26,6 @@ export class Character {
 			x: 0,
 			y: 0,
 		}
-		this.spriteSheet = spritesheet;
-		this.spriteWidth = width;
-		this.spriteHeight = height;
-		this.characterElement = document.createElement('div');
-		this.characterElement.id = getNextId();
-		css(this.characterElement,{
-			backgroundImage: `url("${this.spriteSheet}")`,
-			backgroundRepeat: 'no-repeat',
-			display: 'block',
-			position: 'absolute',
-			width: `${this.spriteWidth}px`,
-			height: `${this.spriteHeight}px`,
-			backgroundPosition: '0px 0px',
-		})
-		document.body.appendChild(this.characterElement);
 	}
 
 	stopHorizontalMovement () {
@@ -77,16 +58,10 @@ export class Character {
 		return this;
 	}
 
-	setXY (x,y) {
-		this.x = x;
-		this.y = y;
-		return this;
-	}
-
 	update () {
 		let d = this.direction * 96;
 		let s = this.step * 96;
-		css(this.characterElement,{
+		css(this.element,{
 			top:  `${this.y}px`,
 			left: `${this.x}px`,
 			backgroundPosition: `-${d}px -${s}px`,
