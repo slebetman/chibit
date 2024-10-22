@@ -3,6 +3,38 @@ import { Sprite } from "./sprite.mjs";
 
 /**
  * @param {Sprite} movingSprite 
+ * @param {Sprite} targetSprite
+ */
+function moveSouth (movingSprite, targetSprite) {
+	return { y: targetSprite.y + targetSprite.bounds.y1 - movingSprite.bounds.y2 };
+}
+
+/**
+ * @param {Sprite} movingSprite 
+ * @param {Sprite} targetSprite
+ */
+function moveNorth (movingSprite, targetSprite) {
+	return { y: targetSprite.y + targetSprite.bounds.y2 - movingSprite.bounds.y1 };
+}
+
+/**
+ * @param {Sprite} movingSprite 
+ * @param {Sprite} targetSprite
+ */
+function moveEast (movingSprite, targetSprite) {
+	return { x: targetSprite.x - movingSprite.bounds.x2 };
+}
+
+/**
+ * @param {Sprite} movingSprite 
+ * @param {Sprite} targetSprite
+ */
+function moveWest (movingSprite, targetSprite) {
+	return { x: targetSprite.x + targetSprite.width - movingSprite.bounds.x1 };
+}
+
+/**
+ * @param {Sprite} movingSprite 
  * @param {Sprite} targetSprite 
  * @param {number} direction 
  */
@@ -23,14 +55,30 @@ export function collide (movingSprite, targetSprite, direction) {
 
 	if (xIntersect && yIntersect) {
 		switch (direction) {
-			case DIRECTION.S: return { y: targetSprite.y + targetSprite.bounds.y1 - movingSprite.bounds.y2 };
-			case DIRECTION.N: return { y: targetSprite.y + targetSprite.bounds.y2 - movingSprite.bounds.y1 };
-			case DIRECTION.E:
+			case DIRECTION.S: return moveSouth(movingSprite, targetSprite);
+			case DIRECTION.N: return moveNorth(movingSprite, targetSprite);
+			case DIRECTION.E: return moveEast(movingSprite, targetSprite);
 			case DIRECTION.NE:
-			case DIRECTION.SE: return { x: targetSprite.x - movingSprite.bounds.x2 };
-			case DIRECTION.W:
+				if (movingSprite.y + movingSprite.bounds.y2 > targetSprite.y + targetSprite.bounds.y2) {
+					return moveNorth(movingSprite, targetSprite);
+				}
+				return moveEast(movingSprite, targetSprite);
+			case DIRECTION.SE:
+				if (movingSprite.y + movingSprite.bounds.y1 < targetSprite.y + targetSprite.bounds.y1) {
+					return moveSouth(movingSprite, targetSprite);
+				}
+				return moveEast(movingSprite, targetSprite);
+			case DIRECTION.W: moveWest(movingSprite, targetSprite);
 			case DIRECTION.NW:
-			case DIRECTION.SW:  return { x: targetSprite.x + targetSprite.width - movingSprite.bounds.x1 };
+				if (movingSprite.y + movingSprite.bounds.y2 > targetSprite.y + targetSprite.bounds.y2) {
+					return moveNorth(movingSprite, targetSprite);
+				}
+				return moveWest(movingSprite, targetSprite);
+			case DIRECTION.SW:
+				if (movingSprite.y + movingSprite.bounds.y1 < targetSprite.y + targetSprite.bounds.y1) {
+					return moveSouth(movingSprite, targetSprite);
+				}
+				return moveWest(movingSprite, targetSprite);
 		}
 	}
 

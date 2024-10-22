@@ -67,8 +67,6 @@ export class Character extends Sprite {
 	}
 
 	update () {
-		console.log('update', this.y);
-
 		let d = this.direction * 96;
 		let s = this.step * 96;
 		css(this.element,{
