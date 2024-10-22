@@ -87,6 +87,6 @@ export class Chibit extends Character {
 			}
 			this.update();
 		}
-		return this;
+		return collided;
 	}
 }
