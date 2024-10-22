@@ -1,4 +1,6 @@
-const DIRECTION = {
+import { css, $ } from "./util.mjs";
+
+export const DIRECTION = {
 	S: 0,
 	SW: 1,
 	W: 2,
@@ -11,8 +13,12 @@ const DIRECTION = {
 
 let nextId = 0;
 
-const DIAGONAL_MOVEMENT = Math.cos(Math.PI/4);
-class Character {
+export function getNextId () {
+	return nextId++;
+}
+
+export const DIAGONAL_MOVEMENT = Math.cos(Math.PI/4);
+export class Character {
 	constructor (spritesheet,width,height) {
 		this.direction = 0;
 		this.x = 0;
@@ -28,7 +34,7 @@ class Character {
 		this.spriteWidth = width;
 		this.spriteHeight = height;
 		this.characterElement = document.createElement('div');
-		this.characterElement.id = nextId++;
+		this.characterElement.id = getNextId();
 		css(this.characterElement,{
 			backgroundImage: `url("${this.spriteSheet}")`,
 			backgroundRepeat: 'no-repeat',

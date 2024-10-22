@@ -1,4 +1,4 @@
 # Chibit
 ### Simple 2D game demo
 
-![icon](character_icon.png)
+![icon](src/www/images/character_icon.png)

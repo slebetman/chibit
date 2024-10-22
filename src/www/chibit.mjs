@@ -1,9 +1,12 @@
-class Chibit extends Character {
+import { Character, DIRECTION, DIAGONAL_MOVEMENT, getNextId } from "./character.mjs";
+import { css, $ } from "./util.mjs";
+
+export class Chibit extends Character {
 	constructor () {
-		super("./character2x8d.png",96,96);
+		super("./images/character2x8d.png",96,96);
 		this.teleportTracker = 0;
 		this.ghostElement = document.createElement('div');
-		this.ghostElement.id = nextId++;
+		this.ghostElement.id = getNextId();
 		css(this.ghostElement,{
 			backgroundImage: `url("${this.spriteSheet}")`,
 			backgroundRepeat: 'no-repeat',
