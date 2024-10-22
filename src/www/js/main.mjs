@@ -34,7 +34,7 @@ function checkKeys () {
 }
 
 document.onkeydown = function (e) {
-	console.log(e.key, e.keyCode);
+	// console.log(e.key, e.keyCode);
 
 	switch (e.key) {
 		case 'a':
@@ -60,7 +60,6 @@ document.onkeydown = function (e) {
 		case 'Shift':
 			keys.shift = true;
 			break;
-		case 'Control':
 		case ' ':
 			chibit.teleport();
 			break;
@@ -70,7 +69,7 @@ document.onkeydown = function (e) {
 }
 
 document.onkeyup = function (e) {
-	console.log(e.key, e.keyCode);
+	// console.log(e.key, e.keyCode);
 
 	switch (e.key) {
 		case 'a':

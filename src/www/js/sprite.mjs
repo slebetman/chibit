@@ -6,13 +6,30 @@ export function getNextId () {
 	return `item${nextId++}`;
 }
 
+/**
+ * @typedef {Object} Bounds
+ * @property x1
+ * @property y1
+ * @property x2
+ * @property y2
+ */
+
 export class Sprite {
-	constructor (spritesheet, width, height, offsetX = 0, offsetY = 0) {
+	/**
+	 * @param {string} spritesheet 
+	 * @param {number} width 
+	 * @param {number} height 
+	 * @param {Bounds} bounds
+	 * @param {number} offsetX 
+	 * @param {number} offsetY 
+	 */
+	constructor (spritesheet, width, height, bounds, offsetX = 0, offsetY = 0) {
 		this.x = 0;
 		this.y = 0;
 		this.spriteSheet = spritesheet;
 		this.width = width;
 		this.height = height;
+		this.bounds = bounds;
 		this.element = document.createElement('div');
 		this.element.id = getNextId();
 		css(this.element,{
@@ -33,6 +50,7 @@ export class Sprite {
 		css(this.element,{
 			top:  `${this.y}px`,
 			left: `${this.x}px`,
+			zIndex: Math.floor(this.y),
 		});
 		return this;
 	}

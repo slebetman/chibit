@@ -4,9 +4,18 @@ import { css, $ } from "./util.mjs";
 
 export class Chibit extends Character {
 	constructor () {
-		super("./images/character2x8d.png",96,96);
+		const bounds = {
+			x1: 20, x2: 78,
+			y1: 60, y2: 84,
+		};
+		super("./images/character2x8d.png",96,96, bounds);
 		this.teleportTracker = 0;
-		this.ghoseSprite = new Sprite(this.spriteSheet, this.width, this.height);
+		this.ghoseSprite = new Sprite(
+			this.spriteSheet,
+			this.width,
+			this.height,
+			bounds
+		);
 		this.ghostElement = this.ghoseSprite.element;
 		
 		css(this.ghostElement,{
@@ -27,6 +36,7 @@ export class Chibit extends Character {
 		css(this.ghostElement,{
 			top:  `${this.y}px`,
 			left: `${this.x}px`,
+			zIndex: Math.floor(this.y),
 			backgroundPosition: `-${d}px -${s}px`,
 		});
 		let opacity = 1;

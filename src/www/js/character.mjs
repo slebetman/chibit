@@ -18,8 +18,14 @@ let nextId = 0;
 
 export const DIAGONAL_MOVEMENT = Math.cos(Math.PI/4);
 export class Character extends Sprite {
-	constructor (spritesheet,width,height) {
-		super(spritesheet, width, height);
+	/**
+	 * @param {string} spritesheet 
+	 * @param {number} width 
+	 * @param {number} height 
+	 * @param {import("./sprite.mjs").Bounds} bounds 
+	 */
+	constructor (spritesheet, width, height, bounds) {
+		super(spritesheet, width, height, bounds);
 		this.direction = 0;
 		this.step = 0;
 		this.cycle = 0;
@@ -61,11 +67,14 @@ export class Character extends Sprite {
 	}
 
 	update () {
+		console.log('update', this.y);
+
 		let d = this.direction * 96;
 		let s = this.step * 96;
 		css(this.element,{
 			top:  `${this.y}px`,
 			left: `${this.x}px`,
+			zIndex: Math.floor(this.y),
 			backgroundPosition: `-${d}px -${s}px`,
 		});
 
@@ -133,6 +142,7 @@ export class Character extends Sprite {
 			}
 			this.update();
 		}
+
 		return collided;
 	}
 }
