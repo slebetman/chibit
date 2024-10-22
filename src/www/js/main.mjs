@@ -1,6 +1,15 @@
 import { Chibit } from "./chibit.mjs";
+import { items } from "./items.mjs";
+import { Sprite } from "./sprite.mjs";
+import { Wall } from "./wall.mjs";
 
-let chibit = new Chibit()
+
+items.push(
+	new Wall(600, 400),
+	new Wall(250, 400),
+);
+
+const chibit = new Chibit()
 	.setXY(400,200)
 	.update();
 

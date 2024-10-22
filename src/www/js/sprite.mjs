@@ -30,6 +30,10 @@ export class Sprite {
 	setXY (x,y) {
 		this.x = x;
 		this.y = y;
+		css(this.element,{
+			top:  `${this.y}px`,
+			left: `${this.x}px`,
+		});
 		return this;
 	}
 }
