@@ -47,8 +47,12 @@ export class Chibit extends Character {
 	}
 
 	walk () {
-		Character.prototype.walk.call(this);
+		const collided = Character.prototype.walk.call(this);
 		if (this.teleportTracker === 1) {
+			if (collided) {
+				this.teleportTracker = 0;
+				return;
+			}
 			this.teleportTracker = 2;
 			this.updateTeleport();
 			switch (this.direction) {

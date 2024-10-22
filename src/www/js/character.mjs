@@ -73,6 +73,7 @@ export class Character extends Sprite {
 	}
 
 	walk () {
+		let collided = false;
 		if (this.movement.x || this.movement.y) {
 			if (this.movement.y < 0) {
 				if (this.movement.x > 0) {
@@ -120,6 +121,7 @@ export class Character extends Sprite {
 				const collision = collide(this, i, this.direction);
 
 				if (collision !== undefined) {
+					collided = true;
 					this.x = collision.x ?? this.x;
 					this.y = collision.y ?? this.y;
 				}
@@ -131,6 +133,6 @@ export class Character extends Sprite {
 			}
 			this.update();
 		}
-		return this;
+		return collided;
 	}
 }

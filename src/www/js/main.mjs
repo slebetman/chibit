@@ -1,6 +1,5 @@
 import { Chibit } from "./chibit.mjs";
 import { items } from "./items.mjs";
-import { Sprite } from "./sprite.mjs";
 import { Wall } from "./wall.mjs";
 
 
