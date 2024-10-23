@@ -1,11 +1,20 @@
-import { Chibit } from "./chibit.mjs";
+import { Chibit } from "./items/chibit.mjs";
 import { items } from "./items.mjs";
-import { Wall } from "./wall.mjs";
+import { Wall } from "./items/wall.mjs";
+import { Lamp } from "./items/lamp.mjs";
 
 
 items.push(
 	new Wall(600, 400),
-	new Wall(250, 400),
+	new Wall(600, 450),
+	new Wall(600, 500),
+	new Wall(700, 450),
+	new Wall(800, 450),
+	new Wall(900, 450),
+	new Wall(300, 400),
+	new Wall(300, 450),
+	new Wall(300, 500),
+	new Lamp(140, 440),
 );
 
 const chibit = new Chibit()

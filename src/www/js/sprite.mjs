@@ -50,7 +50,7 @@ export class Sprite {
 		css(this.element,{
 			top:  `${this.y}px`,
 			left: `${this.x}px`,
-			zIndex: Math.floor(this.y),
+			zIndex: Math.floor(this.y + this.bounds.y1),
 		});
 		return this;
 	}

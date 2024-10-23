@@ -1,6 +1,6 @@
-import { Character, DIRECTION, DIAGONAL_MOVEMENT } from "./character.mjs";
-import { Sprite } from "./sprite.mjs";
-import { css, $ } from "./util.mjs";
+import { Character, DIRECTION, DIAGONAL_MOVEMENT } from "../character.mjs";
+import { Sprite } from "../sprite.mjs";
+import { css, $ } from "../util.mjs";
 
 export class Chibit extends Character {
 	constructor () {
@@ -36,7 +36,7 @@ export class Chibit extends Character {
 		css(this.ghostElement,{
 			top:  `${this.y}px`,
 			left: `${this.x}px`,
-			zIndex: Math.floor(this.y),
+			zIndex: Math.floor(this.y + this.bounds.y1),
 			backgroundPosition: `-${d}px -${s}px`,
 		});
 		let opacity = 1;

@@ -22,7 +22,7 @@ function moveNorth (movingSprite, targetSprite) {
  * @param {Sprite} targetSprite
  */
 function moveEast (movingSprite, targetSprite) {
-	return { x: targetSprite.x - movingSprite.bounds.x2 };
+	return { x: targetSprite.x + targetSprite.bounds.x1 - movingSprite.bounds.x2 };
 }
 
 /**
@@ -30,7 +30,7 @@ function moveEast (movingSprite, targetSprite) {
  * @param {Sprite} targetSprite
  */
 function moveWest (movingSprite, targetSprite) {
-	return { x: targetSprite.x + targetSprite.width - movingSprite.bounds.x1 };
+	return { x: targetSprite.x + targetSprite.bounds.x2 - movingSprite.bounds.x1 };
 }
 
 /**
