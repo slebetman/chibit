@@ -101,6 +101,7 @@ async function main () {
 		chibit.walk();
 	}, 10);
 
+	window.onresize = () => chibit.update();
 }
 
 main();

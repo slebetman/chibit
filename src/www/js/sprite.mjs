@@ -41,7 +41,7 @@ export class Sprite {
 			height: `${this.height}px`,
 			backgroundPosition: `${offsetX}px ${offsetY}px`,
 		})
-		document.body.appendChild(this.element);
+		$('world').appendChild(this.element);
 	}
 
 	setXY (x,y) {

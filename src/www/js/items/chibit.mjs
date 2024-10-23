@@ -63,6 +63,14 @@ export class Chibit extends Character {
 		return this;
 	}
 
+	update () {
+		super.update();
+		css($('world'),{
+			top: Math.round(-this.y + window.innerHeight/2),
+			left: Math.round(-this.x + window.innerWidth/2),
+		})
+	}
+
 	walk () {
 		const collided = Character.prototype.walk.call(this);
 		if (this.teleportTracker === 1) {

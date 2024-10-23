@@ -65,6 +65,13 @@ export function drawMap (map) {
 	const { mapHeaders, mapItems } = parseMap(map);
 
 	for (const i of mapItems) {
-		items.push(new i.item((i.x * 100) - i.item.base.x, (i.y * 50) - i.item.base.y));
+		const item = new i.item(
+			(i.x * 100) - i.item.base.x,
+			(i.y * 50) - i.item.base.y
+		);
+
+		items.push(item);
+
+		item.update?.();
 	}
 }
