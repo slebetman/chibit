@@ -28,7 +28,7 @@ function parseMap (map) {
 
 	for (const l of lines) {
 		if (!endOfHeaders) {
-			if (l.match(/^____+$/)) {
+			if (l.match(/^____+\s*$/)) {
 				endOfHeaders = true;
 			}
 			else {
