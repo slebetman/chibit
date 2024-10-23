@@ -7,7 +7,7 @@ export class Tree1 extends Sprite {
 	}
 
 	constructor (x, y) {
-		super('./images/tree1.png', 260, 300,{
+		super('./images/tree1.png', 260, 320,{
 			x1: 120, x2: 160,
 			y1: 250, y2: 290,
 		});

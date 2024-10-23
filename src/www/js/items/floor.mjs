@@ -30,3 +30,15 @@ export class StoneFloor extends Floor {
 		super('./images/floor-stone.png', x, y);
 	}
 }
+
+export class TileFloor extends Floor {
+	constructor (x, y) {
+		super('./images/floor-tile.png', x, y);
+	}
+}
+
+export class StonePath extends Floor {
+	constructor (x, y) {
+		super('./images/path.png', x, y);
+	}
+}

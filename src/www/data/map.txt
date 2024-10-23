@@ -4,33 +4,46 @@ l=Lamp
 I=Lamp,StoneFloor
 .=WoodFloor
 _=StoneFloor
+,=StonePath
+-=TileFloor
 S=Shelf
 T=Tree1
 m=MonitorDesk,StoneFloor
 n=MonitorDesk,WoodFloor
 M=MonitorDeskBig,StoneFloor
 origin=40x30
-_______________________________________________________________________________
+____________________________________
         T    T       T
-   T       T   T       T
+T          T   T       T
       T  T       T         T
  T                   T
                   T       T
     T    ##_####       T
-      ####___Sm# ####
+T     ####___Sm# ####
       #..#_____# #SS#
-      #..___A__# #..#
-      ..._______ #..#   T
- T    ..n#__M___ #..#
-      #..#_____# ##.#     T
-  T   ####_____#
-      ___#_____#
-      _I_###_###  l
-                        T
- T                   T
+      #..______# #..#
+      ..._______,#..#   T
+ T    ..n#__M___,#..#
+      #..#_____#,##.#     T
+  T   ####__A__#,,,,
+      ___#_____#,
+      _I_###_###, l
+            ,   ,       T
+ T          ,,,,,          T
+            ,     
+      T     ,         T
+         T  ,      T
+   T        ,             T
+T           ,        T
+       T    ,
+            ,            T
+     T      ,  l      T
+  T         ,,,   T
+          T   ,,,       ######
+      T         ,,,     #--S-#
+  T               ,,,,,,-----#
+        T               -----#
+     T        T         #----#
+   T     T              ######
 
-      T               T
-         T         T
-
-            T
-      T
+                         l
