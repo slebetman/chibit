@@ -1,6 +1,7 @@
 import { items } from "./items.mjs";
 import { Chibit } from "./items/chibit.mjs";
 import { StoneFloor, WoodFloor } from "./items/floor.mjs";
+import { MonitorDesk, MonitorDeskBig, Shelf } from "./items/furniture.mjs";
 import { Lamp } from "./items/lamp.mjs";
 import { Tree1 } from "./items/trees.mjs";
 import { Wall } from "./items/wall.mjs";
@@ -13,6 +14,9 @@ const types = {
 	WoodFloor,
 	StoneFloor,
 	Tree1,
+	Shelf,
+	MonitorDesk,
+	MonitorDeskBig,
 }
 
 const itemType = {}

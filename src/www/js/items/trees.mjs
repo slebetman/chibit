@@ -8,8 +8,8 @@ export class Tree1 extends Sprite {
 
 	constructor (x, y) {
 		super('./images/tree1.png', 260, 300,{
-			x1: 100, x2: 160,
-			y1: 250, y2: 300,
+			x1: 120, x2: 160,
+			y1: 250, y2: 290,
 		});
 		this.setXY(x,y);
 	}
