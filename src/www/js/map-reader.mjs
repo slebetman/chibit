@@ -32,17 +32,26 @@ function parseMap (map) {
 				endOfHeaders = true;
 			}
 			else {
-				const [ k, t ] = l.split('=').map(x => x.trim());
+				const [ k, v ] = l.split('=').map(x => x.trim());
 
 				if (k === 'origin') {
-					const [ x , y ] = t.split('x').map(x => parseInt(x,10));
+					const [ x , y ] = v.split('x').map(x => parseInt(x,10));
 					mapHeaders.origin = {x,y};
 				}
-				else if (types[t]) {
-					itemType[k] = types[t];
-				}
 				else {
-					console.error('unsupported type', t);
+					const tval = v.split(',');
+
+					for (const t of tval) {
+						if (types[t]) {
+							if (!itemType[k]) {
+								itemType[k] = [];
+							}
+							itemType[k].push(types[t]);
+						}
+						else {
+							console.error('Unsupported type', t);
+						}
+					}
 				}
 			}
 		}
@@ -50,11 +59,13 @@ function parseMap (map) {
 			let col = 0;
 			for (const c of l.split('')) {
 				if (itemType[c]) {
-					mapItems.push({
-						x: col,
-						y: row,
-						item: itemType[c],
-					})
+					for (const t of itemType[c]) {
+						mapItems.push({
+							x: col,
+							y: row,
+							item: t,
+						})
+					}
 				}
 				col++;
 			}
