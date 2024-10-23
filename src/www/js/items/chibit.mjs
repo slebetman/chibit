@@ -22,6 +22,19 @@ export class Chibit extends Character {
 			bounds
 		);
 		this.ghostElement = this.ghoseSprite.element;
+
+		// const debugBounds = document.createElement('div');
+
+		// css(debugBounds,{
+		// 	position: 'relative',
+		// 	border: '1px solid red',
+		// 	width: '58px',
+		// 	left: '20px',
+		// 	height: '24px',
+		// 	top: '60px',
+		// });
+
+		// this.element.appendChild(debugBounds);
 		
 		css(this.ghostElement,{
 			opacity: '0'
@@ -68,7 +81,10 @@ export class Chibit extends Character {
 		css($('world'),{
 			top: Math.round(-this.y + window.innerHeight/2),
 			left: Math.round(-this.x + window.innerWidth/2),
-		})
+		});
+		// css(this.element, {
+		// 	zIndex: 9999999,
+		// });
 	}
 
 	walk () {

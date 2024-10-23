@@ -56,9 +56,10 @@ export function collide (movingSprite, targetSprite, direction) {
 
 	if (xIntersect && yIntersect) {
 		switch (direction) {
-			case DIRECTION.S: return moveSouth(movingSprite, targetSprite);
 			case DIRECTION.N: return moveNorth(movingSprite, targetSprite);
+			case DIRECTION.S: return moveSouth(movingSprite, targetSprite);
 			case DIRECTION.E: return moveEast(movingSprite, targetSprite);
+			case DIRECTION.W: return moveWest(movingSprite, targetSprite);
 			case DIRECTION.NE:
 				if (movingSprite.y + movingSprite.bounds.y2 > targetSprite.y + targetSprite.bounds.y2) {
 					return moveNorth(movingSprite, targetSprite);
@@ -69,7 +70,6 @@ export function collide (movingSprite, targetSprite, direction) {
 					return moveSouth(movingSprite, targetSprite);
 				}
 				return moveEast(movingSprite, targetSprite);
-			case DIRECTION.W: moveWest(movingSprite, targetSprite);
 			case DIRECTION.NW:
 				if (movingSprite.y + movingSprite.bounds.y2 > targetSprite.y + targetSprite.bounds.y2) {
 					return moveNorth(movingSprite, targetSprite);
@@ -89,11 +89,20 @@ export function collide (movingSprite, targetSprite, direction) {
 /**
  * @param {Sprite} sprite 
  */
+function getNearestItems (sprite) {
+	return items.filter(i => {
+		return Math.abs(sprite.x - i.x) < 500 && Math.abs(sprite.y - i.y) < 500;
+	})
+}
+
+/**
+ * @param {Sprite} sprite 
+ */
 export function collisionDetection (sprite) {
 	let collided = false;
 
 	// simple collision detection
-	for (const i of items) {
+	for (const i of getNearestItems(sprite)) {
 		if (i === sprite) continue;
 
 		const collision = collide(sprite, i, sprite.direction);
