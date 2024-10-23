@@ -98,7 +98,9 @@ async function main () {
 	}
 
 	setInterval(() => {
-		chibit.walk();
+		for (const i of items) {
+			i.action();
+		}
 	}, 10);
 
 	window.onresize = () => chibit.update();

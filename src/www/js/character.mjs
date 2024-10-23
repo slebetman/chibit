@@ -78,6 +78,10 @@ export class Character extends Sprite {
 		return this;
 	}
 
+	action () {
+		this.walk();
+	}
+
 	walk () {
 		let collided = false;
 		if (this.movement.x || this.movement.y) {

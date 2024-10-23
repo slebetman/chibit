@@ -44,6 +44,8 @@ export class Sprite {
 		$('world').appendChild(this.element);
 	}
 
+	action () {}
+
 	setXY (x,y) {
 		this.x = x;
 		this.y = y;
