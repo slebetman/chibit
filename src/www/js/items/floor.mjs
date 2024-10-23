@@ -4,7 +4,7 @@ import { css } from "../util.mjs";
 class Floor extends Sprite {
 	static base = {
 		x: 50,
-		y: 25,
+		y: 15,
 	}
 
 	constructor (spriteSheet, x, y) {
