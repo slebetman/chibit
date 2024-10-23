@@ -10,6 +10,9 @@ const rockSprites = [
 	'0px -100px',
 	'-100px -100px',
 	'-200px -100px',
+	'0px -200px',
+	'-100px -200px',
+	'-200px -200px',
 ]
 
 export class Rock extends Sprite {
@@ -22,8 +25,8 @@ export class Rock extends Sprite {
 		idx = (idx + 1) % rockSprites.length;
 
 		super('./images/rocks.png', 100, 100,{
-			x1: 30, x2: 70,
-			y1: 40, y2: 90,
+			x1: 15, x2: 85,
+			y1: 50, y2: 85,
 		});
 		css(this.element,{
 			backgroundPosition: rockSprites[idx],

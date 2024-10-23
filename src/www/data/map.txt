@@ -1,13 +1,19 @@
-#=Wall
-A=Chibit,StoneFloor
+█=Wall
+☺=Chibit,StoneFloor
 l=Lamp
 I=Lamp,StoneFloor
 .=WoodFloor
 _=StoneFloor
-,=StonePath
+║=StonePath
+═=StonePath
+╝=StonePathBottomRight
+╗=StonePathTopRight
+╚=StonePathBottomLeft
 -=TileFloor
 S=Shelf
 T=Tree1
+r=Rock
+R=Rock,TileFloor
 m=MonitorDesk,StoneFloor
 n=MonitorDesk,WoodFloor
 M=MonitorDeskBig,StoneFloor
@@ -15,35 +21,36 @@ origin=40x30
 ____________________________________
         T    T       T
 T          T   T       T
-      T  T       T         T
+      T  T   r   T         T
  T                   T
                   T       T
-    T    ##_####       T
-T     ####___Sm#   ####
-      #..#_____#   #SS#
-      #..______#   #..#
-      ..._______,, #..#   T
- T    ..n#__M___ , #..#
-      #..#_____# , ##.#     T
-  T   ####__A__# ,   ,
-      ___#_____# ,,,,,
-      _I_###_### ,l
-            ,    ,       T
- T          ,,,,,,          T
-            ,     
-      T     ,          T
-         T  ,      T
-   T        ,             T
-T           ,        T
-       T    ,
-            ,            T
-     T      ,,,l      T
-  T           ,,, T
-          T     ,       ######
-      T         ,,,     #--S-#
-  T               ,,,,,,-----#
-        T               -----#
-     T        T         #----#
-   T     T              ######
+    T    ██_████       T
+T  r  ████___Sm█   ████
+      █..█_____█   █SS█ r
+      █..______█   █..█
+      ..._______║╗ █..█   T
+ T    ..n█__M___ ║ █..█
+      █..█_____█ ║ ██.█     T
+  T   ████__☺__█ ║   ║
+      ___█_____█ ║═══╝
+r     _I_███_███ ║l
+            ║    ║r      T
+ T          ║════╝          T
+            ║rr   
+      T     ║          T
+         T  ║      T
+   T        ║             T
+T        r  ║        T
+       T    ║
+            ║            T
+     T      ╚═╗l      T
+  T           ╚═╗ T
+          T    r║       ██████
+      T         ╚═╗     █--S-█
+  T               ╚═════-----█
+        T               --R--█
+     T        T         █----█
+                        █----█
+   T     T         r    ██████
 
                          l

@@ -37,8 +37,84 @@ export class TileFloor extends Floor {
 	}
 }
 
+/*
+	Path logic:
+
+	above
+
+	  .|. = |
+
+	   .
+	  ||. = ^\
+
+	   |
+	  ||. = |
+
+	   .
+	  .|| = /^
+
+	   |
+	  .|| = |
+
+	  ||| = |
+
+	left
+
+	  |
+	 .| = \_
+
+	  |
+	|_/ = |
+
+	  .
+	 .| = |
+
+	  .
+	 || = |
+
+	self
+
+	  if there is path above and to the left default to _/
+ */
+
 export class StonePath extends Floor {
 	constructor (x, y) {
 		super('./images/path.png', x, y);
+	}
+}
+
+export class StonePathBottomRight extends Floor {
+	constructor (x, y) {
+		super('./images/path.png', x, y);
+		css(this.element,{
+			backgroundPosition: '0px -50px',
+		});
+	}
+}
+
+export class StonePathBottomLeft extends Floor {
+	constructor (x, y) {
+		super('./images/path.png', x, y);
+		css(this.element,{
+			backgroundPosition: '0px -100px',
+		});
+	}
+}
+
+export class StonePathTopRight extends Floor {
+	constructor (x, y) {
+		super('./images/path.png', x, y);
+		css(this.element,{
+			backgroundPosition: '0px -150px',
+		});
+	}
+}
+
+export class StonePathTopleft extends Floor {
+	constructor (x, y) {
+		super('./images/path.png', x, y);
+		css(this.element,{
+			backgroundPosition: '0px -200px',
+		});
 	}
 }
