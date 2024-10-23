@@ -1,11 +1,17 @@
 import express from 'express';
-import { config } from './lib/config.mjs';
+import { config, initConfig } from './lib/config.mjs';
 import path from 'path';
 
-const app = express();
+async function  main () {
+  await initConfig();
 
-app.use(express.static(path.join(import.meta.dirname,'www')));
+  const app = express();
 
-app.listen(config.port, () => {
-  console.log(`[server]: Server is running at http://localhost:${config.port}`);
-});
+  app.use(express.static(path.join(import.meta.dirname,'www')));
+
+  app.listen(config.port, () => {
+    console.log(`[server]: Server is running at http://localhost:${config.port}`);
+  });
+}
+
+main();
