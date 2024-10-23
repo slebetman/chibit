@@ -3,7 +3,12 @@ import { Sprite } from "../sprite.mjs";
 import { css, $ } from "../util.mjs";
 
 export class Chibit extends Character {
-	constructor () {
+	static base = {
+		x: 49,
+		y: 72,
+	}
+
+	constructor (x, y) {
 		const bounds = {
 			x1: 20, x2: 78,
 			y1: 60, y2: 84,
@@ -21,6 +26,8 @@ export class Chibit extends Character {
 		css(this.ghostElement,{
 			opacity: '0'
 		});
+
+		this.setXY(x,y);
 	}
 
 	teleport () {

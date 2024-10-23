@@ -1,5 +1,4 @@
-import { collide } from "./collision-detection.mjs";
-import { items } from "./items.mjs";
+import { collisionDetection } from "./collision-detection.mjs";
 import { Sprite } from "./sprite.mjs";
 import { css, $ } from "./util.mjs";
 
@@ -123,16 +122,7 @@ export class Character extends Sprite {
 				this.y += this.movement.y;
 			}
 
-			// simple collision detection
-			for (const i of items) {
-				const collision = collide(this, i, this.direction);
-
-				if (collision !== undefined) {
-					collided = true;
-					this.x = collision.x ?? this.x;
-					this.y = collision.y ?? this.y;
-				}
-			}
+			collided = collisionDetection(this);
 
 			this.cycle = (this.cycle+1)%6;
 			if (this.cycle === 0) {

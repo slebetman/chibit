@@ -2,6 +2,11 @@ import { Sprite } from "../sprite.mjs";
 import { css } from "../util.mjs";
 
 export class Wall extends Sprite {
+	static base = {
+		x: 50,
+		y: 60,
+	}
+
 	constructor (x, y) {
 		super('./images/wall.png', 100, 100,{
 			x1: 0, x2: 100,

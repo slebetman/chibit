@@ -1,4 +1,5 @@
 import { DIRECTION } from "./character.mjs";
+import { items } from "./items.mjs";
 import { Sprite } from "./sprite.mjs";
 
 /**
@@ -83,4 +84,26 @@ export function collide (movingSprite, targetSprite, direction) {
 	}
 
 	return undefined;
+}
+
+/**
+ * @param {Sprite} sprite 
+ */
+export function collisionDetection (sprite) {
+	let collided = false;
+
+	// simple collision detection
+	for (const i of items) {
+		if (i === sprite) continue;
+
+		const collision = collide(sprite, i, sprite.direction);
+
+		if (collision !== undefined) {
+			collided = true;
+			sprite.x = collision.x ?? sprite.x;
+			sprite.y = collision.y ?? sprite.y;
+		}
+	}
+
+	return collided;
 }
