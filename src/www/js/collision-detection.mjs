@@ -50,9 +50,13 @@ export function collide (movingSprite, targetSprite, direction) {
 	const ty = targetSprite.y + targetSprite.bounds.y1;
 	const farTy = targetSprite.y + targetSprite.bounds.y2;
 
-	// check if X intersect
-	const xIntersect = (farX > tx && farX < farTx) || (x > tx && x < farTx);
-	const yIntersect = (farY > ty && farY < farTy) || (y > ty && y < farTy);
+	const xIntersect =
+		(farX > tx && farX < farTx) || (x > tx && x < farTx) ||
+		(farTx > x && farTx < farX) || (tx > x && tx < farX);
+
+	const yIntersect =
+		(farY > ty && farY < farTy) || (y > ty && y < farTy) ||
+		(farTy > y && farTy < farY) || (ty > y && ty < farY);
 
 	if (xIntersect && yIntersect) {
 		switch (direction) {
