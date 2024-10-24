@@ -104,9 +104,17 @@ function getNearestItems (sprite) {
  */
 export function collisionDetection (sprite) {
 	let collided = false;
+	let nearItems = getNearestItems(sprite);
+
+	switch (sprite.direction) {
+		case DIRECTION.N:
+		case DIRECTION.NE:
+		case DIRECTION.NW:
+			nearItems.reverse();
+	}
 
 	// simple collision detection
-	for (const i of getNearestItems(sprite)) {
+	for (const i of nearItems) {
 		if (i === sprite) continue;
 
 		const collision = collide(sprite, i, sprite.direction);
