@@ -8,3 +8,7 @@ export function css (id, styles) {
 		$(id).style[s] = styles[s];
 	}
 }
+
+export function isTouchScreen () {
+	return window.matchMedia("(pointer: coarse)").matches;
+}
