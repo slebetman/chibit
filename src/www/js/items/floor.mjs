@@ -7,11 +7,18 @@ class Floor extends Sprite {
 		y: 15,
 	}
 
-	constructor (spriteSheet, x, y) {
+	/**
+	 * @param {string} spriteSheet 
+	 * @param {number} x 
+	 * @param {number} y 
+	 * @param {number} offsetX 
+	 * @param {number} offsetY 
+	 */
+	constructor (spriteSheet, x, y, offsetX = 0, offsetY = 0) {
 		super(spriteSheet, 100, 50,{
 			x1: 0, x2: 0,
 			y1: 0, y2: 0,
-		});
+		}, offsetX, offsetY);
 		this.setXY(x,y);
 		css(this.element,{
 			zIndex: -1,
@@ -85,36 +92,24 @@ export class StonePath extends Floor {
 
 export class StonePathBottomRight extends Floor {
 	constructor (x, y) {
-		super('./images/path.png', x, y);
-		css(this.element,{
-			backgroundPosition: '0px -50px',
-		});
+		super('./images/path.png', x, y, 0, -50);
 	}
 }
 
 export class StonePathBottomLeft extends Floor {
 	constructor (x, y) {
-		super('./images/path.png', x, y);
-		css(this.element,{
-			backgroundPosition: '0px -100px',
-		});
+		super('./images/path.png', x, y, 0, -100);
 	}
 }
 
 export class StonePathTopRight extends Floor {
 	constructor (x, y) {
-		super('./images/path.png', x, y);
-		css(this.element,{
-			backgroundPosition: '0px -150px',
-		});
+		super('./images/path.png', x, y, 0, -150);
 	}
 }
 
 export class StonePathTopleft extends Floor {
 	constructor (x, y) {
-		super('./images/path.png', x, y);
-		css(this.element,{
-			backgroundPosition: '0px -200px',
-		});
+		super('./images/path.png', x, y, 0, -200);
 	}
 }
