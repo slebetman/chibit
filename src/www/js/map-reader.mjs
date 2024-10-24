@@ -1,5 +1,6 @@
 import { items } from "./items.mjs";
 import { Chibit } from "./items/chibit.mjs";
+import { CampFire } from "./items/fire.mjs";
 import * as floor from "./items/floor.mjs";
 import * as furniture from "./items/furniture.mjs";
 import { Lamp } from "./items/lamp.mjs";
@@ -16,6 +17,7 @@ const types = {
 	Rock,
 	...floor,
 	...furniture,
+	CampFire,
 }
 
 const itemType = {}

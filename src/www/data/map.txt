@@ -1,5 +1,5 @@
 █=Wall
-☺=Chibit,StoneFloor
+☺=Chibit
 l=Lamp
 I=Lamp,StoneFloor
 .=WoodFloor
@@ -19,6 +19,7 @@ m=MonitorDesk,StoneFloor
 n=MonitorDesk,WoodFloor
 c=MonitorDesk,TileFloor
 M=MonitorDeskBig,StoneFloor
+x=CampFire
 origin=30x30
 ____________________________________
         T    T       T         r
@@ -30,10 +31,10 @@ T          T   T       T
 T  r  ████S_SmS█   ████        T   T
       █SS█_____█   █SS█ r
       █..______█   █..█           rrr
-      ..._______═╗ █..█   T      r   r
+      ..._______═╗ █..█   T      r ☺ r
  T    ..n█__M___ ║ █..█         r     r
-      █..█_____█ ║ ██.█     T   r     r
-r T   ████__☺__█ ║   ║          r     r
+      █..█_____█ ║ ██.█     T   r  x  r
+r T   ████_____█ ║   ║          r     r
          █_____█ ║═══║           r   r   T
        l ███_███ ║l  ╚╗           r║r
             ║    ║r   ║  T      ╔══╝

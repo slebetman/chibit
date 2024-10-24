@@ -1,6 +1,7 @@
 import { Chibit } from "./items/chibit.mjs";
 import { items } from "./items.mjs";
 import { drawMap } from "./map-reader.mjs";
+import { getNearestItems } from "./collision-detection.mjs";
 
 async function main () {
 	const map = await (await fetch('/data/map.txt')).text();
@@ -98,7 +99,10 @@ async function main () {
 	}
 
 	setInterval(() => {
-		for (const i of items) {
+		const d = Math.max(window.innerWidth, window.innerHeight) / 2;
+
+		// Only process things within view of player:
+		for (const i of getNearestItems(chibit, d)) {
 			i.action();
 		}
 	}, 10);

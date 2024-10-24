@@ -93,9 +93,9 @@ export function collide (movingSprite, targetSprite, direction) {
 /**
  * @param {Sprite} sprite 
  */
-function getNearestItems (sprite) {
+export function getNearestItems (sprite, distance) {
 	return items.filter(i => {
-		return Math.abs(sprite.x - i.x) < 500 && Math.abs(sprite.y - i.y) < 500;
+		return Math.abs(sprite.x - i.x) < distance && Math.abs(sprite.y - i.y) < distance;
 	})
 }
 
@@ -104,7 +104,7 @@ function getNearestItems (sprite) {
  */
 export function collisionDetection (sprite) {
 	let collided = false;
-	let nearItems = getNearestItems(sprite);
+	let nearItems = getNearestItems(sprite, 300);
 
 	// Process nearest objects first or we may
 	// accidentally teleport due to weird edge case:
