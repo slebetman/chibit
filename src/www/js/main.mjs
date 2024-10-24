@@ -10,6 +10,15 @@ async function main () {
 
 	const chibit = items.find(x => x instanceof Chibit);
 
+	const savedState = localStorage.getItem('saved-state');
+	if (savedState) {
+		const {x,y,d} = JSON.parse(savedState);
+
+		chibit.direction = d;
+		chibit.setXY(x, y);
+		chibit.update();
+	}
+
 	const keys = {
 		up: false,
 		down: false,
@@ -61,6 +70,13 @@ async function main () {
 			case ' ':
 				chibit.teleport();
 				break;
+			case 'Escape':
+				if (e.ctrlKey) {
+					localStorage.removeItem('saved-state');
+					window.onbeforeunload = null;
+					window.location.reload();
+				}
+				break;
 		}
 
 		checkKeys();
@@ -108,6 +124,14 @@ async function main () {
 	}, 10);
 
 	window.onresize = () => chibit.update();
+
+	window.onbeforeunload = () => {
+		const x = chibit.x;
+		const y = chibit.y;
+		const d = chibit.direction;
+
+		localStorage.setItem('saved-state', JSON.stringify({x,y,d}));
+	}
 }
 
 main();
