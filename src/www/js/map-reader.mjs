@@ -96,6 +96,8 @@ function parseMap (map) {
 export function drawMap (map) {
 	const { mapHeaders, mapItems } = parseMap(map);
 
+	const roadItems = [];
+
 	for (const i of mapItems) {
 
 		/** @type {Sprite} */
@@ -108,5 +110,12 @@ export function drawMap (map) {
 			items.push(item);
 			item.update?.();
 		}
+		else if (item instanceof roads.Road) {
+			roadItems.push(item);
+		}
+	}
+
+	for (const i of roadItems) {
+		i.adjust?.(roadItems);
 	}
 }

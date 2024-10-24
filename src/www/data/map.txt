@@ -1,24 +1,19 @@
-█=Wall
+#=Wall
 A=Chibit,StoneFloor
 l=Lamp
 I=Lamp,StoneFloor
 .=WoodFloor
 _=StoneFloor
-║=StonePath
-═=StonePath
-╝=StonePathBottomRight
-╗=StonePathTopRight
-╚=StonePathBottomLeft
-╔=StonePathTopLeft
+*=StonePath
 -=TileFloor
 S=Shelf
 T=Tree1
 r=Rock
-R=Rock,TileFloor
 m=MonitorDesk,StoneFloor
 n=MonitorDesk,WoodFloor
 c=MonitorDesk,TileFloor
 M=MonitorDeskBig,StoneFloor
+N=MonitorDeskBig,TileFloor
 x=CampFire
 Y=Statue1
 H=Machine1,TileFloor
@@ -29,33 +24,43 @@ T          T   T       T
       T  T   r   T         T
  T                   T                 r
                   T       T       T
-    T    ██_████       T
-T  r  ████S_SmS█   ████        T   T
-      █SS█_____█   █SS█ r
-      █..______█   █..█           rrr
-      ..._______═╗ █..█   T      r   r
- T    ..n█__M___ ║ █..█         r     r
-      █..█_____█ ║ ██.█     T   r  Y  r
-r T   ████__A__█ ║   ║          r  x  r
-         █_____█ ║═══║           r   r   T
-       l ███_███ ║l  ╚╗           r║r
-            ║    ║r   ║  T      ╔══╝
- T          ║════╝    ╚╗    T ╔═╝
-            ║rr        ╚══════╝            T
-      T     ║          T
-         T  ║      T
-   T        ║                         T
-T        r  ║        T          T
-       T    ║
-            ║            T
-     T      ╚═╗l      T
-  T           ╚═╗ T     ███████
-          T    r║       █SSScS█
-      T         ╚═╗     █-----█
-  T               ╚═════------█
-        T               ---H--█
-     T        T         █-----█
-                        █-----█
-   T     T         r    ███████
+    T    ##_####       T
+T  r  ####S_SmS#   ####        T   T
+      #SS#_____#   #SS# r
+      #..______#   #..#           rrr
+      ..._______** #..#   T      r   r
+ T    ..n#__M___ * #..#         r     r
+      #..#_____# * ##.#     T   r  Y  r
+r T   ####__A__# *   *          r  x  r
+         #_____# *****           r   r   T
+       l ###_### *l  **           r*r
+            *    *r   *  T      ****
+ T          ******    **    T ***
+            *rr        ********            T
+      T     *          T
+         T  *      T
+   T        *                         T
+T        r  *        T          T
+       T    *
+            *            T
+     T      ***l      T
+  T           *** T     #######      T
+          T    r*       #SSScS#
+      T         ***     #-----#   T      T
+  T               ******------#
+        T             * ---H--#    r   T
+     T        T       * #-----#
+                      * #-----#
+   T     T         r  * ####-######      T
+                      * #-N---cSSS#
+                      * #---------#
+                     l* #----------
+                      **-----------
+             T          ----------#   r
+                        #---------# 
+                        ###########
 
-                         l
+
+
+
+                          T
