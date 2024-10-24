@@ -96,7 +96,7 @@ function parseMap (map) {
 export function drawMap (map) {
 	const { mapHeaders, mapItems } = parseMap(map);
 
-	const roadItems = [];
+	const adjustableItems = [];
 
 	for (const i of mapItems) {
 
@@ -110,12 +110,12 @@ export function drawMap (map) {
 			items.push(item);
 			item.update?.();
 		}
-		else if (item instanceof roads.Road) {
-			roadItems.push(item);
+		else if (item.adjust) {
+			adjustableItems.push(item);
 		}
 	}
 
-	for (const i of roadItems) {
-		i.adjust?.(roadItems);
+	for (const i of adjustableItems) {
+		i.adjust?.(adjustableItems);
 	}
 }
