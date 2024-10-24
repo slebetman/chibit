@@ -102,7 +102,7 @@ async function main () {
 		const d = Math.max(window.innerWidth, window.innerHeight) / 2;
 
 		// Only process things within view of player:
-		for (const i of getNearestItems(chibit, d)) {
+		for (const i of getNearestItems(chibit, d + 200)) {
 			i.action();
 		}
 	}, 10);

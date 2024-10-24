@@ -1,6 +1,7 @@
-import { DIRECTION } from "./character.mjs";
+import { Character, DIRECTION } from "./character.mjs";
 import { items } from "./items.mjs";
 import { Sprite } from "./sprite.mjs";
+import { css } from "./util.mjs";
 
 /**
  * @param {Sprite} movingSprite 
@@ -114,6 +115,23 @@ export function collisionDetection (sprite) {
 		case DIRECTION.NW:
 			nearItems.reverse();
 	}
+
+	// for (const i1 of items) {
+	// 	css(i1.element, {
+	// 		backgroundColor: 'transparent',
+	// 		boxShadow: 'none',
+	// 	})
+	// }
+
+	// for (const i2 of nearItems) {
+	// 	if (i2 instanceof Character) continue;
+
+	// 	css(i2.element, {
+	// 		backgroundColor: '#ffff6666',
+	// 		boxShadow: '0 0 20px #ffff66aa',
+	// 		borderRadius: '20px',
+	// 	})
+	// }
 
 	// simple collision detection
 	for (const i of nearItems) {
