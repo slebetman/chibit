@@ -1,4 +1,5 @@
 import { Sprite } from "../sprite.mjs";
+import { css } from "../util.mjs";
 
 let shelfIdx = 0;
 const shelfSprites = [0, 100, 200, 300, 400, 500, 600, 700];
@@ -61,6 +62,18 @@ export class Machine1 extends Sprite {
 			x1: 10, x2: 240,
 			y1: 20, y2: 90,
 		});
+		this.cycle = 0;
 		this.setXY(x,y);
+	}
+
+	action () {
+		this.cycle = (this.cycle + 1) % 4;
+		if (this.cycle === 0) {
+			const amount = (Math.random() * 1.5) - 0.75;
+
+			css(this.element,{
+				transform: `skewX(${amount}deg) translateX(${amount * -1.1}px)`,
+			})
+		}
 	}
 }
