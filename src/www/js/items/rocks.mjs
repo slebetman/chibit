@@ -21,8 +21,25 @@ export class Rock extends Sprite {
 
 		super('./images/rocks.png', 100, 100,{
 			x1: 15, x2: 85,
-			y1: 50, y2: 85,
+			y1: 38, y2: 88,
 		}, offsetX, offsetY);
+
+		// css(this.element,{
+		// 	border: '1px dashed cyan',
+		// })
+
+		// const debugBounds = document.createElement('div');
+
+		// css(debugBounds,{
+		// 	position: 'relative',
+		// 	border: '1px solid blue',
+		// 	width: `${this.bounds.x2 - this.bounds.x1}px`,
+		// 	left: `${this.bounds.x1}px`,
+		// 	height: `${this.bounds.y2 - this.bounds.y1}px`,
+		// 	top: `${this.bounds.y1}px`,
+		// });
+
+		// this.element.appendChild(debugBounds);
 		
 		this.setXY(x,y);
 	}

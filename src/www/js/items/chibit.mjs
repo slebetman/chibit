@@ -23,6 +23,10 @@ export class Chibit extends Character {
 		);
 		this.ghostElement = this.ghoseSprite.element;
 
+		// css(this.element,{
+		// 	border: '1px dashed magenta',
+		// })
+
 		// const debugBounds = document.createElement('div');
 
 		// css(debugBounds,{

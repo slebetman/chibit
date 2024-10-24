@@ -51,8 +51,8 @@ export function collide (movingSprite, targetSprite, direction) {
 	const farTy = targetSprite.y + targetSprite.bounds.y2;
 
 	const xIntersect =
-		(farX > tx && farX < farTx) || (x > tx && x < farTx) ||
-		(farTx > x && farTx < farX) || (tx > x && tx < farX);
+		(farX > tx && farX < farTx) || (x < farTx && x > tx) ||
+		(x < farTx && farX > farTx) || (farX > tx && x < tx);
 
 	const yIntersect =
 		(farY > ty && farY < farTy) || (y > ty && y < farTy) ||
