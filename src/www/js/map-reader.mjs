@@ -3,6 +3,7 @@ import { Chibit } from "./items/chibit.mjs";
 import { CampFire } from "./items/fire.mjs";
 import * as floor from "./items/floor.mjs";
 import * as furniture from "./items/furniture.mjs";
+import * as roads from "./items/roads.mjs";
 import { Lamp } from "./items/lamp.mjs";
 import { Rock } from "./items/rocks.mjs";
 import { Statue1 } from "./items/statues.mjs";
@@ -16,10 +17,11 @@ const types = {
 	Lamp,
 	Tree1,
 	Rock,
-	...floor,
-	...furniture,
 	CampFire,
 	Statue1,
+	...floor,
+	...furniture,
+	...roads,
 }
 
 const itemType = {}

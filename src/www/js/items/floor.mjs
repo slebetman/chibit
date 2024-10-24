@@ -1,7 +1,7 @@
 import { Sprite } from "../sprite.mjs";
 import { css } from "../util.mjs";
 
-class Floor extends Sprite {
+export class Floor extends Sprite {
 	static base = {
 		x: 50,
 		y: 15,
@@ -44,74 +44,4 @@ export class TileFloor extends Floor {
 	}
 }
 
-/*
-	Path logic:
 
-	above
-
-	  .|. = |
-
-	   .
-	  ||. = ^\
-
-	   |
-	  ||. = |
-
-	   .
-	  .|| = /^
-
-	   |
-	  .|| = |
-
-	  ||| = |
-
-	left
-
-	  |
-	 .| = \_
-
-	  |
-	|_/ = |
-
-	  .
-	 .| = |
-
-	  .
-	 || = |
-
-	self
-
-	  if there is path above and to the left default to _/
- */
-
-const pathSpriteSheet = './images/path-light.png';
-
-export class StonePath extends Floor {
-	constructor (x, y) {
-		super(pathSpriteSheet, x, y);
-	}
-}
-
-export class StonePathBottomRight extends Floor {
-	constructor (x, y) {
-		super(pathSpriteSheet, x, y, 0, -50);
-	}
-}
-
-export class StonePathBottomLeft extends Floor {
-	constructor (x, y) {
-		super(pathSpriteSheet, x, y, 0, -100);
-	}
-}
-
-export class StonePathTopRight extends Floor {
-	constructor (x, y) {
-		super(pathSpriteSheet, x, y, 0, -150);
-	}
-}
-
-export class StonePathTopLeft extends Floor {
-	constructor (x, y) {
-		super(pathSpriteSheet, x, y, 0, -200);
-	}
-}
