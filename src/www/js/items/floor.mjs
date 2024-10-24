@@ -84,32 +84,34 @@ export class TileFloor extends Floor {
 	  if there is path above and to the left default to _/
  */
 
+const pathSpriteSheet = './images/path-light.png';
+
 export class StonePath extends Floor {
 	constructor (x, y) {
-		super('./images/path.png', x, y);
+		super(pathSpriteSheet, x, y);
 	}
 }
 
 export class StonePathBottomRight extends Floor {
 	constructor (x, y) {
-		super('./images/path.png', x, y, 0, -50);
+		super(pathSpriteSheet, x, y, 0, -50);
 	}
 }
 
 export class StonePathBottomLeft extends Floor {
 	constructor (x, y) {
-		super('./images/path.png', x, y, 0, -100);
+		super(pathSpriteSheet, x, y, 0, -100);
 	}
 }
 
 export class StonePathTopRight extends Floor {
 	constructor (x, y) {
-		super('./images/path.png', x, y, 0, -150);
+		super(pathSpriteSheet, x, y, 0, -150);
 	}
 }
 
-export class StonePathTopleft extends Floor {
+export class StonePathTopLeft extends Floor {
 	constructor (x, y) {
-		super('./images/path.png', x, y, 0, -200);
+		super(pathSpriteSheet, x, y, 0, -200);
 	}
 }

@@ -1,5 +1,7 @@
 import { Sprite } from "../sprite.mjs";
 
+let shelfIdx = 0;
+const shelfSprites = [0, 100, 200, 300, 400, 500, 600, 700];
 export class Shelf extends Sprite {
 	static base = {
 		x: 50,
@@ -7,10 +9,13 @@ export class Shelf extends Sprite {
 	}
 
 	constructor (x, y) {
-		super('./images/shelf.png', 100, 100,{
+		shelfIdx = (shelfIdx + 1) % shelfSprites.length;
+		const offsetX = shelfSprites[shelfIdx];
+
+		super('./images/shelves.png', 100, 110,{
 			x1: 0, x2: 100,
 			y1: 20, y2: 100,
-		});
+		}, -offsetX, 0);
 		this.setXY(x,y);
 	}
 }

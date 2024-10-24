@@ -9,6 +9,7 @@ _=StoneFloor
 ╝=StonePathBottomRight
 ╗=StonePathTopRight
 ╚=StonePathBottomLeft
+╔=StonePathTopLeft
 -=TileFloor
 S=Shelf
 T=Tree1
@@ -16,39 +17,40 @@ r=Rock
 R=Rock,TileFloor
 m=MonitorDesk,StoneFloor
 n=MonitorDesk,WoodFloor
+c=MonitorDesk,TileFloor
 M=MonitorDeskBig,StoneFloor
-origin=40x30
+origin=30x30
 ____________________________________
-        T    T       T
+        T    T       T         r
 T          T   T       T
       T  T   r   T         T
- T                   T
-                  T       T
+ T                   T                 r
+                  T       T       T
     T    ██_████       T
-T  r  ████___Sm█   ████
-      █..█_____█   █SS█ r
-      █..______█   █..█
-      ..._______═╗ █..█   T
- T    ..n█__M___ ║ █..█
-      █..█_____█ ║ ██.█     T
-r T   ████__☺__█ ║   ║
-      ___█_____█ ║═══╝
-      _I_███_███ ║l
-            ║    ║r      T
- T          ║════╝          T
-            ║rr   
+T  r  ████S_SmS█   ████        T   T
+      █SS█_____█   █SS█ r
+      █..______█   █..█           rrr
+      ..._______═╗ █..█   T      r   r
+ T    ..n█__M___ ║ █..█         r     r
+      █..█_____█ ║ ██.█     T   r     r
+r T   ████__☺__█ ║   ║          r     r
+         █_____█ ║═══║           r   r   T
+       l ███_███ ║l  ╚╗           r║r
+            ║    ║r   ║  T      ╔══╝
+ T          ║════╝    ╚╗    T ╔═╝
+            ║rr        ╚══════╝            T
       T     ║          T
          T  ║      T
-   T        ║             T
-T        r  ║        T
+   T        ║                         T
+T        r  ║        T          T
        T    ║
             ║            T
      T      ╚═╗l      T
-  T           ╚═╗ T
-          T    r║       ██████
-      T         ╚═╗     █--S-█
+  T           ╚═╗ T     ██████
+          T    r║       █SSSS█
+      T         ╚═╗     █----█
   T               ╚═════-----█
-        T               --R--█
+        T               --R-c█
      T        T         █----█
                         █----█
    T     T         r    ██████

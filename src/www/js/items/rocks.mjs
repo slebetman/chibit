@@ -7,7 +7,7 @@ const rockSprites = [
 	[0,0], [-100,0], [-200,0],
 	[0,-100], [-100,-100], [-200,-100],
 	[0,-200], [-100,-200], [-200,-200],
-]
+];
 
 export class Rock extends Sprite {
 	static base = {

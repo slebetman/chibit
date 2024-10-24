@@ -106,6 +106,8 @@ export function collisionDetection (sprite) {
 	let collided = false;
 	let nearItems = getNearestItems(sprite);
 
+	// Process nearest objects first or we may
+	// accidentally teleport due to weird edge case:
 	switch (sprite.direction) {
 		case DIRECTION.N:
 		case DIRECTION.NE:
