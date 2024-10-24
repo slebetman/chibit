@@ -77,7 +77,12 @@ async function main () {
 					window.location.reload();
 				}
 				break;
+			default:
+				return;
 		}
+
+		e.preventDefault();
+		e.stopPropagation();
 
 		checkKeys();
 	}
@@ -109,7 +114,12 @@ async function main () {
 			case 'Shift':
 				keys.shift = false;
 				break;
+			default:
+				return;
 		}
+
+		e.preventDefault();
+		e.stopPropagation();
 
 		checkKeys();
 	}
@@ -131,6 +141,17 @@ async function main () {
 		const d = chibit.direction;
 
 		localStorage.setItem('saved-state', JSON.stringify({x,y,d}));
+	}
+
+	window.onblur = () => {
+		chibit.stopHorizontalMovement();
+		chibit.stopVerticalMovement();
+
+		keys.up = false;
+		keys.down = false;
+		keys.left = false;
+		keys.right = false;
+		keys.shift = false;
 	}
 }
 
