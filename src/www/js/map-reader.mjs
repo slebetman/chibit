@@ -5,6 +5,7 @@ import * as floor from "./items/floor.mjs";
 import * as furniture from "./items/furniture.mjs";
 import { Lamp } from "./items/lamp.mjs";
 import { Rock } from "./items/rocks.mjs";
+import { Statue1 } from "./items/statues.mjs";
 import { Tree1 } from "./items/trees.mjs";
 import { Wall } from "./items/wall.mjs";
 import { Sprite } from "./sprite.mjs";
@@ -18,6 +19,7 @@ const types = {
 	...floor,
 	...furniture,
 	CampFire,
+	Statue1,
 }
 
 const itemType = {}

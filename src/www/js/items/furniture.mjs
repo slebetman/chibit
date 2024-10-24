@@ -49,3 +49,18 @@ export class MonitorDeskBig extends Sprite {
 		this.setXY(x,y);
 	}
 }
+
+export class Machine1 extends Sprite {
+	static base = {
+		x: 125,
+		y: 70,
+	}
+
+	constructor (x, y) {
+		super('./images/machine1.png', 250, 100,{
+			x1: 10, x2: 240,
+			y1: 20, y2: 90,
+		});
+		this.setXY(x,y);
+	}
+}
