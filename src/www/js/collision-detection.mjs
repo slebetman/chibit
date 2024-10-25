@@ -120,6 +120,7 @@ export function collisionDetection (sprite) {
 	// 	css(i1.element, {
 	// 		backgroundColor: 'transparent',
 	// 		boxShadow: 'none',
+	// 		borderRadius: '0',
 	// 	})
 	// }
 

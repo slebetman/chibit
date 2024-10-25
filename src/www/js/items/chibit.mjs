@@ -2,6 +2,14 @@ import { Character, DIRECTION, DIAGONAL_MOVEMENT } from "../character.mjs";
 import { Sprite } from "../sprite.mjs";
 import { css, $, attachDebugBounds } from "../util.mjs";
 
+const ANIMATION_LOOP = 20;
+
+const wave = [];
+
+// Pre-calculate sine wave for 1 cycle:
+for (let i = 0; i < ANIMATION_LOOP; i++) {
+	wave.push(Math.sin(Math.PI*i*2/ANIMATION_LOOP) * 3);
+}
 export class Chibit extends Character {
 	static base = {
 		x: 49,
@@ -22,6 +30,8 @@ export class Chibit extends Character {
 			bounds
 		);
 		this.ghostElement = this.ghoseSprite.element;
+		this.breathCycle = 0;
+		this.frameStep = 0;
 
 		// css(this.element,{
 		// 	border: '1px dashed magenta',
@@ -37,7 +47,7 @@ export class Chibit extends Character {
 	}
 
 	teleport () {
-		if (this.movement.x || this.movement.y) {
+		if (this.isMoving()) {
 			if (this.teleportTracker === 0) {
 				this.teleportTracker = 1
 			}
@@ -80,6 +90,33 @@ export class Chibit extends Character {
 		// css(this.element, {
 		// 	zIndex: 9999999,
 		// });
+	}
+
+	action () {
+		super.action();
+		this.breathe();
+	}
+
+	breathe () {
+		if (!this.isMoving()) {
+			this.breathCycle = (this.breathCycle + 1) % 10;
+
+			if(this.breathCycle === 0) {
+				console.log('taking a breath');
+				this.frameStep = (this.frameStep + 1) % ANIMATION_LOOP;
+				const delta = wave[this.frameStep];
+
+				css(this.element,{
+					transform: `scaleY(${100+delta}%) translateY(${-delta * 0.35}px)`,
+				})
+			}
+		}
+		else {
+			this.frameStep = 0;
+			css(this.element,{
+				transform: 'scaleY(100%) translateY(0)',
+			})
+		}
 	}
 
 	walk () {

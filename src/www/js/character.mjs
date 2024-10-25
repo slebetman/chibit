@@ -77,6 +77,10 @@ export class Character extends Sprite {
 		return this;
 	}
 
+	isMoving () {
+		return this.movement.x !== 0 || this.movement.y !== 0;
+	}
+
 	update () {
 		let d = this.direction * 96;
 		let s = this.step * 96;
@@ -96,7 +100,7 @@ export class Character extends Sprite {
 
 	walk () {
 		let collided = false;
-		if (this.movement.x || this.movement.y) {
+		if (this.isMoving()) {
 			if (this.movement.y < 0) {
 				if (this.movement.x > 0) {
 					this.direction = DIRECTION.NE;
@@ -129,7 +133,7 @@ export class Character extends Sprite {
 				this.direction = DIRECTION.S;
 			}
 
-			if (this.movement.x != 0 && this.movement.y != 0) {
+			if (this.movement.x !== 0 && this.movement.y !== 0) {
 				this.x += this.movement.x * DIAGONAL_MOVEMENT;
 				this.y += this.movement.y * DIAGONAL_MOVEMENT;
 			}
