@@ -37,11 +37,23 @@ export class Character extends Sprite {
 
 	stopHorizontalMovement () {
 		this.movement.x = 0;
+
+		if (this.movement.y === 0) {
+			this.step = 0;
+			this.update();
+		}
+
 		return this;
 	}
 
 	stopVerticalMovement () {
 		this.movement.y = 0;
+
+		if (this.movement.x === 0) {
+			this.step = 0;
+			this.update();
+		}
+
 		return this;
 	}
 
