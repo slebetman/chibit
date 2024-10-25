@@ -4,8 +4,7 @@ l=Lamp
 I=Lamp,StoneFloor
 .=WoodFloor
 _=StoneFloor
-*=CobblePath
-,=DirtPath
+*=DirtPath
 -=TileFloor
 S=Shelf
 T=Tree1
@@ -39,23 +38,23 @@ r T   ####__A__# *   *          r  x  r
             *    *r   ** T      ****
  T          ******     **   T  **
             *rr         ********           T
-      T     *  ww      T
-         T  *wwwww T
-   T        *wwwwww                   T
-T        r  *wwwwww  T           T
-       T    * wwwwwww
-            *   wwwww    T
-     T      ** l  www T
-  T          **** T     #######      T
-          T    r*       #SSScS#
+      T     *  ww      T  *
+         T  *wwwww T      *
+   T        *wwwwww       *           T
+T        r  *wwwwww  T    *      T
+       T    * wwwwwww     *
+            *   wwwww    T*
+     T      ** l  www T   *
+  T          **** T     ##-####      T
+          T    r*       #S-ScS#
       T         ***     #-----#   T      T
-  T               ******------#
-        T             * ---H--#    r   T
-    T,,,,     T       * #-----#
-     ,ww,T            * #-----#
-   T www,,,,,      r  * ####-######      T
-     wwwwwww,,,       * #-N---cSSS#
-  wwwwwwwwwwww,,,,,,,,* #---------#
+  T               **    #-----#
+        T          **   #--H--#    r   T
+    T         T     *   #-----#
+      ww T          *   #-----#
+   T www           r*   ####-######      T
+     wwwwwww        **  #-N---cSSS#
+  wwwwwwwwwwww       ** #---------#
  wwwwwwwwwwwwww      l* #----------
  wwwwwwwwwwwwww       **-----------
  wwwwwwwwwwww  T    r   ----------#   r

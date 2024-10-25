@@ -7,7 +7,7 @@ import { CampFire } from "./items/fire.mjs";
 import { Lamp } from "./items/lamp.mjs";
 import { Rock } from "./items/rocks.mjs";
 import { Statue1 } from "./items/statues.mjs";
-import { Tree1 } from "./items/trees.mjs";
+import * as trees from "./items/trees.mjs";
 import { Wall } from "./items/wall.mjs";
 import { Sprite } from "./sprite.mjs";
 import { Water } from "./items/water.mjs";
@@ -16,7 +16,6 @@ const types = {
 	Wall,
 	Chibit,
 	Lamp,
-	Tree1,
 	Rock,
 	CampFire,
 	Statue1,
@@ -24,6 +23,7 @@ const types = {
 	...floor,
 	...furniture,
 	...roads,
+	...trees,
 }
 
 const itemType = {}

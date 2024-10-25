@@ -164,7 +164,7 @@ let alternate = false;
 export class DirtPath extends Sprite {
 	static base = {
 		x: 50,
-		y: 25,
+		y: 15,
 	}
 
 	constructor (x, y) {
@@ -222,7 +222,7 @@ export class DirtPath extends Sprite {
 				backgroundPosition: '0px 0px',
 			});
 		}
-		else if (!top && !bottom && (left || right)) {
+		else if (!top && !bottom && left && right) {
 			css(this.element,{
 				backgroundPosition: alternate ? '0px -50px' : '0px -100px',
 			});
@@ -260,6 +260,26 @@ export class DirtPath extends Sprite {
 		else if (top && bottom && left && !right) {
 			css(this.element,{
 				backgroundPosition: '-100px -200px',
+			});
+		}
+		else if (!top && !bottom && left && !right) {
+			css(this.element,{
+				backgroundPosition: '-100px -250px',
+			});
+		}
+		else if (!top && !bottom && !left && right) {
+			css(this.element,{
+				backgroundPosition: '0px -250px',
+			});
+		}
+		else if (!top && bottom && !left && !right) {
+			css(this.element,{
+				backgroundPosition: '-200px -200px',
+			});
+		}
+		else if (top && !bottom && !left && !right) {
+			css(this.element,{
+				backgroundPosition: '-200px -250px',
 			});
 		}
 		else if (alternate) {

@@ -17,3 +17,30 @@ export class Tree1 extends Sprite {
 		// attachDebugBounds(this);
 	}
 }
+
+let idx = 0;
+
+const treesSprites = [
+	[0, 0], [-200, 0], [-400, 0],
+	[0, -300], [-200, -300], [-400, -300]
+]
+
+export class Trees extends Sprite {
+	static base = {
+		x: 100,
+		y: 260,
+	}
+
+	constructor (x, y) {
+		idx = (idx + 1) % treesSprites.length;
+		const [offsetX, offsetY] = treesSprites[idx];
+
+		super('./images/trees.png', 200, 300,{
+			x1: 20, x2: 180,
+			y1: 230, y2: 280,
+		}, offsetX, offsetY);
+		this.setXY(x,y);
+
+		// attachDebugBounds(this);
+	}
+}
