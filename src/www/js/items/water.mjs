@@ -10,8 +10,8 @@ export class Water extends Sprite {
 
 	constructor (x, y) {
 		super('./images/water.png', 100, 50,{
-			x1: 0, x2: 100,
-			y1: 0, y2: 50,
+			x1: -50, x2: 150,
+			y1: -25, y2: 75,
 		}, -100, -50);
 		this.setXY(x,y);
 		css(this.element,{
