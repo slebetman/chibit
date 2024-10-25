@@ -5,6 +5,9 @@ import { Floor } from "./floor.mjs";
 export class Road extends Floor {
 	constructor (sprite, x, y, offsetX = 0, offsetY = 0) {
 		super(sprite, x, y, offsetX, offsetY);
+		css(this.element,{
+			zIndex: -2,
+		});
 	}
 }
 export class StonePath extends Road {
@@ -82,8 +85,8 @@ export class CobblePath extends Sprite {
 		}, 0, 0);
 		this.setXY(x,y);
 		css(this.element,{
-			zIndex: -1,
-		})
+			zIndex: -2,
+		});
 	}
 
 	adjust (pathItems) {
