@@ -1,5 +1,5 @@
 import { Sprite } from "../sprite.mjs";
-import { css } from "../util.mjs";
+import { attachDebugBounds, css } from "../util.mjs";
 
 export class Wall extends Sprite {
 	static base = {
@@ -13,17 +13,7 @@ export class Wall extends Sprite {
 			y1: 20, y2: 100,
 		});
 
-		// const debugBounds = document.createElement('div');
-
-		// css(debugBounds,{
-		// 	position: 'relative',
-		// 	border: '1px solid transparent',
-		// 	width: '100px',
-		// 	height: '80px',
-		// 	top: '20px',
-		// });
-
-		// this.element.appendChild(debugBounds);
+		// attachDebugBounds(this);
 
 		this.setXY(x,y);
 	}

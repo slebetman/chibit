@@ -17,6 +17,7 @@ N=MonitorDeskBig,TileFloor
 x=CampFire
 Y=Statue1
 H=Machine1,TileFloor
+w=Water
 origin=30x30
 ____________________________________
         T    T       T         r
@@ -37,30 +38,31 @@ r T   ####__A__# *   *          r  x  r
             *    *r   *  T      ****
  T          ******    **    T ***
             *rr        ********            T
-      T     *          T
-         T  *      T
-   T        *                         T
-T        r  *        T          T
-       T    *
-            *            T
-     T      ***l      T
+      T     *  ww      T
+         T  *wwwww T
+   T        *wwwwww                   T
+T        r  *wwwwww  T          T
+       T    * wwwwwww
+            *   wwwww    T
+     T      ***l  www T
   T           *** T     #######      T
           T    r*       #SSScS#
       T         ***     #-----#   T      T
   T               ******------#
         T             * ---H--#    r   T
      T        T       * #-----#
-                      * #-----#
-   T     T         r  * ####-######      T
-                      * #-N---cSSS#
-                      * #---------#
-                     l* #----------
-                      **-----------
-             T          ----------#   r
-                        #---------# 
-                        ###########
-
-
+      ww              * #-----#
+   T www T         r  * ####-######      T
+     wwwwwww          * #-N---cSSS#
+  wwwwwwwwwwww        * #---------#
+ wwwwwwwwwwwwww      l* #----------
+ wwwwwwwwwwwwww       **-----------
+ wwwwwwwwwwww  T    r   ----------#   r
+ wwwwwwwwww             #---------# 
+  wwwwwwww              ###########
+   wwwwwwwww T
+    wwwwwwww     T
+     wwwwww
 
 
                           T

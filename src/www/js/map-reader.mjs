@@ -1,15 +1,16 @@
 import { items } from "./items.mjs";
-import { Chibit } from "./items/chibit.mjs";
-import { CampFire } from "./items/fire.mjs";
 import * as floor from "./items/floor.mjs";
 import * as furniture from "./items/furniture.mjs";
 import * as roads from "./items/roads.mjs";
+import { Chibit } from "./items/chibit.mjs";
+import { CampFire } from "./items/fire.mjs";
 import { Lamp } from "./items/lamp.mjs";
 import { Rock } from "./items/rocks.mjs";
 import { Statue1 } from "./items/statues.mjs";
 import { Tree1 } from "./items/trees.mjs";
 import { Wall } from "./items/wall.mjs";
 import { Sprite } from "./sprite.mjs";
+import { Water } from "./items/water.mjs";
 
 const types = {
 	Wall,
@@ -19,6 +20,7 @@ const types = {
 	Rock,
 	CampFire,
 	Statue1,
+	Water,
 	...floor,
 	...furniture,
 	...roads,
@@ -110,7 +112,8 @@ export function drawMap (map) {
 			items.push(item);
 			item.update?.();
 		}
-		else if (item.adjust) {
+
+		if (item.adjust) {
 			adjustableItems.push(item);
 		}
 	}

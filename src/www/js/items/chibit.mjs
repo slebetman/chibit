@@ -1,6 +1,6 @@
 import { Character, DIRECTION, DIAGONAL_MOVEMENT } from "../character.mjs";
 import { Sprite } from "../sprite.mjs";
-import { css, $ } from "../util.mjs";
+import { css, $, attachDebugBounds } from "../util.mjs";
 
 export class Chibit extends Character {
 	static base = {
@@ -27,18 +27,7 @@ export class Chibit extends Character {
 		// 	border: '1px dashed magenta',
 		// })
 
-		// const debugBounds = document.createElement('div');
-
-		// css(debugBounds,{
-		// 	position: 'relative',
-		// 	border: '1px solid red',
-		// 	width: '58px',
-		// 	left: '20px',
-		// 	height: '24px',
-		// 	top: '60px',
-		// });
-
-		// this.element.appendChild(debugBounds);
+		// attachDebugBounds(this, 'red');
 		
 		css(this.ghostElement,{
 			opacity: '0'
