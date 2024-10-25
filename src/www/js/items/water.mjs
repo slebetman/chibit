@@ -1,6 +1,18 @@
 import { Sprite } from "../sprite.mjs";
 import { attachDebugBounds, css } from "../util.mjs";
 
+const ANIMATION_LOOP = 40;
+
+const wave = [];
+
+// Pre-calculate sine wave for 1 cycle:
+for (let i = 0; i < ANIMATION_LOOP; i++) {
+	wave.push(Math.sin(Math.PI*i*2/ANIMATION_LOOP) * 3);
+}
+
+function selectFrame () {
+	return Math.random() > 0.5 ? -150 : -200;
+}
 
 export class Water extends Sprite {
 	static base = {
@@ -13,10 +25,36 @@ export class Water extends Sprite {
 			x1: -50, x2: 150,
 			y1: -25, y2: 75,
 		}, -100, -50);
+
+		this.cycle = 0;
+		this.frameStep = Math.floor(x/10 + y/20) % ANIMATION_LOOP;
+		this.frame = selectFrame();
+		this.foam = null;
+
 		this.setXY(x,y);
 		css(this.element,{
 			zIndex: -1,
-		})
+		});
+	}
+
+	animate () {
+		this.frameStep = (this.frameStep + 1) % ANIMATION_LOOP;
+		if (Math.random() > 0.999) {
+			this.frame = selectFrame();
+		}
+
+		css(this.foam,{
+			backgroundPosition: `${-200 - wave[(this.frameStep + 3) % ANIMATION_LOOP]}px ${this.frame + wave[this.frameStep]}px`,
+		});
+	}
+
+	action () {
+		if (!this.foam) return;
+
+		this.cycle = (this.cycle + 1) % 10;
+		if (this.cycle === 0) {
+			this.animate();
+		}
 	}
 
 	adjust (waterItems) {
@@ -74,7 +112,23 @@ export class Water extends Sprite {
 				}
 			}
 
-			if (N && S && W && E && NE && SE && NW && SW) break;
+			if (N && S && W && E && NE && SE && NW && SW) {
+				this.foam = document.createElement('div');
+				css(this.foam,{
+					position: 'relative',
+					top: 0,
+					left: 0,
+					width: '100px',
+					height: '50px',
+					backgroundImage: 'url("./images/water.png")',
+					backgroundRepeat: 'no-repeat',
+					backgroundPosition: `-200px ${this.frame}px`,
+				});
+
+				this.element.appendChild(this.foam);
+
+				break;
+			}
 		}
 
 		if (N && S && W && E) {
