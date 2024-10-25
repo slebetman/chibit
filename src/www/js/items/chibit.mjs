@@ -37,8 +37,10 @@ export class Chibit extends Character {
 	}
 
 	teleport () {
-		if (this.teleportTracker === 0) {
-			this.teleportTracker = 1
+		if (this.movement.x || this.movement.y) {
+			if (this.teleportTracker === 0) {
+				this.teleportTracker = 1
+			}
 		}
 		return this;
 	}
