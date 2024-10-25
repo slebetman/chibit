@@ -158,3 +158,114 @@ export class CobblePath extends Sprite {
 		}
 	}
 }
+
+let alternate = false;
+
+export class DirtPath extends Sprite {
+	static base = {
+		x: 50,
+		y: 25,
+	}
+
+	constructor (x, y) {
+		super('./images/path-dirt.png', 100, 50,{
+			x1: 0, x2: 0,
+			y1: 0, y2: 0,
+		}, -100, 0);
+		this.setXY(x,y);
+		css(this.element,{
+			zIndex: -2,
+		});
+	}
+
+	adjust (pathItems) {
+		let top = false;
+		let bottom = false;
+		let left = false;
+		let right = false;
+
+		alternate = !alternate;
+
+		for (const i of pathItems) {
+			if (i === this) continue;
+
+			if (i instanceof DirtPath) {
+				if (i.x === this.x) {
+					const diff = i.y - this.y;
+					if (diff === 50) {
+						bottom = true;
+					}
+					else if (diff === -50) {
+						top = true;
+					}
+				}
+
+				if (i.y === this.y) {
+					const diff = i.x - this.x;
+					if (diff === 100) {
+						right = true;
+					}
+					else if (diff === -100) {
+						left = true;
+					}
+				}
+			}
+		}
+
+		if (top && bottom && left && right) {
+			css(this.element,{
+				backgroundPosition: '-100px -50px',
+			});
+		}
+		else if (!top && bottom && left && right) {
+			css(this.element,{
+				backgroundPosition: '0px 0px',
+			});
+		}
+		else if (!top && !bottom && (left || right)) {
+			css(this.element,{
+				backgroundPosition: alternate ? '0px -50px' : '0px -100px',
+			});
+		}
+		else if (top && !bottom && left && !right) {
+			css(this.element,{
+				backgroundPosition: '0px -150px',
+			});
+		}
+		else if (!top && bottom && left && !right) {
+			css(this.element,{
+				backgroundPosition: '-100px -100px',
+			});
+		}
+		else if (top && !bottom && !left && right) {
+			css(this.element,{
+				backgroundPosition: '-100px -150px',
+			});
+		}
+		else if (top && !bottom && left && right) {
+			css(this.element,{
+				backgroundPosition: '-200px 0px',
+			});
+		}
+		else if (!top && bottom && !left && right) {
+			css(this.element,{
+				backgroundPosition: '-200px -100px',
+			});
+		}
+		else if (top && bottom && !left && right) {
+			css(this.element,{
+				backgroundPosition: '0px -200px',
+			});
+		}
+		else if (top && bottom && left && !right) {
+			css(this.element,{
+				backgroundPosition: '-100px -200px',
+			});
+		}
+		else if (alternate) {
+			css(this.element,{
+				backgroundPosition: '-200px -150px',
+			});
+		}
+	}
+}
