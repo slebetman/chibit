@@ -29,44 +29,44 @@ T          T   T       T
       T  T   r   T         T
  T                   T                 r
                   T       T       T
-    T    ##_####       T
-T     ####S_SmS#   ####        T   T
-   r  #SS#_____#   #SS# r
-      #..______#   #..#           rrr
+    T    ##_#### T      T
+T     ####S_SmS#   ####   T    T   T
+   r  #SS#_____#   #SS# r     T
+      #..______#   #..#    T      rrr
       ..._______** #.A#   T      r   r
- T    ..n#__M___ * #..#         r     r
-      #..#_____# * ##b#     T   r  Y  r
+ T    ..n#__M___ * #..#       T r     r
+      #..#_____# * ##b#  T  T   r  Y  r
 r T   ####_____# *   *          r  x  r
-         #_____# *****           r   r   T
-       l ###_### *l  **           r*r
-            *    *r   ** T      ****
- T          *******    **   T  **
-        ddd *rr   ***   ********           T
-      T     *  ww   ***T
-          o *wwwww T  ***
-   T        *wwwwww     **            T
-T        r  *wwwwww  T   **      T
-       T    * wwwwwww     *
-            *   wwwww    T*
-     T      ** l  www T   *
-  T          **** T     ##-####      T
-          T    r*       #S-ScS#
-      T         ***     #-----#   T      T
+         #_____# *****   T       r   r   T
+       l ###_### *l  *******      r*r      T
+            *    *r        *********
+ T          *******         T
+        ddd *rr   ***                      T
+  T   T     *  ww   ***T               T  T
+          o *wwwww    *** T    T     T   T
+   T        *wwwwww     **        T T T
+T        r  *wwwwwwT     ** T    T         T
+       T    * wwwwwww     *  T     T   T  T
+   T        *   wwwwwT   T*     T     T  T
+     T      ** l  www  T  *       T     T
+  T          **** T  T  ##-####      T   T
+    T          r*       #S-ScS#        T
+      T         *** T   #-----#   T T    T
   T               **    #-----#
-        T          **   #--H--#    r   T
-    T         T     *   #-----#
+                   **   #--H--#    r       T
+ T  T  T      T     * T #-----#         T
       ww            *   #-----#
-   T www T         r*   ####-######      T
+   T www T         r*T  ####-######      T
      wwwwwww        **  #-N---cSSS#
-  wwwwwwwwwwww       ** #---------#
+T wwwwwwwwwwww       ** #---------#       T
  wwwwwwwwwwwwww      l* #----------
- wwwwwwwwwwwwww       **----B------
+ wwwwwwwwwwwwww       **----B------         T
  wwwwwwwwwwww  T    r   ----------#   r
- wwwwwwwwww             #---------# 
+ wwwwwwwwww             #---------#       T
   wwwwwwww              ###########
    wwwwwwwww T
     wwwwwwww     T
-     wwwwww
-
-
-                          T
+ T   wwwwww                                T
+               T
+   T         T     T           T      T T
+T               T     T   T  T     T T
