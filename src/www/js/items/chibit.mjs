@@ -102,7 +102,6 @@ export class Chibit extends Character {
 			this.breathCycle = (this.breathCycle + 1) % 10;
 
 			if(this.breathCycle === 0) {
-				console.log('taking a breath');
 				this.frameStep = (this.frameStep + 1) % ANIMATION_LOOP;
 				const delta = wave[this.frameStep];
 
