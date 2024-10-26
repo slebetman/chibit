@@ -54,12 +54,16 @@ export function collide (movingSprite, targetSprite, direction) {
 	const xIntersect =
 		(farX > tx && farX < farTx) || (x < farTx && x > tx) ||
 		(x < farTx && farX > farTx) || (farX > tx && x < tx);
+	
+	const xEqual = (x === tx) && (farX === farTx);
 
 	const yIntersect =
 		(farY > ty && farY < farTy) || (y > ty && y < farTy) ||
 		(farTy > y && farTy < farY) || (ty > y && ty < farY);
+	
+	const yEqual = (y === ty) && (farY === farTy);
 
-	if (xIntersect && yIntersect) {
+	if ((xIntersect && yIntersect) || (xIntersect && yEqual) || (yIntersect && xEqual)) {
 		// If target is movable move it and skip collision
 		if (targetSprite.move?.(movingSprite, x, y, farX, farY, direction)) return;
 
@@ -68,26 +72,38 @@ export function collide (movingSprite, targetSprite, direction) {
 			case DIRECTION.S: return moveSouth(movingSprite, targetSprite);
 			case DIRECTION.E: return moveEast(movingSprite, targetSprite);
 			case DIRECTION.W: return moveWest(movingSprite, targetSprite);
-			case DIRECTION.NE:
-				if (movingSprite.y + movingSprite.bounds.y2 > targetSprite.y + targetSprite.bounds.y2) {
+			case DIRECTION.NE: {
+				const diffY = Math.abs(targetSprite.y - (y - targetSprite.bounds.y2));
+				const diffX = Math.abs(targetSprite.x - (farX - targetSprite.bounds.x1));
+				if (diffX > diffY) {
 					return moveNorth(movingSprite, targetSprite);
 				}
 				return moveEast(movingSprite, targetSprite);
-			case DIRECTION.SE:
-				if (movingSprite.y + movingSprite.bounds.y1 < targetSprite.y + targetSprite.bounds.y1) {
+			}
+			case DIRECTION.SE: {
+				const diffY = Math.abs(targetSprite.y - (farY - targetSprite.bounds.y1));
+				const diffX = Math.abs(targetSprite.x - (farX - targetSprite.bounds.x1));
+				if (diffX > diffY) {
 					return moveSouth(movingSprite, targetSprite);
 				}
 				return moveEast(movingSprite, targetSprite);
-			case DIRECTION.NW:
-				if (movingSprite.y + movingSprite.bounds.y2 > targetSprite.y + targetSprite.bounds.y2) {
+			}
+			case DIRECTION.NW: {
+				const diffY = Math.abs(targetSprite.y - (y - targetSprite.bounds.y2));
+				const diffX = Math.abs(targetSprite.x - (x - targetSprite.bounds.x2));
+				if (diffX > diffY) {
 					return moveNorth(movingSprite, targetSprite);
 				}
 				return moveWest(movingSprite, targetSprite);
-			case DIRECTION.SW:
-				if (movingSprite.y + movingSprite.bounds.y1 < targetSprite.y + targetSprite.bounds.y1) {
+			}
+			case DIRECTION.SW: {
+				const diffY = Math.abs(targetSprite.y - (farY - targetSprite.bounds.y1));
+				const diffX = Math.abs(targetSprite.x - (x - targetSprite.bounds.x2));
+				if (diffX > diffY) {
 					return moveSouth(movingSprite, targetSprite);
 				}
 				return moveWest(movingSprite, targetSprite);
+			}
 		}
 	}
 
@@ -99,7 +115,8 @@ export function collide (movingSprite, targetSprite, direction) {
  */
 export function getNearestItems (sprite, distance) {
 	return items.filter(i => {
-		return Math.abs(sprite.x - i.x) < distance && Math.abs(sprite.y - i.y) < distance;
+		return Math.abs(sprite.x - i.x - i.bounds.x1) < distance &&
+			Math.abs(sprite.y - i.y - i.bounds.y1) < distance;
 	})
 }
 
@@ -108,7 +125,7 @@ export function getNearestItems (sprite, distance) {
  */
 export function collisionDetection (sprite, movers = []) {
 	let collided = false;
-	let nearItems = getNearestItems(sprite, 300);
+	let nearItems = getNearestItems(sprite, 200);
 
 	// Process nearest objects first or we may
 	// accidentally teleport due to weird edge case:
