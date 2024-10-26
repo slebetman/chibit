@@ -164,7 +164,7 @@ let alternate = false;
 export class DirtPath extends Sprite {
 	static base = {
 		x: 50,
-		y: 15,
+		y: 13,
 	}
 
 	constructor (x, y) {
