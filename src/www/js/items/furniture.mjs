@@ -1,5 +1,5 @@
 import { Sprite } from "../sprite.mjs";
-import { css } from "../util.mjs";
+import { attachDebugBounds, css } from "../util.mjs";
 
 let shelfIdx = 0;
 const shelfSprites = [0, 100, 200, 300, 400, 500, 600, 700];
@@ -75,5 +75,22 @@ export class Machine1 extends Sprite {
 				transform: `skewX(${amount}deg) translateX(${amount * -1.1}px)`,
 			})
 		}
+	}
+}
+
+export class DinoBones extends Sprite {
+	static base = {
+		x: 130,
+		y: 80,
+	}
+
+	constructor (x, y) {
+		super('./images/dino-bones.png', 260, 150,{
+			x1: 20, x2: 240,
+			y1: 15, y2: 120,
+		});
+		this.setXY(x,y);
+
+		// attachDebugBounds(this, 'green');
 	}
 }

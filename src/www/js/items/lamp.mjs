@@ -4,7 +4,7 @@ import { css } from "../util.mjs";
 export class Lamp extends Sprite {
 	static base = {
 		x: 50,
-		y: 182,
+		y: 170,
 	}
 
 	constructor (x, y) {
