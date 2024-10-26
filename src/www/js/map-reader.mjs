@@ -2,7 +2,7 @@ import { items } from "./items.mjs";
 import * as floor from "./items/floor.mjs";
 import * as furniture from "./items/furniture.mjs";
 import * as roads from "./items/roads.mjs";
-import * as movables from "./items/movable.mjs";
+import * as movables from "./items/movable-items.mjs";
 import * as trees from "./items/trees.mjs";
 import { Chibit } from "./items/chibit.mjs";
 import { CampFire } from "./items/fire.mjs";
