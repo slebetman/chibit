@@ -36,12 +36,12 @@ r T   ####__A__# *   *          r  x  r
          #_____# *****           r   r   T
        l ###_### *l  **           r*r
             *    *r   ** T      ****
- T          ******     **   T  **
-            *rr         ********           T
-      T     *  ww      T  *
-         T  *wwwww T      *
-   T        *wwwwww       *           T
-T        r  *wwwwww  T    *      T
+ T          *******    **   T  **
+            *rr   ***   ********           T
+      T     *  ww   ***T
+         T  *wwwww T  ***
+   T        *wwwwww     **            T
+T        r  *wwwwww  T   **      T
        T    * wwwwwww     *
             *   wwwww    T*
      T      ** l  www T   *

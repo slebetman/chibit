@@ -168,7 +168,7 @@ export class DirtPath extends Sprite {
 	}
 
 	constructor (x, y) {
-		super('./images/path-dirt.png', 100, 50,{
+		super('./images/path-dirt2.png', 100, 50,{
 			x1: 0, x2: 0,
 			y1: 0, y2: 0,
 		}, -100, 0);
@@ -184,7 +184,7 @@ export class DirtPath extends Sprite {
 		let left = false;
 		let right = false;
 
-		alternate = !alternate;
+		alternate = Math.random() > 0.5 ? true : false;
 
 		for (const i of pathItems) {
 			if (i === this) continue;
