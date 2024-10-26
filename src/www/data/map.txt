@@ -7,7 +7,7 @@ _=StoneFloor
 *=DirtPath
 -=TileFloor
 S=Shelf
-T=Tree1
+T=Trees2
 r=Rock
 m=MonitorDesk,StoneFloor
 n=MonitorDesk,WoodFloor
@@ -30,8 +30,8 @@ T          T   T       T
  T                   T                 r
                   T       T       T
     T    ##_####       T
-T  r  ####S_SmS#   ####        T   T
-      #SS#_____#   #SS# r
+T     ####S_SmS#   ####        T   T
+   r  #SS#_____#   #SS# r
       #..______#   #..#           rrr
       ..._______** #.A#   T      r   r
  T    ..n#__M___ * #..#         r     r
@@ -55,8 +55,8 @@ T        r  *wwwwww  T   **      T
   T               **    #-----#
         T          **   #--H--#    r   T
     T         T     *   #-----#
-      ww T          *   #-----#
-   T www           r*   ####-######      T
+      ww            *   #-----#
+   T www T         r*   ####-######      T
      wwwwwww        **  #-N---cSSS#
   wwwwwwwwwwww       ** #---------#
  wwwwwwwwwwwwww      l* #----------

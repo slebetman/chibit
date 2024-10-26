@@ -24,7 +24,7 @@ export class Rock extends Sprite {
 			y1: 38, y2: 88,
 		}, offsetX, offsetY);
 
-		// attachDebugBounds(this);
+		// attachDebugBounds(this, 'magenta');
 		
 		this.setXY(x,y);
 	}
