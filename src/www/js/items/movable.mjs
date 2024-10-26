@@ -12,7 +12,7 @@ export class Movable extends Sprite {
 		this.direction = 0;
 	}
 
-	move (x, y, farX, farY, direction) {
+	move (mover, x, y, farX, farY, direction) {
 		let newY = this.y;
 		let newX = this.x;
 		let diffX, diffY;
@@ -93,7 +93,7 @@ export class Movable extends Sprite {
 		this.direction = direction;
 		this.setXY(newX, newY);
 
-		let collided = collisionDetection(this);
+		let collided = collisionDetection(this, [ mover ]);
 
 		return !collided;
 	}
@@ -150,6 +150,10 @@ export class Box2 extends Movable {
 			y1: 40, y2: 77,
 		});
 		this.setXY(x,y);
+
+		// css(this.element,{
+		// 	border: '1px dashed orange',
+		// })
 
 		// attachDebugBounds(this, 'yellow');
 	}

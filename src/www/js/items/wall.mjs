@@ -13,6 +13,10 @@ export class Wall extends Sprite {
 			y1: 20, y2: 100,
 		});
 
+		// css(this.element,{
+		// 	border: '1px dashed cyan',
+		// })
+
 		// attachDebugBounds(this);
 
 		this.setXY(x,y);

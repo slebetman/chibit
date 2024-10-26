@@ -61,7 +61,7 @@ export function collide (movingSprite, targetSprite, direction) {
 
 	if (xIntersect && yIntersect) {
 		// If target is movable move it and skip collision
-		if (targetSprite.move?.(x, y, farX, farY, direction)) return;
+		if (targetSprite.move?.(movingSprite, x, y, farX, farY, direction)) return;
 
 		switch (direction) {
 			case DIRECTION.N: return moveNorth(movingSprite, targetSprite);
@@ -106,7 +106,7 @@ export function getNearestItems (sprite, distance) {
 /**
  * @param {Sprite} sprite 
  */
-export function collisionDetection (sprite) {
+export function collisionDetection (sprite, movers = []) {
 	let collided = false;
 	let nearItems = getNearestItems(sprite, 300);
 
@@ -139,7 +139,7 @@ export function collisionDetection (sprite) {
 
 	// simple collision detection
 	for (const i of nearItems) {
-		if (i === sprite) continue;
+		if (i === sprite || movers.includes(i)) continue;
 
 		const collision = collide(sprite, i, sprite.direction);
 
