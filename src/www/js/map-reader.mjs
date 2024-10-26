@@ -2,12 +2,13 @@ import { items } from "./items.mjs";
 import * as floor from "./items/floor.mjs";
 import * as furniture from "./items/furniture.mjs";
 import * as roads from "./items/roads.mjs";
+import * as movables from "./items/movable.mjs";
+import * as trees from "./items/trees.mjs";
 import { Chibit } from "./items/chibit.mjs";
 import { CampFire } from "./items/fire.mjs";
 import { Lamp } from "./items/lamp.mjs";
 import { Rock } from "./items/rocks.mjs";
 import { Statue1 } from "./items/statues.mjs";
-import * as trees from "./items/trees.mjs";
 import { Wall } from "./items/wall.mjs";
 import { Sprite } from "./sprite.mjs";
 import { Water } from "./items/water.mjs";
@@ -24,6 +25,7 @@ const types = {
 	...furniture,
 	...roads,
 	...trees,
+	...movables,
 }
 
 const itemType = {}

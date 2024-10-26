@@ -60,6 +60,9 @@ export function collide (movingSprite, targetSprite, direction) {
 		(farTy > y && farTy < farY) || (ty > y && ty < farY);
 
 	if (xIntersect && yIntersect) {
+		// If target is movable move it and skip collision
+		if (targetSprite.move?.(x, y, farX, farY, direction)) return;
+
 		switch (direction) {
 			case DIRECTION.N: return moveNorth(movingSprite, targetSprite);
 			case DIRECTION.S: return moveSouth(movingSprite, targetSprite);

@@ -19,6 +19,7 @@ Y=Statue1
 H=Machine1,TileFloor
 w=Water
 B=DinoBones,TileFloor
+b=Ball
 origin=30x30
 ____________________________________
         T    T       T         r
@@ -59,7 +60,7 @@ T        r  *wwwwww  T   **      T
  wwwwwwwwwwwwww      l* #----------
  wwwwwwwwwwwwww       **----B------
  wwwwwwwwwwww  T    r   ----------#   r
- wwwwwwwwww             #---------# 
+ wwwwwwwwww          b  #---------# 
   wwwwwwww              ###########
    wwwwwwwww T
     wwwwwwww     T
