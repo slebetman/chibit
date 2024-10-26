@@ -73,3 +73,28 @@ export class Trees2 extends Sprite {
 		// attachDebugBounds(this);
 	}
 }
+
+const treesSprites3 = [
+	[0, 0], [-240, 0], [-240, -320], [-480, 0], [-480, -320],
+	[0, -320], [-240, -320], [-240, 0], [-480, -320], [-480, 0],
+]
+
+export class Trees3 extends Sprite {
+	static base = {
+		x: 120,
+		y: 275,
+	}
+
+	constructor (x, y) {
+		idx = (idx + 1) % treesSprites3.length;
+		const [offsetX, offsetY] = treesSprites3[idx];
+
+		super('./images/trees3.png', 240, 320,{
+			x1: 105, x2: 135,
+			y1: 260, y2: 275,
+		}, offsetX, offsetY);
+		this.setXY(x,y);
+
+		// attachDebugBounds(this);
+	}
+}
