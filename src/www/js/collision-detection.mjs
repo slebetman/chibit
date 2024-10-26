@@ -124,7 +124,6 @@ export function getNearestItems (sprite, distance) {
  * @param {Sprite} sprite 
  */
 export function collisionDetection (sprite, movers = []) {
-	let collided = false;
 	let nearItems = getNearestItems(sprite, 200);
 
 	// Process nearest objects first or we may
@@ -161,11 +160,12 @@ export function collisionDetection (sprite, movers = []) {
 		const collision = collide(sprite, i, sprite.direction);
 
 		if (collision !== undefined) {
-			collided = true;
 			sprite.x = collision.x ?? sprite.x;
 			sprite.y = collision.y ?? sprite.y;
+
+			return collision;
 		}
 	}
 
-	return collided;
+	return;
 }

@@ -1,3 +1,4 @@
+import { collisionDetection } from "../collision-detection.mjs";
 import { Movable } from "../movable.mjs";
 import { attachDebugBounds, css } from "../util.mjs";
 
@@ -12,7 +13,51 @@ export class Ball extends Movable {
 			x1: 1, x2: 28,
 			y1: 8, y2: 28,
 		});
+		this.movement = {
+			x: 0,
+			y: 0,
+		}
+
 		this.setXY(x,y);
+
+		// attachDebugBounds(this);
+	}
+
+	/**
+	 * @param {Character} mover 
+	 * @param {number} x 
+	 * @param {number} y 
+	 * @param {number} farX 
+	 * @param {number} farY 
+	 * @param {DIRECTION} direction 
+	 * @returns 
+	 */
+	move (mover, x, y, farX, farY, direction) {
+		super.move(mover, x, y, farX, farY, direction);
+
+		this.movement.x = mover.movement.x * 2;
+		this.movement.y = mover.movement.y * 2;
+	}
+
+	action () {
+		if (this.movement.x || this.movement.y) {
+			this.setXY(this.x + this.movement.x, this.y + this.movement.y);
+			this.animateMove();
+
+			const collision = collisionDetection(this);
+
+			if (collision?.x) {
+				this.movement.x *= -1;
+			}
+			if (collision?.y) {
+				this.movement.y *= -1;
+			}
+
+			this.movement.x *= 0.98;
+			if (Math.abs(this.movement.x) < 0.5) this.movement.x = 0;
+			this.movement.y *= 0.98;
+			if (Math.abs(this.movement.y) < 0.5) this.movement.y = 0;
+		}
 	}
 
 	animateMove () {

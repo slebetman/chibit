@@ -1,4 +1,4 @@
-import { DIRECTION } from "./character.mjs";
+import { Character, DIRECTION } from "./character.mjs";
 import { collisionDetection } from "./collision-detection.mjs";
 import { Sprite } from "./sprite.mjs";
 
@@ -11,6 +11,15 @@ export class Movable extends Sprite {
 		this.direction = 0;
 	}
 
+	/**
+	 * @param {Character} mover 
+	 * @param {number} x 
+	 * @param {number} y 
+	 * @param {number} farX 
+	 * @param {number} farY 
+	 * @param {DIRECTION} direction 
+	 * @returns 
+	 */
 	move (mover, x, y, farX, farY, direction) {
 		let newY = this.y;
 		let newX = this.x;
