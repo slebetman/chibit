@@ -56,14 +56,16 @@ function parseMap (map) {
 					mapHeaders.origin = {x,y};
 				}
 				else {
-					const tval = v.split(',');
+					const tval = v.split(';');
 
-					for (const t of tval) {
+					for (const val of tval) {
+						const [t, arg] = val.split(':');
+
 						if (types[t]) {
 							if (!itemType[k]) {
 								itemType[k] = [];
 							}
-							itemType[k].push(types[t]);
+							itemType[k].push([types[t],arg]);
 						}
 						else {
 							console.error('Unsupported type', t);
@@ -80,7 +82,8 @@ function parseMap (map) {
 						mapItems.push({
 							x: col,
 							y: row,
-							item: t,
+							item: t[0],
+							arg: t[1],
 						})
 					}
 				}
@@ -109,7 +112,8 @@ export function drawMap (map) {
 		/** @type {Sprite} */
 		const item = new i.item(
 			((i.x + mapHeaders.origin.x) * 100) - i.item.base.x,
-			((i.y + mapHeaders.origin.y) * 50) - i.item.base.y
+			((i.y + mapHeaders.origin.y) * 50) - i.item.base.y,
+			i.arg,
 		);
 
 		if (item.bounds.x2 && item.bounds.y2) {

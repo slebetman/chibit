@@ -1,10 +1,11 @@
 #=Wall
-\=Door,StoneFloor
-/=Door,TileFloor
-|=Door,WoodFloor
-A=Chibit,WoodFloor
+\=Door;StoneFloor
+[=Door:open;TileFloor
+]=Door;TileFloor
+/=Door;WoodFloor
+A=Chibit;WoodFloor
 l=Lamp
-I=Lamp,StoneFloor
+I=Lamp;StoneFloor
 .=WoodFloor
 _=StoneFloor
 *=DirtPath
@@ -13,17 +14,17 @@ S=Shelf
 T=Trees3
 r=Rock
 @=Bushes
-m=MonitorDesk,StoneFloor
-n=MonitorDesk,WoodFloor
-c=MonitorDesk,TileFloor
-M=MonitorDeskBig,StoneFloor
-N=MonitorDeskBig,TileFloor
+m=MonitorDesk;StoneFloor
+n=MonitorDesk;WoodFloor
+c=MonitorDesk;TileFloor
+M=MonitorDeskBig;StoneFloor
+N=MonitorDeskBig;TileFloor
 x=CampFire
 Y=Statue1
-H=Machine1,TileFloor
+H=Machine1;TileFloor
 w=Water
-B=DinoBones,TileFloor
-b=Box2,DirtPath
+B=DinoBones;TileFloor
+b=Box2;DirtPath
 p=Box2
 d=Box1
 o=Ball
@@ -40,7 +41,7 @@ T     ####S_SmS# * ####   T    T   T
       #..______# * #..#      T    rrr
       #..______# *@#.A#    T     r   r
  T    #.n#__M__# * #..#       T r     r
-      #..#_____# * ##|# T   T   r  Y  r
+      #..#_____# * ##/# T   T   r  Y  r
 r T   #|##_____# *  p*p      @  r  x  r
          #_____# ***b*p  T       r   r   T
    @ l   ###\### *l pbb*****      r*r      T
@@ -54,14 +55,14 @@ T        r  *wwwwww T    ** T    T         T
        T    * wwwwwww     *  T     T   T  T
    T        *   wwwww T  T*     T     T  T
      T      ** l  www  T  *       T     T
-  T          **** T  T  ##/####      T   T
+  T          **** T  T  ##]####      T   T
     T       @  r*       #S-ScS#        T
       T         ***     #-----#   T T@   T
   T               **T   #-----#      @@
                  @ **   #--H--#    r     @ T
  T  T  T      T     * T #-----#        @T
       ww   @      @l*   #-----#
-   T www T   @      *T  ####/######      T
+   T www T   @      *T  ####[######      T
      wwwwwww  @     ** l#-N---cSSS#     @
 T wwwwwwwwwwww    @@ ** -----------       T
  wwwwwwwwwwwwww   @   **-----------

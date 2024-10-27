@@ -9,13 +9,13 @@ export class Door extends Sprite {
 		y: 60,
 	}
 
-	constructor (x, y) {
-		super('./images/door.png', 100, 110,{
+	constructor (x, y, state = 'closed') {
+		super('./images/door2.png', 100, 100,{
 			x1: 0, x2: 100,
 			y1: 50, y2: 70,
 		});
 
-		this.open = false;
+		this.open = state === 'open' ? true : false;
 
 		// css(this.element,{
 		// 	opacity: 0.5,
