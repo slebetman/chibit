@@ -90,8 +90,32 @@ export class Trees3 extends Sprite {
 		const [offsetX, offsetY] = treesSprites3[idx];
 
 		super('./images/trees3.png', 240, 320,{
-			x1: 105, x2: 135,
-			y1: 260, y2: 275,
+			x1: 108, x2: 132,
+			y1: 265, y2: 280,
+		}, offsetX, offsetY);
+		this.setXY(x,y);
+
+		// attachDebugBounds(this, 'cyan');
+	}
+}
+
+const bushSprites = [
+	[0, 0], [0, -100], [-100, 0], [-100, -100],
+]
+
+export class Bushes extends Sprite {
+	static base = {
+		x: 48,
+		y: 65,
+	}
+
+	constructor (x, y) {
+		idx = (idx + 1) % bushSprites.length;
+		const [offsetX, offsetY] = bushSprites[idx];
+
+		super('./images/bushes.png', 100, 100,{
+			x1: 35, x2: 65,
+			y1: 50, y2: 70,
 		}, offsetX, offsetY);
 		this.setXY(x,y);
 

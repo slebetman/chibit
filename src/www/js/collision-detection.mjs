@@ -125,6 +125,7 @@ export function getNearestItems (sprite, distance) {
  */
 export function collisionDetection (sprite, movers = []) {
 	let nearItems = getNearestItems(sprite, 200);
+	let collision = null;
 
 	// Process nearest objects first or we may
 	// accidentally teleport due to weird edge case:
@@ -157,15 +158,13 @@ export function collisionDetection (sprite, movers = []) {
 	for (const i of nearItems) {
 		if (i === sprite || movers.includes(i)) continue;
 
-		const collision = collide(sprite, i, sprite.direction);
+		collision = collide(sprite, i, sprite.direction);
 
 		if (collision !== undefined) {
 			sprite.x = collision.x ?? sprite.x;
 			sprite.y = collision.y ?? sprite.y;
-
-			return collision;
 		}
 	}
 
-	return;
+	return collision;
 }

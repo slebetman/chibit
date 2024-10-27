@@ -9,6 +9,7 @@ _=StoneFloor
 S=Shelf
 T=Trees3
 r=Rock
+@=Bushes
 m=MonitorDesk,StoneFloor
 n=MonitorDesk,WoodFloor
 c=MonitorDesk,TileFloor
@@ -36,13 +37,13 @@ T     ####S_SmS#   ####   T    T   T
       ..._______** #.A#   T      r   r
  T    ..n#__M___ * #..#       T r     r
       #..#_____# * ##b#  T  T   r  Y  r
-r T   ####_____# *   *          r  x  r
+r T   ####_____# *   *       @  r  x  r
          #_____# *****   T       r   r   T
-       l ###_### *l  *******      r*r      T
-            *    *r        *********
+   @   l ###_### *l @*******      r*r      T
+     @      *    *r   @    *********
  T          *******         T
-        ddd *rr   ***                      T
-  T   T     *  ww   ***T               T  T
+        ddd *@@   ***                      T
+  T   T     *  ww   *** T              T  T
           o *wwwww    *** T    T     T   T
    T        *wwwwww     **        T T T
 T        r  *wwwwwwT     ** T    T         T
@@ -50,23 +51,23 @@ T        r  *wwwwwwT     ** T    T         T
    T        *   wwwwwT   T*     T     T  T
      T      ** l  www  T  *       T     T
   T          **** T  T  ##-####      T   T
-    T          r*       #S-ScS#        T
-      T         *** T   #-----#   T T    T
-  T               **    #-----#
-                   **   #--H--#    r       T
- T  T  T      T     * T #-----#         T
-      ww            *   #-----#
-   T www T         r*T  ####-######      T
-     wwwwwww        **  #-N---cSSS#
-T wwwwwwwwwwww       ** #---------#       T
- wwwwwwwwwwwwww      l* #----------
- wwwwwwwwwwwwww       **----B------         T
+    T       @  r*       #S-ScS#        T
+      T         *** T   #-----#   T T@   T
+  T               **    #-----#      @@
+                 @ **   #--H--#    r     @ T
+ T  T  T      T     * T #-----#        @T
+      ww   @      @ *   #-----#
+   T www T   @     r*T  ####-######      T
+     wwwwwww  @     **  #-N---cSSS#     @
+T wwwwwwwwwwww    @@ ** #---------#       T
+ wwwwwwwwwwwwww   @  l* #----------
+ wwwwwwwwwwwwww       **----B------       @ T
  wwwwwwwwwwww  T    r   ----------#   r
  wwwwwwwwww             #---------#       T
   wwwwwwww              ###########
-   wwwwwwwww T
+   wwwwwwwww T          @@@@ @@ @@@
     wwwwwwww     T
  T   wwwwww                                T
-               T
-   T         T     T           T      T T
+               T                          @
+   T         T     T   @   @@  T    @ T T
 T               T     T   T  T     T T
