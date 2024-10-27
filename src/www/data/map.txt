@@ -1,4 +1,6 @@
 #=Wall
+D=Door,StoneFloor
+R=Door,WoodFloor
 A=Chibit,WoodFloor
 l=Lamp
 I=Lamp,StoneFloor
@@ -20,8 +22,9 @@ Y=Statue1
 H=Machine1,TileFloor
 w=Water
 B=DinoBones,TileFloor
-b=Box1,WoodFloor
-d=Box2
+b=Box2,DirtPath
+p=Box2
+d=Box1
 o=Ball
 origin=30x30
 ____________________________________
@@ -30,17 +33,17 @@ T          T   T       T
       T  T   r   T       T
  T                   T                 r
                   T        T      T
-    T    ##_#### T      T
+    T    ##D#### T      T
 T     ####S_SmS#   ####   T    T   T
    r  #SS#_____#   #SS#  r      T
       #..______#   #..#      T    rrr
-      ..._______** #.A#    T     r   r
+      ..._______**@#.A#    T     r   r
  T    ..n#__M___ * #..#       T r     r
-      #..#_____# * ##b# T   T   r  Y  r
-r T   ####_____# *   *       @  r  x  r
-         #_____# *****   T       r   r   T
-   @   l ###_### *l @*******      r*r      T
-     @      *    *    @    *********
+      #..#_____# * ##R# T   T   r  Y  r
+r T   ####_____# *  p*p      @  r  x  r
+         #_____# ***b*p  T       r   r   T
+   @   l ###D### *l pbb*****      r*r      T
+     @      *    *         *********
  T          *******r        T
         ddd *@@   ***                      T
   T   T     *  ww   *** T              T  T

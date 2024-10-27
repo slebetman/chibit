@@ -1,4 +1,5 @@
 import { Character, DIRECTION, DIAGONAL_MOVEMENT } from "../character.mjs";
+import { getNearestItems } from "../collision-detection.mjs";
 import { Sprite } from "../sprite.mjs";
 import { css, $, attachDebugBounds } from "../util.mjs";
 
@@ -44,6 +45,61 @@ export class Chibit extends Character {
 		});
 
 		this.setXY(x,y);
+	}
+
+	performInteraction () {
+		const nearbyItems = getNearestItems(this, 100);
+
+		// If any of the items can be interacted with, interact with it:
+		for (const item of nearbyItems) {
+			if (item.interact) {
+				// Check if we are facing the item:
+				const myCenter = {
+					x: this.x + this.constructor.base.x,
+					y: this.y + this.constructor.base.y,
+				}
+
+				const itemCenter = {
+					x: item.x + item.constructor.base.x,
+					y: item.y + item.constructor.base.y,
+				}
+
+				switch (this.direction) {
+					case DIRECTION.N:
+						if (
+							itemCenter.y < myCenter.y &&
+							Math.abs(itemCenter.x - myCenter.x) < 100
+						) {
+							item.interact(this);
+						}
+						break;
+					case DIRECTION.S:
+						if (
+							itemCenter.y > myCenter.y &&
+							Math.abs(itemCenter.x - myCenter.x) < 100
+						) {
+							item.interact(this);
+						}
+						break;
+					case DIRECTION.E:
+						if (
+							itemCenter.x < myCenter.x &&
+							Math.abs(itemCenter.y - myCenter.y) < 100
+						) {
+							item.interact(this);
+						}
+						break;
+					case DIRECTION.W:
+						if (
+							itemCenter.x > myCenter.x &&
+							Math.abs(itemCenter.y - myCenter.y) < 100
+						) {
+							item.interact(this);
+						}
+						break;
+				}
+			}
+		}
 	}
 
 	teleport () {

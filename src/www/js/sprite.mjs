@@ -1,4 +1,4 @@
-import { css, $ } from "./util.mjs";
+import { css, $, attachDebugBounds } from "./util.mjs";
 
 let nextId = 0;
 
@@ -42,6 +42,8 @@ export class Sprite {
 			backgroundPosition: `${offsetX}px ${offsetY}px`,
 		})
 		$('world').appendChild(this.element);
+
+		// if (bounds.x2 && bounds.y2)	attachDebugBounds(this);
 	}
 
 	action () {}

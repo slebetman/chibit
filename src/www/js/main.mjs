@@ -68,7 +68,7 @@ async function main () {
 				keys.shift = true;
 				break;
 			case ' ':
-				chibit.teleport();
+				chibit.performInteraction();
 				break;
 			case 'Escape':
 				if (e.ctrlKey) {

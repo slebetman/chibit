@@ -12,6 +12,7 @@ import { Statue1 } from "./items/statues.mjs";
 import { Wall } from "./items/wall.mjs";
 import { Sprite } from "./sprite.mjs";
 import { Water } from "./items/water.mjs";
+import { Door } from "./items/door.mjs";
 
 const types = {
 	Wall,
@@ -21,6 +22,7 @@ const types = {
 	CampFire,
 	Statue1,
 	Water,
+	Door,
 	...floor,
 	...furniture,
 	...roads,
