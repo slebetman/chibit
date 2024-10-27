@@ -1,6 +1,7 @@
 #=Wall
-D=Door,StoneFloor
-R=Door,WoodFloor
+\=Door,StoneFloor
+/=Door,TileFloor
+|=Door,WoodFloor
 A=Chibit,WoodFloor
 l=Lamp
 I=Lamp,StoneFloor
@@ -31,18 +32,18 @@ ____________________________________
         T    T       T         r
 T          T   T       T
       T  T   r   T       T
- T                   T                 r
-                  T        T      T
-    T    ##D#### T      T
-T     ####S_SmS#   ####   T    T   T
-   r  #SS#_____#   #SS#  r      T
-      #..______#   #..#      T    rrr
-      ..._______**@#.A#    T     r   r
- T    ..n#__M___ * #..#       T r     r
-      #..#_____# * ##R# T   T   r  Y  r
-r T   ####_____# *  p*p      @  r  x  r
+ T         *******   T                 r
+           *     *T        T      T
+    T    ##\#### *      T
+T     ####S_SmS# * ####   T    T   T
+   r  #SS#_____# * #SS#  r      T
+      #..______# * #..#      T    rrr
+      #..______# *@#.A#    T     r   r
+ T    #.n#__M__# * #..#       T r     r
+      #..#_____# * ##|# T   T   r  Y  r
+r T   #|##_____# *  p*p      @  r  x  r
          #_____# ***b*p  T       r   r   T
-   @   l ###D### *l pbb*****      r*r      T
+   @ l   ###\### *l pbb*****      r*r      T
      @      *    *         *********
  T          *******r        T
         ddd *@@   ***                      T
@@ -53,19 +54,19 @@ T        r  *wwwwww T    ** T    T         T
        T    * wwwwwww     *  T     T   T  T
    T        *   wwwww T  T*     T     T  T
      T      ** l  www  T  *       T     T
-  T          **** T  T  ##-####      T   T
+  T          **** T  T  ##/####      T   T
     T       @  r*       #S-ScS#        T
       T         ***     #-----#   T T@   T
   T               **T   #-----#      @@
                  @ **   #--H--#    r     @ T
  T  T  T      T     * T #-----#        @T
       ww   @      @l*   #-----#
-   T www T   @      *T  ####-######      T
-     wwwwwww  @     **  #-N---cSSS#     @
-T wwwwwwwwwwww    @@ ** #---------#       T
- wwwwwwwwwwwwww   @   *l#----------
- wwwwwwwwwwwwww       **----B------       @ T
- wwwwwwwwwwww  T    r   ----------#   r
+   T www T   @      *T  ####/######      T
+     wwwwwww  @     ** l#-N---cSSS#     @
+T wwwwwwwwwwww    @@ ** -----------       T
+ wwwwwwwwwwwwww   @   **-----------
+ wwwwwwwwwwwwww         -----B-----       @ T
+ wwwwwwwwwwww  T    r   -----------   r
  wwwwwwwwww             #---------#       T
   wwwwwwww              ###########
    wwwwwwwww T          @@@@ @@ @@@
