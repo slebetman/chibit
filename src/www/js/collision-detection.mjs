@@ -3,6 +3,8 @@ import { items } from "./items.mjs";
 import { Sprite } from "./sprite.mjs";
 import { css } from "./util.mjs";
 
+const DEBUG_COLLISION = false;
+
 /**
  * @param {Sprite} movingSprite 
  * @param {Sprite} targetSprite
@@ -136,23 +138,23 @@ export function collisionDetection (sprite, movers = []) {
 			nearItems.reverse();
 	}
 
-	// for (const i1 of items) {
-	// 	css(i1.element, {
-	// 		backgroundColor: 'transparent',
-	// 		boxShadow: 'none',
-	// 		borderRadius: '0',
-	// 	})
-	// }
+	if (DEBUG_COLLISION) {
+		for (const i1 of items) {
+			css(i1.element, {
+				backgroundColor: 'transparent',
+				boxShadow: 'none',
+			})
+		}
 
-	// for (const i2 of nearItems) {
-	// 	if (i2 instanceof Character) continue;
+		for (const i2 of nearItems) {
+			if (i2 instanceof Character) continue;
 
-	// 	css(i2.element, {
-	// 		backgroundColor: '#ffff6666',
-	// 		boxShadow: '0 0 20px #ffff66aa',
-	// 		borderRadius: '20px',
-	// 	})
-	// }
+			css(i2.element, {
+				backgroundColor: '#ffff6666',
+				boxShadow: '0 0 20px #ffff66aa',
+			})
+		}
+	}
 
 	// simple collision detection
 	for (const i of nearItems) {
