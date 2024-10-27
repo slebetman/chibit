@@ -27,40 +27,40 @@ origin=30x30
 ____________________________________
         T    T       T         r
 T          T   T       T
-      T  T   r   T         T
+      T  T   r   T       T
  T                   T                 r
-                  T       T       T
+                  T        T      T
     T    ##_#### T      T
 T     ####S_SmS#   ####   T    T   T
-   r  #SS#_____#   #SS# r     T
-      #..______#   #..#    T      rrr
-      ..._______** #.A#   T      r   r
+   r  #SS#_____#   #SS#  r      T
+      #..______#   #..#      T    rrr
+      ..._______** #.A#    T     r   r
  T    ..n#__M___ * #..#       T r     r
-      #..#_____# * ##b#  T  T   r  Y  r
+      #..#_____# * ##b# T   T   r  Y  r
 r T   ####_____# *   *       @  r  x  r
          #_____# *****   T       r   r   T
    @   l ###_### *l @*******      r*r      T
-     @      *    *r   @    *********
- T          *******         T
+     @      *    *    @    *********
+ T          *******r        T
         ddd *@@   ***                      T
   T   T     *  ww   *** T              T  T
           o *wwwww    *** T    T     T   T
-   T        *wwwwww     **        T T T
-T        r  *wwwwwwT     ** T    T         T
+   T       l*wwwwww     **        T T T
+T        r  *wwwwww T    ** T    T         T
        T    * wwwwwww     *  T     T   T  T
-   T        *   wwwwwT   T*     T     T  T
+   T        *   wwwww T  T*     T     T  T
      T      ** l  www  T  *       T     T
   T          **** T  T  ##-####      T   T
     T       @  r*       #S-ScS#        T
-      T         *** T   #-----#   T T@   T
-  T               **    #-----#      @@
+      T         ***     #-----#   T T@   T
+  T               **T   #-----#      @@
                  @ **   #--H--#    r     @ T
  T  T  T      T     * T #-----#        @T
-      ww   @      @ *   #-----#
-   T www T   @     r*T  ####-######      T
+      ww   @      @l*   #-----#
+   T www T   @      *T  ####-######      T
      wwwwwww  @     **  #-N---cSSS#     @
 T wwwwwwwwwwww    @@ ** #---------#       T
- wwwwwwwwwwwwww   @  l* #----------
+ wwwwwwwwwwwwww   @   *l#----------
  wwwwwwwwwwwwww       **----B------       @ T
  wwwwwwwwwwww  T    r   ----------#   r
  wwwwwwwwww             #---------#       T

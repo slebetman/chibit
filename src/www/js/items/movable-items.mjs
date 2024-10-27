@@ -1,3 +1,4 @@
+import { DIAGONAL_MOVEMENT } from "../character.mjs";
 import { collisionDetection } from "../collision-detection.mjs";
 import { Movable } from "../movable.mjs";
 import { attachDebugBounds, css } from "../util.mjs";
@@ -41,7 +42,16 @@ export class Ball extends Movable {
 
 	action () {
 		if (this.movement.x || this.movement.y) {
-			this.setXY(this.x + this.movement.x, this.y + this.movement.y);
+			let dx = this.movement.x;
+			let dy = this.movement.y;
+
+			if (dy && dx) {
+				dx *= DIAGONAL_MOVEMENT;
+				dy *= DIAGONAL_MOVEMENT;
+			}
+
+
+			this.setXY(this.x + dx, this.y + dy);
 			this.animateMove();
 
 			const collision = collisionDetection(this);
