@@ -83,6 +83,9 @@ async function main () {
 					window.onbeforeunload = null;
 					window.location.reload();
 				}
+				else {
+					return;
+				}
 				break;
 			default:
 				return;

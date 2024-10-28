@@ -37,6 +37,10 @@ dialog#dialog {
 	padding: 20px;
 	max-width: 350px;
 	box-shadow: 0 0 20px #000;
+	border: 1px solid white;
+	outline: none;
+	margin-bottom: 0;
+	bottom: 50%;
 }
 
 dialog#dialog form {
@@ -45,4 +49,13 @@ dialog#dialog form {
     justify-content: flex-end;
 	padding: 0;
 	margin: 0;
+}
+
+dialog#dialog form button {
+	padding: 5px 10px;
+	margin: 0;
+	border-radius: 10px;
+	background: linear-gradient(#eee, #999);
+	border: 1px solid #999;
+	outline: none;
 }
