@@ -67,6 +67,8 @@ export class Chibit extends Character {
 
 				switch (this.direction) {
 					case DIRECTION.N:
+					case DIRECTION.NE:
+					case DIRECTION.NW:
 						if (
 							itemCenter.y < myCenter.y &&
 							itemCenter.x > this.x &&
@@ -77,6 +79,8 @@ export class Chibit extends Character {
 						}
 						break;
 					case DIRECTION.S:
+					case DIRECTION.SE:
+					case DIRECTION.SW:
 						if (
 							itemCenter.y > myCenter.y &&
 							itemCenter.x > this.x &&
