@@ -1,3 +1,4 @@
+import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
 import { attachDebugBounds, css } from "../util.mjs";
 
@@ -19,6 +20,10 @@ export class Shelf extends Sprite {
 		}, -offsetX, 0);
 		this.setXY(x,y);
 	}
+
+	interact (actor) {
+		dialog("There's nothing interesting here...");
+	}
 }
 
 export class MonitorDesk extends Sprite {
@@ -27,30 +32,43 @@ export class MonitorDesk extends Sprite {
 		y: 60,
 	}
 
-	constructor (x, y, isBlinking = 'no') {
+	constructor (x, y, args = '') {
 		super('./images/monitor-desk.png', 80, 80,{
 			x1: 10, x2: 70,
 			y1: 35, y2: 75,
 		});
 
-		if (isBlinking !== 'no') {
-			this.cycle = Math.floor(Math.random() * 20 + 20);
-			this.blink = false;
-			this.screen = document.createElement('div');
+		const props = args.split(',');
 
-			css(this.screen,{
-				position: 'relative',
-				width: '38px',
-				height: '19px',
-				// border: '1px solid #ffff0066',
-				left: '20px',
-				top: '11px',
-			});
+		for (const p of props) {
+			const [ prop, val ] = p.split('=');
 
-			this.element.appendChild(this.screen);
+			if (prop === 'blinking') {
+				this.cycle = Math.floor(Math.random() * 20 + 20);
+				this.blink = false;
+				this.screen = document.createElement('div');
+
+				css(this.screen,{
+					position: 'relative',
+					width: '38px',
+					height: '19px',
+					// border: '1px solid #ffff0066',
+					left: '20px',
+					top: '11px',
+				});
+
+				this.element.appendChild(this.screen);
+			}
+			else if (prop === 'message' && val) {
+				this.message = val;
+			}
 		}
 
 		this.setXY(x,y);
+	}
+
+	interact (actor) {
+		dialog(this.message ?? "There's nothing interesting here...");
 	}
 
 	animate () {
@@ -70,34 +88,47 @@ export class MonitorDesk extends Sprite {
 
 export class MonitorDeskBig extends Sprite {
 	static base = {
-		x: 90,
+		x: 110,
 		y: 60,
 	}
 
-	constructor (x, y, isBlinking = 'no') {
+	constructor (x, y, args = '') {
 		super('./images/monitor-desk-big.png', 180, 80,{
 			x1: 10, x2: 170,
 			y1: 20, y2: 80,
 		});
 
-		if (isBlinking !== 'no') {
-			this.cycle = Math.floor(Math.random() * 20);
-			this.blink = false;
-			this.screen = document.createElement('div');
+		const props = args.split(',');
 
-			css(this.screen,{
-				position: 'relative',
-				width: '35px',
-				height: '16px',
-				// border: '1px solid #ffff0066',
-				left: '105px',
-				top: '6px',
-			});
+		for (const p of props) {
+			const [ prop, val ] = p.split('=');
 
-			this.element.appendChild(this.screen);
+			if (prop === 'blinking') {
+				this.cycle = Math.floor(Math.random() * 20);
+				this.blink = false;
+				this.screen = document.createElement('div');
+
+				css(this.screen,{
+					position: 'relative',
+					width: '35px',
+					height: '16px',
+					// border: '1px solid #ffff0066',
+					left: '105px',
+					top: '6px',
+				});
+
+				this.element.appendChild(this.screen);
+			}
+			else if (prop === 'message' && val) {
+				this.message = val;
+			}
 		}
 
 		this.setXY(x,y);
+	}
+
+	interact (actor) {
+		dialog(this.message ?? "There's nothing interesting here...");
 	}
 
 	animate () {
@@ -128,6 +159,8 @@ export class Machine1 extends Sprite {
 		});
 		this.cycle = 0;
 		this.setXY(x,y);
+
+		// attachDebugBounds(this);
 	}
 
 	animate () {

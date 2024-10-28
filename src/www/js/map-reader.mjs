@@ -50,7 +50,8 @@ function parseMap (map) {
 				endOfHeaders = true;
 			}
 			else {
-				const [ k, v ] = l.split('=').map(x => x.trim());
+				const [ k, ...vs ] = l.split('=').map(x => x.trim());
+				const v = vs.join('=');
 
 				if (k === 'origin') {
 					const [ x , y ] = v.split('x').map(x => parseInt(x,10));

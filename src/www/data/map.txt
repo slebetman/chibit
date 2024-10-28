@@ -17,10 +17,10 @@ T=Trees3
 r=Rock
 @=Bushes
 m=MonitorDesk;StoneFloor
-n=MonitorDesk:blinking;WoodFloor
-c=MonitorDesk;TileFloor
-g=MonitorDesk:blinking;TileFloor
-M=MonitorDeskBig:blinking;StoneFloor
+n=MonitorDesk:blinking,message=Hmm.. It looks like there is a lab south-east of here.;WoodFloor
+c=MonitorDesk:blinking,message=The machine is missing a ruby crystal shard.<br><br>I wonder where I can find one...;TileFloor
+g=MonitorDesk:blinking,message=It says here that the big machine in that room generates some sort of dimensional portal!<br><br>I wonder if that has anything to do with this pile of monster bones..;TileFloor
+M=MonitorDeskBig:blinking,message=Usually a blinking monitor means there's some interesting information on the computer..<br><br>..but I don't see anything here.;StoneFloor
 N=MonitorDeskBig;TileFloor
 x=CampFire
 Y=Statue1

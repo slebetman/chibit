@@ -2,6 +2,7 @@ import { Chibit } from "./items/chibit.mjs";
 import { items } from "./items.mjs";
 import { drawMap } from "./map-reader.mjs";
 import { getNearestItems } from "./collision-detection.mjs";
+import { dialogIsActive } from "./dialog.mjs";
 
 async function main () {
 	const map = await (await fetch('/data/map.txt')).text();
@@ -28,6 +29,12 @@ async function main () {
 	}
 
 	function checkKeys () {
+		if (dialogIsActive()) {
+			chibit.stopHorizontalMovement();
+			chibit.stopVerticalMovement();
+			return;
+		}
+
 		if (keys.right) chibit.moveRight();
 		else if (keys.left) chibit.moveLeft();
 		else chibit.stopHorizontalMovement();

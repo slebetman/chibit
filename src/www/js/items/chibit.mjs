@@ -4,6 +4,7 @@ import { Sprite } from "../sprite.mjs";
 import { css, $, attachDebugBounds } from "../util.mjs";
 
 const ANIMATION_LOOP = 20;
+const SPRITE_SIZE = 96;
 
 const wave = [];
 
@@ -22,7 +23,7 @@ export class Chibit extends Character {
 			x1: 20, x2: 78,
 			y1: 60, y2: 84,
 		};
-		super("./images/character2x8d.png",96,96, bounds);
+		super("./images/character2x8d.png",SPRITE_SIZE,SPRITE_SIZE, bounds);
 		this.teleportTracker = 0;
 		this.ghoseSprite = new Sprite(
 			this.spriteSheet,
@@ -68,33 +69,41 @@ export class Chibit extends Character {
 					case DIRECTION.N:
 						if (
 							itemCenter.y < myCenter.y &&
-							Math.abs(itemCenter.x - myCenter.x) < 100
+							itemCenter.x > this.x &&
+							itemCenter.x < this.x + SPRITE_SIZE
 						) {
 							item.interact(this);
+							return;
 						}
 						break;
 					case DIRECTION.S:
 						if (
 							itemCenter.y > myCenter.y &&
-							Math.abs(itemCenter.x - myCenter.x) < 100
+							itemCenter.x > this.x &&
+							itemCenter.x < this.x + SPRITE_SIZE
 						) {
 							item.interact(this);
+							return;
 						}
 						break;
 					case DIRECTION.E:
 						if (
 							itemCenter.x < myCenter.x &&
-							Math.abs(itemCenter.y - myCenter.y) < 100
+							itemCenter.y > this.y &&
+							itemCenter.y < this.y + SPRITE_SIZE
 						) {
 							item.interact(this);
+							return;
 						}
 						break;
 					case DIRECTION.W:
 						if (
 							itemCenter.x > myCenter.x &&
-							Math.abs(itemCenter.y - myCenter.y) < 100
+							itemCenter.y > this.y &&
+							itemCenter.y < this.y + SPRITE_SIZE
 						) {
 							item.interact(this);
+							return;
 						}
 						break;
 				}
@@ -112,8 +121,8 @@ export class Chibit extends Character {
 	}
 
 	updateTeleport () {
-		let d = this.direction * 96;
-		let s = this.step * 96;
+		let d = this.direction * SPRITE_SIZE;
+		let s = this.step * SPRITE_SIZE;
 		css(this.ghostElement,{
 			top:  `${this.y}px`,
 			left: `${this.x}px`,
