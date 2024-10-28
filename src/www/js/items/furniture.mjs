@@ -27,12 +27,44 @@ export class MonitorDesk extends Sprite {
 		y: 60,
 	}
 
-	constructor (x, y) {
+	constructor (x, y, isBlinking = 'no') {
 		super('./images/monitor-desk.png', 80, 80,{
 			x1: 10, x2: 70,
 			y1: 35, y2: 75,
 		});
+
+		if (isBlinking !== 'no') {
+			this.cycle = Math.floor(Math.random() * 20 + 20);
+			this.blink = false;
+			this.screen = document.createElement('div');
+
+			css(this.screen,{
+				position: 'relative',
+				width: '38px',
+				height: '19px',
+				// border: '1px solid #ffff0066',
+				left: '20px',
+				top: '11px',
+			});
+
+			this.element.appendChild(this.screen);
+		}
+
 		this.setXY(x,y);
+	}
+
+	animate () {
+		if (this.screen) {
+			this.cycle = (this.cycle + 1) % 50;
+			if (this.cycle === 0) {
+				this.blink = !this.blink;
+
+				css(this.screen, {
+					backgroundColor: this.blink ? '#ffffccaa' : 'transparent',
+					boxShadow: this.blink ? '0 0 10px #ffffcc' : 'none',
+				});
+			}
+		}
 	}
 }
 
@@ -42,12 +74,44 @@ export class MonitorDeskBig extends Sprite {
 		y: 60,
 	}
 
-	constructor (x, y) {
+	constructor (x, y, isBlinking = 'no') {
 		super('./images/monitor-desk-big.png', 180, 80,{
 			x1: 10, x2: 170,
 			y1: 20, y2: 80,
 		});
+
+		if (isBlinking !== 'no') {
+			this.cycle = Math.floor(Math.random() * 20);
+			this.blink = false;
+			this.screen = document.createElement('div');
+
+			css(this.screen,{
+				position: 'relative',
+				width: '35px',
+				height: '16px',
+				// border: '1px solid #ffff0066',
+				left: '105px',
+				top: '6px',
+			});
+
+			this.element.appendChild(this.screen);
+		}
+
 		this.setXY(x,y);
+	}
+
+	animate () {
+		if (this.screen) {
+			this.cycle = (this.cycle + 1) % 50;
+			if (this.cycle === 0) {
+				this.blink = !this.blink;
+
+				css(this.screen, {
+					backgroundColor: this.blink ? '#ffffccaa' : 'transparent',
+					boxShadow: this.blink ? '0 0 10px #ffffcc' : 'none',
+				});
+			}
+		}
 	}
 }
 
