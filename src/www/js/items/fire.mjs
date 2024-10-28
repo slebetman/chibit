@@ -25,7 +25,7 @@ export class CampFire extends Sprite {
 		this.setXY(x,y);
 	}
 
-	action () {
+	animate () {
 		this.cycle = (this.cycle + 1) % 5;
 		if (this.cycle === 0) {
 			this.frame = (this.frame + 1) % animationFrame.length;

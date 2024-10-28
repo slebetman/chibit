@@ -148,8 +148,8 @@ export class Chibit extends Character {
 		// });
 	}
 
-	action () {
-		super.action();
+	animate () {
+		super.animate();
 		this.breathe();
 	}
 

@@ -94,7 +94,7 @@ export class Character extends Sprite {
 		return this;
 	}
 
-	action () {
+	animate () {
 		this.walk();
 	}
 

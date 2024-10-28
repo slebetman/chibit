@@ -40,7 +40,7 @@ export class Ball extends Movable {
 		this.movement.y = mover.movement.y * 2;
 	}
 
-	action () {
+	animate () {
 		if (this.movement.x || this.movement.y) {
 			let dx = this.movement.x;
 			let dy = this.movement.y;

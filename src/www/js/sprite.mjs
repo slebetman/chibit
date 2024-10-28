@@ -46,7 +46,7 @@ export class Sprite {
 		// if (bounds.x2 && bounds.y2)	attachDebugBounds(this);
 	}
 
-	action () {}
+	animate () {}
 
 	setXY (x,y) {
 		this.x = x;

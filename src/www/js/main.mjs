@@ -129,7 +129,7 @@ async function main () {
 
 		// Only process things within view of player:
 		for (const i of getNearestItems(chibit, d + 200)) {
-			i.action();
+			i.animate();
 		}
 	}, 10);
 

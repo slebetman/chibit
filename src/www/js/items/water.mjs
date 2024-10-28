@@ -53,23 +53,19 @@ export class Water extends Sprite {
 	}
 
 	animate () {
-		this.frameStep = (this.frameStep + 1) % ANIMATION_LOOP;
-
-		css(this.foam,{
-			backgroundPosition: `${
-				this.frameOffset + -200 - wave[(this.frameStep + 3) % ANIMATION_LOOP]
-			}px ${
-				this.frame + wave[this.frameStep]
-			}px`,
-		});
-	}
-
-	action () {
 		if (!this.foam) return;
 
 		this.cycle = (this.cycle + 1) % 10;
-		if (this.cycle === 0) {
-			this.animate();
+			if (this.cycle === 0) {
+				this.frameStep = (this.frameStep + 1) % ANIMATION_LOOP;
+
+			css(this.foam,{
+				backgroundPosition: `${
+					this.frameOffset + -200 - wave[(this.frameStep + 3) % ANIMATION_LOOP]
+				}px ${
+					this.frame + wave[this.frameStep]
+				}px`,
+			});
 		}
 	}
 

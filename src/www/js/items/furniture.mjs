@@ -66,7 +66,7 @@ export class Machine1 extends Sprite {
 		this.setXY(x,y);
 	}
 
-	action () {
+	animate () {
 		this.cycle = (this.cycle + 1) % 4;
 		if (this.cycle === 0) {
 			const amount = (Math.random() * 1.5) - 0.75;
