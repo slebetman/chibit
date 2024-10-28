@@ -17,6 +17,7 @@ r=Rock
 m=MonitorDesk;StoneFloor
 n=MonitorDesk:blinking;WoodFloor
 c=MonitorDesk;TileFloor
+g=MonitorDesk:blinking;TileFloor
 M=MonitorDeskBig:blinking;StoneFloor
 N=MonitorDeskBig;TileFloor
 x=CampFire
@@ -63,7 +64,7 @@ T        r  *wwwwww T    ** T    T         T
  T  T  T      T     * T #-----#        @T
       ww   @      @l*   #-----#
    T www T   @      *T  ####[######      T
-     wwwwwww  @     ** l#-N---cSSS#     @
+     wwwwwww  @     ** l#-N---gSSS#     @
 T wwwwwwwwwwww    @@ ** -----------       T
  wwwwwwwwwwwwww   @   **-----------
  wwwwwwwwwwwwww         -----B-----       @ T
