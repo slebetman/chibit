@@ -1,3 +1,5 @@
+origin=30x30
+background=grass.png
 #=Wall
 \=Door;StoneFloor
 [=Door:open;TileFloor
@@ -29,7 +31,6 @@ b=Box2;DirtPath
 p=Box2
 d=Box1
 o=Ball
-origin=30x30
 ____________________________________
         T    T       T         r
 T          T   T       T

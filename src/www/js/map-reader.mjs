@@ -13,6 +13,7 @@ import { Wall } from "./items/wall.mjs";
 import { Sprite } from "./sprite.mjs";
 import { Water } from "./items/water.mjs";
 import { Door } from "./items/door.mjs";
+import { css } from "./util.mjs";
 
 const types = {
 	Wall,
@@ -54,6 +55,9 @@ function parseMap (map) {
 				if (k === 'origin') {
 					const [ x , y ] = v.split('x').map(x => parseInt(x,10));
 					mapHeaders.origin = {x,y};
+				}
+				else if (k === 'background') {
+					mapHeaders.background = v;
 				}
 				else {
 					const tval = v.split(';');
@@ -106,6 +110,12 @@ export function drawMap (map) {
 	const { mapHeaders, mapItems } = parseMap(map);
 
 	const adjustableItems = [];
+
+	if (mapHeaders.background) {
+		css('world', {
+			backgroundImage: `url(/images/${mapHeaders.background})`,
+		})
+	}
 
 	for (const i of mapItems) {
 
