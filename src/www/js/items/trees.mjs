@@ -126,4 +126,8 @@ export class Bushes extends Sprite {
 
 		// attachDebugBounds(this);
 	}
+
+	interact () {
+		dialog("There's nothing here.")
+	}
 }

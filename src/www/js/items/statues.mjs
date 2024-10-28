@@ -1,3 +1,4 @@
+import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
 import { css } from "../util.mjs";
 
@@ -13,5 +14,9 @@ export class Statue1 extends Sprite {
 			y1: 75, y2: 120,
 		});
 		this.setXY(x,y);
+	}
+
+	interact () {
+		dialog('This must have been set up for some kind of ritual..')
 	}
 }

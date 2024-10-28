@@ -1,3 +1,4 @@
+import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
 import { attachDebugBounds, css } from "../util.mjs";
 
@@ -50,6 +51,10 @@ export class Water extends Sprite {
 			zIndex: -1,
 			overflow: 'visible',
 		});
+	}
+
+	interact () {
+		dialog("I don't want to swim.. too cold.")
 	}
 
 	animate () {
