@@ -4,6 +4,7 @@ import * as furniture from "./items/furniture.mjs";
 import * as roads from "./items/roads.mjs";
 import * as movables from "./items/movable-items.mjs";
 import * as trees from "./items/trees.mjs";
+import * as doors from "./items/door.mjs";
 import { Chibit } from "./items/chibit.mjs";
 import { CampFire } from "./items/fire.mjs";
 import { Lamp } from "./items/lamp.mjs";
@@ -12,7 +13,6 @@ import { Statue1 } from "./items/statues.mjs";
 import { Wall } from "./items/wall.mjs";
 import { Sprite } from "./sprite.mjs";
 import { Water } from "./items/water.mjs";
-import { Door } from "./items/door.mjs";
 import { css } from "./util.mjs";
 
 const types = {
@@ -23,7 +23,7 @@ const types = {
 	CampFire,
 	Statue1,
 	Water,
-	Door,
+	...doors,
 	...floor,
 	...furniture,
 	...roads,
