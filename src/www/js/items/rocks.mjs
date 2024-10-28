@@ -1,5 +1,6 @@
+import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
-import { attachDebugBounds, css } from "../util.mjs";
+import { attachDebugBounds, attachDebugCenter, css } from "../util.mjs";
 
 let idx = 0;
 
@@ -25,7 +26,12 @@ export class Rock extends Sprite {
 		}, offsetX, offsetY);
 
 		// attachDebugBounds(this, 'magenta');
+		// attachDebugCenter(this);
 		
 		this.setXY(x,y);
+	}
+
+	interact () {
+		dialog('I need tools to mine this.')
 	}
 }

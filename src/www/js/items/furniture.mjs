@@ -1,3 +1,4 @@
+import { Character, DIRECTION } from "../character.mjs";
 import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
 import { attachDebugBounds, css } from "../util.mjs";
@@ -67,8 +68,13 @@ export class MonitorDesk extends Sprite {
 		this.setXY(x,y);
 	}
 
+	/**
+	 * @param {Character} actor 
+	 */
 	interact (actor) {
-		dialog(this.message ?? "There's nothing interesting here...");
+		if (actor.direction === DIRECTION.N) {
+			dialog(this.message ?? "There's nothing interesting here...");
+		}
 	}
 
 	animate () {
@@ -127,8 +133,13 @@ export class MonitorDeskBig extends Sprite {
 		this.setXY(x,y);
 	}
 
+	/**
+	 * @param {Character} actor 
+	 */
 	interact (actor) {
-		dialog(this.message ?? "There's nothing interesting here...");
+		if (actor.direction === DIRECTION.N) {
+			dialog(this.message ?? "There's nothing interesting here...");
+		}
 	}
 
 	animate () {

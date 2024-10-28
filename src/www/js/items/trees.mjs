@@ -1,3 +1,4 @@
+import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
 import { attachDebugBounds, css } from "../util.mjs";
 
@@ -96,6 +97,10 @@ export class Trees3 extends Sprite {
 		this.setXY(x,y);
 
 		// attachDebugBounds(this, 'cyan');
+	}
+
+	interact () {
+		dialog('I need tools to chop this down.')
 	}
 }
 

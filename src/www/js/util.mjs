@@ -27,3 +27,18 @@ export function attachDebugBounds (sprite, color = 'blue') {
 
 	sprite.element.appendChild(debugBounds);
 }
+
+export function attachDebugCenter (sprite, color = 'blue') {
+	const debugCenter = document.createElement('div');
+
+	css(debugCenter,{
+		position: 'relative',
+		backgroundColor: color,
+		width: `6px`,
+		left: `${sprite.x + sprite.constructor.base.x - 3}px`,
+		height: `6px`,
+		top: `${sprite.y + sprite.constructor.base.y - 3}px`,
+	});
+
+	sprite.element.appendChild(debugCenter);
+}

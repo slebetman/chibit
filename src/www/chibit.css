@@ -59,3 +59,8 @@ dialog#dialog form button {
 	border: 1px solid #999;
 	outline: none;
 }
+
+::backdrop {
+	background-color: #000;
+	opacity: 0.5;
+}
