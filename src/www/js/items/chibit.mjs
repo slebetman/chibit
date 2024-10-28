@@ -86,7 +86,7 @@ export class Chibit extends Character {
 							return;
 						}
 						break;
-					case DIRECTION.E:
+					case DIRECTION.W:
 						if (
 							itemCenter.x < myCenter.x &&
 							itemCenter.y > this.y &&
@@ -96,7 +96,7 @@ export class Chibit extends Character {
 							return;
 						}
 						break;
-					case DIRECTION.W:
+					case DIRECTION.E:
 						if (
 							itemCenter.x > myCenter.x &&
 							itemCenter.y > this.y &&
@@ -149,8 +149,8 @@ export class Chibit extends Character {
 	update () {
 		super.update();
 		css($('world'),{
-			top: Math.round(-this.y + window.innerHeight/2),
-			left: Math.round(-this.x + window.innerWidth/2),
+			top: Math.round(window.innerHeight/2 - this.y),
+			left: Math.round(window.innerWidth/2 - this.x - this.constructor.base.x),
 		});
 		// css(this.element, {
 		// 	zIndex: 9999999,
