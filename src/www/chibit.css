@@ -1,9 +1,23 @@
+@media screen and (pointer:none) and (orientation: portrait) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
 body {
 	font-family: sans-serif;
 	overflow: hidden;
 	color: #fff;
 	background-color: #000;
 }
+
 div#world {
 	position: absolute;
 	z-index: 0;
@@ -12,16 +26,19 @@ div#world {
 	height: 5000px;
 
 }
+
 div#instruction,
 h1#title {
 	text-shadow: 2px 2px 6px #000;
 }
+
 div#instruction {
 	position: fixed;
 	left: 0;
 	top: 70px;
 	z-index: 1;
 }
+
 h1#title {
 	position: fixed;
 	font-size: 40pt;
