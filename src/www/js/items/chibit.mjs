@@ -36,7 +36,7 @@ export class Chibit extends Character {
 		this.frameStep = 0;
 
 		// this.tool = new Sprite(
-		// 	'./images/tool-pickaxe.png',
+		// 	'./images/tool-axe.png',
 		// 	SPRITE_SIZE,
 		// 	SPRITE_SIZE,
 		// 	{

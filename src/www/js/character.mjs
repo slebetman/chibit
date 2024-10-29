@@ -94,7 +94,7 @@ export class Character extends Sprite {
 		if (this.tool) {
 			css(this.tool.element,{
 				zIndex: Math.floor(this.y + this.bounds.y1) + 1,
-				backgroundPosition: `-${d}px -${s}px`,
+				backgroundPosition: `-${d}px 0px`,
 			});
 		}
 
