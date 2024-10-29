@@ -1,4 +1,4 @@
-@media screen and (pointer:none) and (orientation: portrait) {
+@media screen and (orientation: portrait) {
   html {
     transform: rotate(-90deg);
     transform-origin: left top;
