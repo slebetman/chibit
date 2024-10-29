@@ -1,36 +1,56 @@
-origin=30x30
-background=grass.png
-#=Wall
-\=Door;StoneFloor
-[=Door:open;TileFloor
-]=Door;TileFloor
-/=Door;WoodFloor
-A=Chibit;WoodFloor
-l=Lamp
-I=Lamp;StoneFloor
-.=WoodFloor
-_=StoneFloor
-*=DirtPath
--=TileFloor
-S=Shelf
-T=Trees3
-r=Rock
-@=Bushes
-m=MonitorDesk;StoneFloor
-n=MonitorDesk:blinking,message=Hmm.. It looks like there is a lab south-east of here.;WoodFloor
-c=MonitorDesk:blinking,message=The machine is missing a ruby crystal shard.<br><br>I wonder where I can find one...;TileFloor
-g=MonitorDesk:blinking,message=It says here that the big machine in that room generates some sort of dimensional portal!<br><br>I wonder if that has anything to do with this pile of monster bones..;TileFloor
-M=MonitorDeskBig:blinking,message=Usually a blinking monitor means there's some interesting information on the computer..<br><br>..but I don't see anything here.;StoneFloor
-N=MonitorDeskBig;TileFloor
-x=CampFire
-Y=Statue1
-H=Machine1;TileFloor
-w=Water
-B=DinoBones;TileFloor
-b=Box2;DirtPath
-p=Box2
-d=Box1
-o=Ball
+origin = 30x30;
+background = grass.png;
+# = Wall;
+\ = Door, StoneFloor;
+[ = Door:open,TileFloor;
+] = Door, TileFloor;
+/ = Door, WoodFloor;
+A = Chibit, WoodFloor;
+l = Lamp;
+I = Lamp, StoneFloor;
+. = WoodFloor;
+_ = StoneFloor;
+* = DirtPath;
+- = TileFloor;
+S = Shelf;
+T = Trees3;
+r = Rock;
+@ = Bushes;
+m = MonitorDesk,StoneFloor;
+n = MonitorDesk
+    :blinking
+    :message = Hmm.. It says that there is a lab <b>south-east</b> of here.,
+  WoodFloor;
+c = MonitorDesk
+    :blinking
+    :message =
+      The machine is missing a <b>ruby crystal shard</b>.<br><br>
+      I wonder where I can find one...,
+  TileFloor;
+g = MonitorDesk
+    :blinking
+    :message =
+      It says here that the big machine in that room generates some sort of
+      <b>dimensional portal</b>!<br><br>
+      I wonder if that has anything to do with this pile of monster bones..,
+   TileFloor;
+M = MonitorDeskBig
+    :blinking
+    :message =
+      Usually a <b>blinking</b> monitor means there's some interesting
+      information on the computer..<br><br>
+      ..but I don't see anything here.,
+  StoneFloor;
+N = MonitorDeskBig,TileFloor;
+x = CampFire;
+Y = Statue1;
+H = Machine1,TileFloor;
+w = Water;
+B = DinoBones,TileFloor;
+b = Box2,DirtPath;
+p = Box2;
+d = Box1;
+o = Ball;
 ____________________________________
         T    T       T         r
 T          T   T       T

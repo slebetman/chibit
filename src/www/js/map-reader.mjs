@@ -33,70 +33,75 @@ const types = {
 
 const itemType = {}
 
+/**
+ * @param {string} map 
+ * @returns 
+ */
 function parseMap (map) {
-	const lines = map.split(/\r?\n/);
+	const [ rawHeaders, rawMap ] = map.split(/^____+\s*$/m);
 
 	const mapHeaders = {
 		origin: { x: 0, y: 0}
 	};
-	const mapItems = [];
 
-	let endOfHeaders = false;
-	let row = 0;
+	for (const h of rawHeaders.split(';')) {
+		const match = h.trim().match(/^([^\s=]+)\s*=\s*([\s\S]+)$/m);
 
-	for (const l of lines) {
-		if (!endOfHeaders) {
-			if (l.match(/^____+\s*$/)) {
-				endOfHeaders = true;
-			}
-			else {
-				const [ k, ...vs ] = l.split('=').map(x => x.trim());
-				const v = vs.join('=');
+		if (!match) continue; // skip blank lines
 
-				if (k === 'origin') {
-					const [ x , y ] = v.split('x').map(x => parseInt(x,10));
-					mapHeaders.origin = {x,y};
-				}
-				else if (k === 'background') {
-					mapHeaders.background = v;
-				}
-				else {
-					const tval = v.split(';');
+		const [ _, k, v ] = match;
 
-					for (const val of tval) {
-						const [t, arg] = val.split(':');
-
-						if (types[t]) {
-							if (!itemType[k]) {
-								itemType[k] = [];
-							}
-							itemType[k].push([types[t],arg]);
-						}
-						else {
-							console.error('Unsupported type', t);
-						}
-					}
-				}
-			}
+		if (k === 'origin') {
+			const [ x , y ] = v.split('x').map(x => parseInt(x,10));
+			mapHeaders.origin = {x,y};
+		}
+		else if (k === 'background') {
+			mapHeaders.background = v.trim();
 		}
 		else {
-			let col = 0;
-			for (const c of l.split('')) {
-				if (itemType[c]) {
-					for (const t of itemType[c]) {
-						mapItems.push({
-							x: col,
-							y: row,
-							item: t[0],
-							arg: t[1],
-						})
+			const tval = v.split(',').map(x => x.trim());
+
+			for (const val of tval) {
+				const [t, ...args] = val.split(':').map(x => x.trim());
+				const arg = args
+					.map(x => x.trim().replace(/\s+/mg,' ').replace(/\s*=\s*/,'='))
+					.join(',');
+
+				if (types[t]) {
+					if (!itemType[k]) {
+						itemType[k] = [];
 					}
+					itemType[k].push([types[t],arg]);
 				}
-				col++;
+				else {
+					console.error('Unsupported type', t);
+				}
 			}
-			row++;
 		}
 	}
+
+	const mapItems = [];
+	let row = 0;
+
+	for (const l of rawMap.split('\n')) {
+		let col = 0;
+		for (const c of l.split('')) {
+			if (itemType[c]) {
+				for (const t of itemType[c]) {
+					mapItems.push({
+						x: col,
+						y: row,
+						item: t[0],
+						arg: t[1],
+					})
+				}
+			}
+			col++;
+		}
+		row++;
+	}
+
+	console.log(itemType);
 
 	return {
 		mapHeaders,
