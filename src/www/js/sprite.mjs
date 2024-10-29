@@ -1,4 +1,4 @@
-import { css, $, attachDebugBounds } from "./util.mjs";
+import { css, $, attachDebugBounds, make } from "./util.mjs";
 
 let nextId = 0;
 
@@ -30,7 +30,7 @@ export class Sprite {
 		this.width = width;
 		this.height = height;
 		this.bounds = bounds;
-		this.element = document.createElement('div');
+		this.element = make('div');
 		this.element.id = getNextId();
 		css(this.element,{
 			backgroundImage: `url("${this.spriteSheet}")`,

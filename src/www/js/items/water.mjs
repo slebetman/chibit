@@ -1,6 +1,6 @@
 import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
-import { attachDebugBounds, css } from "../util.mjs";
+import { attachDebugBounds, css, make } from "../util.mjs";
 
 const ANIMATION_LOOP = 30;
 
@@ -32,7 +32,7 @@ export class Water extends Sprite {
 		this.frameOffset = Math.random() * 20 - 15;
 		this.frame = selectFrame();
 
-		this.foam = document.createElement('div');
+		this.foam = make('div');
 		css(this.foam,{
 			position: 'relative',
 			top: 0,

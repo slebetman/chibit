@@ -1,7 +1,7 @@
 import { Character, DIRECTION } from "../character.mjs";
 import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
-import { attachDebugBounds, css } from "../util.mjs";
+import { attachDebugBounds, css, make } from "../util.mjs";
 
 let shelfIdx = 0;
 const shelfSprites = [0, 100, 200, 300, 400, 500, 600, 700];
@@ -47,7 +47,7 @@ export class MonitorDesk extends Sprite {
 			if (prop === 'blinking') {
 				this.cycle = Math.floor(Math.random() * 20 + 20);
 				this.blink = false;
-				this.screen = document.createElement('div');
+				this.screen = make('div');
 
 				css(this.screen,{
 					position: 'relative',
@@ -112,7 +112,7 @@ export class MonitorDeskBig extends Sprite {
 			if (prop === 'blinking') {
 				this.cycle = Math.floor(Math.random() * 20);
 				this.blink = false;
-				this.screen = document.createElement('div');
+				this.screen = make('div');
 
 				css(this.screen,{
 					position: 'relative',

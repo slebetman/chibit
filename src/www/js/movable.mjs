@@ -1,6 +1,7 @@
 import { Character, DIRECTION } from "./character.mjs";
 import { collisionDetection } from "./collision-detection.mjs";
 import { Sprite } from "./sprite.mjs";
+import { attachDebugBounds } from "./util.mjs";
 
 export class Movable extends Sprite {
 	constructor (spriteSheet, width, height, bounds) {
@@ -9,6 +10,8 @@ export class Movable extends Sprite {
 		this.step = 0;
 		this.cycle = 0;
 		this.direction = 0;
+
+		// attachDebugBounds(this);
 	}
 
 	/**
@@ -47,11 +50,21 @@ export class Movable extends Sprite {
 				diffY = Math.abs(this.y - newY);
 				diffX = Math.abs(this.x - newX);
 
-				if (diffX < diffY) {
-					newY = this.y - diffX;
+				if (mover instanceof Character) {
+					if (diffX < diffY) {
+						newY = this.y - diffX;
+					}
+					else {
+						newX = this.x + diffY;
+					}
 				}
 				else {
-					newX = this.x + diffY;
+					if (diffX < diffY) {
+						newY = this.y;
+					}
+					else {
+						newX = this.x;
+					}
 				}
 				break;
 			case DIRECTION.SE:
@@ -61,11 +74,21 @@ export class Movable extends Sprite {
 				diffY = Math.abs(this.y - newY);
 				diffX = Math.abs(this.x - newX);
 
-				if (diffX < diffY) {
-					newY = this.y + diffX;
+				if (mover instanceof Character) {
+					if (diffX < diffY) {
+						newY = this.y + diffX;
+					}
+					else {
+						newX = this.x + diffY;
+					}
 				}
 				else {
-					newX = this.x + diffY;
+					if (diffX < diffY) {
+						newY = this.y;
+					}
+					else {
+						newX = this.x;
+					}
 				}
 				break;
 			case DIRECTION.NW:
@@ -75,11 +98,21 @@ export class Movable extends Sprite {
 				diffY = Math.abs(this.y - newY);
 				diffX = Math.abs(this.x - newX);
 
-				if (diffX < diffY) {
-					newY = this.y - diffX;
+				if (mover instanceof Character) {
+					if (diffX < diffY) {
+						newY = this.y - diffX;
+					}
+					else {
+						newX = this.x - diffY;
+					}
 				}
 				else {
-					newX = this.x - diffY;
+					if (diffX < diffY) {
+						newY = this.y;
+					}
+					else {
+						newX = this.x;
+					}
 				}
 				break;
 			case DIRECTION.SW:
@@ -89,11 +122,21 @@ export class Movable extends Sprite {
 				diffY = Math.abs(this.y - newY);
 				diffX = Math.abs(this.x - newX);
 
-				if (diffX < diffY) {
-					newY = this.y + diffX;
+				if (mover instanceof Character) {
+					if (diffX < diffY) {
+						newY = this.y + diffX;
+					}
+					else {
+						newX = this.x - diffY;
+					}
 				}
 				else {
-					newX = this.x - diffY;
+					if (diffX < diffY) {
+						newY = this.y;
+					}
+					else {
+						newX = this.x;
+					}
 				}
 				break;
 		}

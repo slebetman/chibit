@@ -14,7 +14,7 @@ export function isTouchScreen () {
 }
 
 export function attachDebugBounds (sprite, color = 'blue') {
-	const debugBounds = document.createElement('div');
+	const debugBounds = make('div');
 
 	css(debugBounds,{
 		position: 'relative',
@@ -29,7 +29,7 @@ export function attachDebugBounds (sprite, color = 'blue') {
 }
 
 export function attachDebugCenter (sprite, color = 'blue') {
-	const debugCenter = document.createElement('div');
+	const debugCenter = make('div');
 
 	css(debugCenter,{
 		position: 'relative',
@@ -41,4 +41,8 @@ export function attachDebugCenter (sprite, color = 'blue') {
 	});
 
 	sprite.element.appendChild(debugCenter);
+}
+
+export function make (el) {
+	return document.createElement(el);
 }

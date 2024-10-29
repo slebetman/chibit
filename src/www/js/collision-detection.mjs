@@ -160,9 +160,10 @@ export function collisionDetection (sprite, movers = []) {
 	for (const i of nearItems) {
 		if (i === sprite || movers.includes(i)) continue;
 
-		collision = collide(sprite, i, sprite.direction);
+		const c = collide(sprite, i, sprite.direction);
 
-		if (collision !== undefined) {
+		if (c !== undefined) {
+			collision = c;
 			sprite.x = collision.x ?? sprite.x;
 			sprite.y = collision.y ?? sprite.y;
 		}
