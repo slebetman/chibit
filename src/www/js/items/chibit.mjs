@@ -35,6 +35,25 @@ export class Chibit extends Character {
 		this.breathCycle = 0;
 		this.frameStep = 0;
 
+		// this.tool = new Sprite(
+		// 	'./images/tool-pickaxe.png',
+		// 	SPRITE_SIZE,
+		// 	SPRITE_SIZE,
+		// 	{
+		// 		x1: 0, x2: 0,
+		// 		y1: 0, y2: 0,
+		// 	}
+		// );
+
+		// css(this.tool.element,{
+		// 	position: 'relative',
+		// 	top: 0,
+		// 	left: 0,
+		// });
+
+		// this.element.appendChild(this.tool.element);
+
+
 		// css(this.element,{
 		// 	border: '1px dashed magenta',
 		// })
