@@ -49,6 +49,7 @@ w = Water;
 B = DinoBones,TileFloor;
 b = Box2,DirtPath;
 p = Box2;
+z = Barrel;
 d = Box1;
 o = Ball;
 ____________________________________
@@ -68,8 +69,8 @@ r T   #/##_____# *  p*p      @  r  x  r
          #_____# ***b*p  T       r   r   T
    @ l   ###\### *l pbb*****      r*r      T
      @      *    *         *********
- T          *******r        T
-        ddd *@@   ***                      T
+ T       z  *******r        T
+        dzd *@@   ***                      T
   T   T     *  ww   *** T              T  T
           o *wwwww    *** T    T     T   T
    T       l*wwwwww     **        T T T

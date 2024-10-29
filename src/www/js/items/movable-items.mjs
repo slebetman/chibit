@@ -116,3 +116,25 @@ export class Box2 extends Movable {
 	}
 }
 
+export class Barrel extends Movable {
+	static base = {
+		x: 25,
+		y: 55,
+	}
+
+	constructor (x, y) {
+		super('./images/barrel.png', 60, 85,{
+			x1: 0, x2: 50,
+			y1: 40, y2: 77,
+		});
+		this.setXY(x,y);
+
+		// css(this.element,{
+		// 	border: '1px dashed orange',
+		// })
+
+		// attachDebugBounds(this, 'yellow');
+	}
+}
+
+
