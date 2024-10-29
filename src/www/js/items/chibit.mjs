@@ -1,10 +1,10 @@
-import { Character, DIRECTION, DIAGONAL_MOVEMENT } from "../character.mjs";
+import { Character, DIRECTION, DIAGONAL_MOVEMENT, CHARACTER_SIZE } from "../character.mjs";
 import { getNearestItems } from "../collision-detection.mjs";
 import { Sprite } from "../sprite.mjs";
 import { css, $, attachDebugBounds } from "../util.mjs";
+import { Axe, Pickaxe } from "./tools.mjs";
 
 const ANIMATION_LOOP = 20;
-const SPRITE_SIZE = 96;
 
 const wave = [];
 
@@ -23,7 +23,7 @@ export class Chibit extends Character {
 			x1: 20, x2: 78,
 			y1: 60, y2: 84,
 		};
-		super("./images/character2x8d.png",SPRITE_SIZE,SPRITE_SIZE, bounds);
+		super("./images/character2x8d.png",CHARACTER_SIZE,CHARACTER_SIZE, bounds);
 		this.teleportTracker = 0;
 		this.ghoseSprite = new Sprite(
 			this.spriteSheet,
@@ -35,22 +35,7 @@ export class Chibit extends Character {
 		this.breathCycle = 0;
 		this.frameStep = 0;
 
-		// this.tool = new Sprite(
-		// 	'./images/tool-axe.png',
-		// 	SPRITE_SIZE,
-		// 	SPRITE_SIZE,
-		// 	{
-		// 		x1: 0, x2: 0,
-		// 		y1: 0, y2: 0,
-		// 	}
-		// );
-
-		// css(this.tool.element,{
-		// 	position: 'relative',
-		// 	top: 0,
-		// 	left: 0,
-		// });
-
+		// this.tool = new Pickaxe();
 		// this.element.appendChild(this.tool.element);
 
 
@@ -91,7 +76,7 @@ export class Chibit extends Character {
 						if (
 							itemCenter.y < myCenter.y &&
 							itemCenter.x > this.x &&
-							itemCenter.x < this.x + SPRITE_SIZE
+							itemCenter.x < this.x + CHARACTER_SIZE
 						) {
 							item.interact(this);
 							return;
@@ -103,7 +88,7 @@ export class Chibit extends Character {
 						if (
 							itemCenter.y > myCenter.y &&
 							itemCenter.x > this.x &&
-							itemCenter.x < this.x + SPRITE_SIZE
+							itemCenter.x < this.x + CHARACTER_SIZE
 						) {
 							item.interact(this);
 							return;
@@ -113,7 +98,7 @@ export class Chibit extends Character {
 						if (
 							itemCenter.x < myCenter.x &&
 							itemCenter.y > this.y &&
-							itemCenter.y < this.y + SPRITE_SIZE
+							itemCenter.y < this.y + CHARACTER_SIZE
 						) {
 							item.interact(this);
 							return;
@@ -123,7 +108,7 @@ export class Chibit extends Character {
 						if (
 							itemCenter.x > myCenter.x &&
 							itemCenter.y > this.y &&
-							itemCenter.y < this.y + SPRITE_SIZE
+							itemCenter.y < this.y + CHARACTER_SIZE
 						) {
 							item.interact(this);
 							return;
@@ -144,8 +129,8 @@ export class Chibit extends Character {
 	}
 
 	updateTeleport () {
-		let d = this.direction * SPRITE_SIZE;
-		let s = this.step * SPRITE_SIZE;
+		let d = this.direction * CHARACTER_SIZE;
+		let s = this.step * CHARACTER_SIZE;
 		css(this.ghostElement,{
 			top:  `${this.y}px`,
 			left: `${this.x}px`,

@@ -2,6 +2,7 @@ import { collisionDetection } from "./collision-detection.mjs";
 import { Sprite } from "./sprite.mjs";
 import { css, $ } from "./util.mjs";
 
+export const CHARACTER_SIZE = 96;
 export const DIRECTION = {
 	S: 0,
 	SW: 1,
@@ -82,8 +83,8 @@ export class Character extends Sprite {
 	}
 
 	update () {
-		let d = this.direction * 96;
-		let s = this.step * 96;
+		let d = this.direction * CHARACTER_SIZE;
+		let s = this.step * CHARACTER_SIZE;
 		css(this.element,{
 			top:  `${this.y}px`,
 			left: `${this.x}px`,
@@ -92,10 +93,7 @@ export class Character extends Sprite {
 		});
 
 		if (this.tool) {
-			css(this.tool.element,{
-				zIndex: Math.floor(this.y + this.bounds.y1) + 1,
-				backgroundPosition: `-${d}px 0px`,
-			});
+			this.tool.update(this);
 		}
 
 		return this;
