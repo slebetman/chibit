@@ -13,7 +13,7 @@ import { Statue1 } from "./items/statues.mjs";
 import { Wall } from "./items/wall.mjs";
 import { Sprite } from "./sprite.mjs";
 import { Water } from "./items/water.mjs";
-import { css } from "./util.mjs";
+import { $, css } from "./util.mjs";
 
 const types = {
 	Wall,
@@ -114,11 +114,12 @@ function parseMap (map) {
  */
 export function drawMap (map) {
 	const { mapHeaders, mapItems } = parseMap(map);
+	const world = $('world');
 
 	const adjustableItems = [];
 
 	if (mapHeaders.background) {
-		css('world', {
+		css(world, {
 			backgroundImage: `url(/images/${mapHeaders.background})`,
 		})
 	}
@@ -140,6 +141,8 @@ export function drawMap (map) {
 		if (item.adjust) {
 			adjustableItems.push(item);
 		}
+
+		world.appendChild(item.element);
 	}
 
 	for (const i of adjustableItems) {

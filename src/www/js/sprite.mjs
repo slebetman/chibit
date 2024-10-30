@@ -40,8 +40,7 @@ export class Sprite {
 			width: `${this.width}px`,
 			height: `${this.height}px`,
 			backgroundPosition: `${offsetX}px ${offsetY}px`,
-		})
-		$('world').appendChild(this.element);
+		});
 
 		// if (bounds.x2 && bounds.y2)	attachDebugBounds(this);
 	}
