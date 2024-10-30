@@ -3,6 +3,7 @@ import { items } from "./items.mjs";
 import { drawMap } from "./map-reader.mjs";
 import { getNearestItems } from "./collision-detection.mjs";
 import { dialogIsActive } from "./dialog.mjs";
+import { Hotbar } from "./hotbar.mjs";
 
 async function main () {
 	const map = await (await fetch('/data/map.txt')).text();
@@ -10,6 +11,8 @@ async function main () {
 	drawMap(map);
 
 	const chibit = items.find(x => x instanceof Chibit);
+
+	const hotbar = new Hotbar();
 
 	const savedState = localStorage.getItem('saved-state');
 	if (savedState) {
@@ -70,6 +73,20 @@ async function main () {
 			case 'S':
 			case 'ArrowDown':
 				keys.down = true;
+				break;
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+			case '5':
+			case '6':
+			case '7':
+			case '8':
+			case '9':
+				hotbar.select(parseInt(e.key)-1);
+				break;
+			case '0':
+				hotbar.select();
 				break;
 			case 'Shift':
 				keys.shift = true;
@@ -135,6 +152,18 @@ async function main () {
 		e.stopPropagation();
 
 		checkKeys();
+	}
+
+	document.onmousedown = (e) => {
+		chibit.startInteraction();
+		e.preventDefault();
+		e.stopPropagation();
+	}
+
+	document.onmouseup = (e) => {
+		chibit.stopInteraction();
+		e.preventDefault();
+		e.stopPropagation();
 	}
 
 	setInterval(() => {

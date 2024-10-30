@@ -43,6 +43,24 @@ export function attachDebugCenter (sprite, color = 'blue') {
 	sprite.element.appendChild(debugCenter);
 }
 
-export function make (el) {
-	return document.createElement(el);
+/**
+ * @param {string} el 
+ * @param {Record<string,any>} props 
+ * @returns HTMLElement
+ */
+export function make (el, props) {
+	const element = document.createElement(el);
+
+	if (props) {
+		for (const k in props) {
+			if (k === 'style') {
+				css(element, props[k]);
+			}
+			else {
+				element[k] = props[k];
+			}
+		}
+	}
+
+	return element;
 }

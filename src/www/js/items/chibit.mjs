@@ -37,8 +37,8 @@ export class Chibit extends Character {
 		this.interacting = false;
 		this.interactingCycle = 0;
 
-		// this.tool = new Pickaxe();
-		// this.element.appendChild(this.tool.element);
+		this.tool = new Pickaxe();
+		this.element.appendChild(this.tool.element);
 
 		// css(this.element,{
 		// 	border: '1px dashed magenta',
@@ -162,7 +162,7 @@ export class Chibit extends Character {
 	update () {
 		super.update();
 		css($('world'),{
-			top: Math.round(window.innerHeight/2 - this.y),
+			top: Math.round(window.innerHeight/2 - this.y - this.constructor.base.y),
 			left: Math.round(window.innerWidth/2 - this.x - this.constructor.base.x),
 		});
 		// css(this.element, {

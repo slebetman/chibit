@@ -11,6 +11,56 @@
   }
 }
 
+#hotbar-container {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#hotbar {
+    background: #fff9;
+    border: 1px solid #666;
+    border-radius: 10px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    padding: 3px;
+    gap: 3px;
+	box-shadow: 0 2px 10px #000a;
+}
+
+#hotbar .tool {
+    border: 1px solid #666;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+#hotbar .tool.selected {
+	border:1px solid #ff0;
+	box-shadow:0 0 14px #ff0
+}
+
+#hotbar .tool:first-child {
+	border-radius: 8px 0 0 8px;
+}
+
+
+#hotbar .tool:last-child {
+	border-radius: 0 8px 8px 0;
+}
+
+#hotbar .tool label {
+	color: #000;
+	display: block;
+	font-size: 10px;
+	padding: 2px;
+}
+
 body {
 	font-family: sans-serif;
 	overflow: hidden;
@@ -56,8 +106,14 @@ dialog#dialog {
 	box-shadow: 0 0 20px #000;
 	border: 1px solid white;
 	outline: none;
-	margin-bottom: 0;
+	margin-bottom: 50px;
 	bottom: 50%;
+}
+
+dialog#dialog p {
+	max-height: 10em;
+	overflow-y: auto;
+	outline: #999;
 }
 
 dialog#dialog form {
