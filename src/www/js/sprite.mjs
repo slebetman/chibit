@@ -1,9 +1,12 @@
 import { css, $, attachDebugBounds, make } from "./util.mjs";
 
-let nextId = 0;
+const nextId = {};
 
-export function getNextId () {
-	return `item${nextId++}`;
+export function getNextId (name) {
+	if (!nextId[name]) {
+		nextId[name] = 0;
+	}
+	return `${name}_${nextId[name]++}`;
 }
 
 /**
@@ -31,7 +34,7 @@ export class Sprite {
 		this.height = height;
 		this.bounds = bounds;
 		this.element = make('div');
-		this.element.id = getNextId();
+		this.element.id = getNextId(this.constructor.name);
 		css(this.element,{
 			backgroundImage: `url("${this.spriteSheet}")`,
 			backgroundRepeat: 'no-repeat',
