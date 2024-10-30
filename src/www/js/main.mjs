@@ -75,7 +75,7 @@ async function main () {
 				keys.shift = true;
 				break;
 			case ' ':
-				chibit.performInteraction();
+				chibit.startInteraction();
 				break;
 			case 'Escape':
 				if (e.ctrlKey) {
@@ -124,6 +124,9 @@ async function main () {
 			case 'Shift':
 				keys.shift = false;
 				break;
+			case ' ':
+				chibit.stopInteraction();
+				break;
 			default:
 				return;
 		}
@@ -156,6 +159,7 @@ async function main () {
 	window.onblur = () => {
 		chibit.stopHorizontalMovement();
 		chibit.stopVerticalMovement();
+		chibit.stopInteraction();
 
 		keys.up = false;
 		keys.down = false;

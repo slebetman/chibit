@@ -31,7 +31,12 @@ export class Rock extends Sprite {
 		this.setXY(x,y);
 	}
 
-	interact () {
-		dialog('I need tools to mine this.')
+	interact (actor) {
+		if (!actor.tool) {
+			dialog('I need tools to mine this.');
+		}
+		else if (actor.tool.constructor.name === 'Pickaxe') {
+			actor.interacting = true;
+		}
 	}
 }

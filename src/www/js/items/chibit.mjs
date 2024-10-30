@@ -34,10 +34,11 @@ export class Chibit extends Character {
 		this.ghostElement = this.ghoseSprite.element;
 		this.breathCycle = 0;
 		this.frameStep = 0;
+		this.interacting = false;
+		this.interactingCycle = 0;
 
 		// this.tool = new Pickaxe();
 		// this.element.appendChild(this.tool.element);
-
 
 		// css(this.element,{
 		// 	border: '1px dashed magenta',
@@ -52,7 +53,7 @@ export class Chibit extends Character {
 		this.setXY(x,y);
 	}
 
-	performInteraction () {
+	startInteraction () {
 		const nearbyItems = getNearestItems(this, 100);
 
 		// If any of the items can be interacted with, interact with it:
@@ -119,6 +120,10 @@ export class Chibit extends Character {
 		}
 	}
 
+	stopInteraction () {
+		this.interacting = false;
+	}
+
 	teleport () {
 		if (this.isMoving()) {
 			if (this.teleportTracker === 0) {
@@ -168,6 +173,20 @@ export class Chibit extends Character {
 	animate () {
 		super.animate();
 		this.breathe();
+		if (this.tool) {
+			if (this.interacting) {
+				this.interactingCycle = (this.interactingCycle + 1) % 15;
+
+				if (this.interactingCycle === 0) {
+					this.tool.state = this.tool.state ? 0 : 1;
+					this.tool.update(this);
+				}
+			}
+			else {
+				this.tool.state = 0;
+				this.tool.update(this);
+			}
+		}
 	}
 
 	breathe () {

@@ -88,7 +88,7 @@ export class Character extends Sprite {
 		css(this.element,{
 			top:  `${this.y}px`,
 			left: `${this.x}px`,
-			zIndex: Math.floor(this.y + this.bounds.y1),
+			zIndex: Math.floor(this.y + this.bounds.y1) + 10,
 			backgroundPosition: `-${d}px -${s}px`,
 		});
 

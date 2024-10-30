@@ -99,8 +99,13 @@ export class Trees3 extends Sprite {
 		// attachDebugBounds(this, 'cyan');
 	}
 
-	interact () {
-		dialog('I need tools to chop this down.')
+	interact (actor) {
+		if (!actor.tool) {
+			dialog('I need tools to chop this down.');
+		}
+		else if (actor.tool.constructor.name === 'Axe') {
+			actor.interacting = true;
+		}
 	}
 }
 

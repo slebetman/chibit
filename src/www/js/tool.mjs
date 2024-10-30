@@ -30,7 +30,6 @@ export class Tool extends Sprite {
 	 */
 	update (actor) {
 		css(this.element,{
-			zIndex: Math.floor(actor.y + actor.bounds.y1) + 1,
 			backgroundPosition: `${actor.direction * -CHARACTER_SIZE}px ${this.state * -CHARACTER_SIZE}px`,
 		});
 	}
