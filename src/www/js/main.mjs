@@ -16,8 +16,8 @@ async function main () {
 
 	const hotbar = new Hotbar(chibit);
 
-	hotbar.addTool(0, new Pickaxe());
-	hotbar.addTool(1, new Axe());
+	hotbar.addTool(1, new Pickaxe());
+	hotbar.addTool(2, new Axe());
 
 	const savedState = localStorage.getItem('saved-state');
 	if (savedState) {

@@ -3,7 +3,6 @@ import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
 import { attachDebugBounds, css, make } from "../util.mjs";
 
-let shelfIdx = 0;
 const shelfSprites = [0, 100, 200, 300, 400, 500, 600, 700];
 export class Shelf extends Sprite {
 	static base = {
@@ -12,8 +11,8 @@ export class Shelf extends Sprite {
 	}
 
 	constructor (x, y) {
-		shelfIdx = (shelfIdx + 1) % shelfSprites.length;
-		const offsetX = shelfSprites[shelfIdx];
+		const idx = (Math.floor(x*3/100) + Math.floor(y*13/50) + 4) % shelfSprites.length;
+		const offsetX = shelfSprites[idx];
 
 		super('./images/shelves.png', 100, 110,{
 			x1: 0, x2: 100,
