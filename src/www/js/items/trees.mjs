@@ -19,8 +19,6 @@ export class Tree1 extends Sprite {
 	}
 }
 
-let idx = 0;
-
 const treesSprites3 = [
 	[0, 0], [-240, 0], [-240, -320], [-480, 0], [-480, -320],
 	[0, -320], [-240, -320], [-240, 0], [-480, -320], [-480, 0],
@@ -33,7 +31,7 @@ export class Trees extends Sprite {
 	}
 
 	constructor (x, y) {
-		idx = (idx + 1) % treesSprites3.length;
+		const idx = (Math.floor(x*7/100) + Math.floor(y*3/50) + 2) % treesSprites3.length;
 		const [offsetX, offsetY] = treesSprites3[idx];
 
 		super('./images/trees3.png', 240, 320,{
@@ -54,9 +52,9 @@ export class Trees extends Sprite {
 		}
 		else if (actor.tool.constructor.name === 'Axe') {
 			actor.interacting = true;
-			this.state = (this.state + 1) % 8;
+			this.state = (this.state + 1) % 2;
 			css(this.element,{
-				transform: this.state < 4 ? 'skewX(0.5deg) translateX(-1px)' : '',
+				transform: this.state ? 'skewX(0.5deg) translateX(-1px)' : '',
 			});
 			clearTimeout(this.timeout);
 			this.timeout = setTimeout(() => {
@@ -64,7 +62,7 @@ export class Trees extends Sprite {
 				css(this.element,{
 					transform: ''
 				});
-			}, 500);
+			}, 200);
 		}
 	}
 }
@@ -80,7 +78,7 @@ export class Bushes extends Sprite {
 	}
 
 	constructor (x, y) {
-		idx = (idx + 1) % bushSprites.length;
+		const idx = (Math.floor(x*3/100) + Math.floor(y*13/50) + 2) % bushSprites.length;
 		const [offsetX, offsetY] = bushSprites[idx];
 
 		super('./images/bushes.png', 100, 100,{

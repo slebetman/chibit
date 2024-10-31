@@ -1,6 +1,6 @@
 import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
-import { css } from "../util.mjs";
+import { attachDebugBounds, css } from "../util.mjs";
 
 export class Lamp extends Sprite {
 	static base = {
@@ -10,11 +10,13 @@ export class Lamp extends Sprite {
 
 	constructor (x, y) {
 		super('./images/lamp.png', 100, 200,{
-			x1: 30, x2: 70,
-			y1: 165, y2: 200,
+			x1: 36, x2: 60,
+			y1: 173, y2: 200,
 		});
 
 		this.state = 0;
+
+		// attachDebugBounds(this);
 
 		this.setXY(x,y);
 	}
@@ -25,9 +27,9 @@ export class Lamp extends Sprite {
 		}
 		else if (actor.tool.constructor.name === 'Axe') {
 			actor.interacting = true;
-			this.state = (this.state + 1) % 8;
+			this.state = (this.state + 1) % 2;
 			css(this.element,{
-				transform: this.state < 4 ? 'skewX(0.5deg) translateX(-1px)' : '',
+				transform: this.state ? 'skewX(0.5deg) translateX(-1px)' : '',
 			});
 			clearTimeout(this.timeout);
 			this.timeout = setTimeout(() => {
@@ -35,7 +37,7 @@ export class Lamp extends Sprite {
 				css(this.element,{
 					transform: ''
 				});
-			}, 500);
+			}, 200);
 		}
 	}
 }

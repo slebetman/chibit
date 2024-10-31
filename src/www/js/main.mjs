@@ -7,6 +7,7 @@ import { Hotbar } from "./hotbar.mjs";
 import { Axe, Pickaxe } from "./items/tools.mjs";
 
 async function main () {
+	let started = false;
 	const map = await (await fetch('/data/map.txt')).text();
 
 	drawMap(map);
@@ -96,7 +97,10 @@ async function main () {
 				keys.shift = true;
 				break;
 			case ' ':
-				chibit.startInteraction();
+				if (!started) {
+					started = true;
+					chibit.startInteraction();
+				}
 				break;
 			case 'Escape':
 				if (e.ctrlKey) {
@@ -146,6 +150,7 @@ async function main () {
 				keys.shift = false;
 				break;
 			case ' ':
+				started = false;
 				chibit.stopInteraction();
 				break;
 			default:

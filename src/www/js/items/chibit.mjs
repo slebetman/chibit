@@ -59,6 +59,12 @@ export class Chibit extends Character {
 	startInteraction () {
 		const nearbyItems = getNearestItems(this, 100);
 
+		switch (this.direction) {
+			case DIRECTION.N:
+			case DIRECTION.W:
+				nearbyItems.reverse();
+		}
+
 		// If any of the items can be interacted with, interact with it:
 		for (const item of nearbyItems) {
 			if (item.interact) {

@@ -2,8 +2,6 @@ import { dialog } from "../dialog.mjs";
 import { Sprite } from "../sprite.mjs";
 import { attachDebugBounds, attachDebugCenter, css } from "../util.mjs";
 
-let idx = 0;
-
 const rockSprites = [
 	[0,0], [-100,0], [-200,0],
 	[0,-100], [-100,-100], [-200,-100],
@@ -17,7 +15,7 @@ export class Rock extends Sprite {
 	}
 
 	constructor (x, y) {
-		idx = (idx + 1) % rockSprites.length;
+		const idx = (Math.floor(x*13/100) + Math.floor(y/50) + 2) % rockSprites.length;
 		const [offsetX, offsetY] = rockSprites[idx];
 
 		super('./images/rocks.png', 100, 100,{
@@ -39,18 +37,20 @@ export class Rock extends Sprite {
 			dialog('I need tools to mine this.');
 		}
 		else if (actor.tool.constructor.name === 'Pickaxe') {
-			actor.interacting = true;
-			this.state = (this.state + 1) % 8;
-			css(this.element,{
-				transform: this.state < 4 ? 'skewX(0.5deg) translateX(-1px)' : '',
-			});
-			clearTimeout(this.timeout);
-			this.timeout = setTimeout(() => {
-				this.state = 0;
+			if (actor.interacting) {
+				this.state = (this.state + 1) % 2;
 				css(this.element,{
-					transform: ''
+					transform: this.state ? 'skewX(0.5deg) translateX(-1px)' : '',
 				});
-			}, 500);
+				clearTimeout(this.timeout);
+				this.timeout = setTimeout(() => {
+					this.state = 0;
+					css(this.element,{
+						transform: ''
+					});
+				}, 200);
+			}
+			actor.interacting = true;
 		}
 	}
 }
