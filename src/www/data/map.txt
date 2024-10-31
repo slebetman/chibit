@@ -18,29 +18,29 @@ r = Rock;
 @ = Bushes;
 m = MonitorDesk,StoneFloor;
 n = MonitorDesk
-    :blinking
-    :message = Hmm.. It says that there is a lab <b>south-east</b> of here.,
-  WoodFloor;
+      :blinking
+      :message = Hmm.. It says that there is a lab <b>south-east</b> of here.,
+    WoodFloor;
 c = MonitorDesk
-    :blinking
-    :message =
-      The machine is missing a <b>ruby crystal shard</b>.<br><br>
-      I wonder where I can find one...,
-  TileFloor;
+      :blinking
+      :message =
+        The machine is missing a <b>ruby crystal shard</b>.<br><br>
+        I wonder where I can find one...,
+    TileFloor;
 g = MonitorDesk
-    :blinking
-    :message =
-      It says here that the big machine in that room generates some sort of
-      <b>dimensional portal</b>!<br><br>
-      I wonder if that has anything to do with this pile of monster bones..,
-   TileFloor;
+      :blinking
+      :message =
+        It says here that the big machine in that room generates some sort of
+        <b>dimensional portal</b>!<br><br>
+        I wonder if that has anything to do with this pile of monster bones..,
+    TileFloor;
 M = MonitorDeskBig
-    :blinking
-    :message =
-      Usually a <b>blinking</b> monitor means there's some interesting
-      information on the computer..<br><br>
-      ..but I don't see anything here.,
-  StoneFloor;
+      :blinking
+      :message =
+        Usually a <b>blinking</b> monitor means there's some interesting
+        information on the computer..<br><br>
+        ..but I don't see anything here.,
+    StoneFloor;
 N = MonitorDeskBig,TileFloor;
 x = CampFire;
 Y = Statue1;
