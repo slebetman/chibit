@@ -25,6 +25,9 @@ export class Rock extends Sprite {
 			y1: 38, y2: 88,
 		}, offsetX, offsetY);
 
+		this.state = 0;
+		this.timeout = null;
+
 		// attachDebugBounds(this, 'magenta');
 		// attachDebugCenter(this);
 		
@@ -37,6 +40,17 @@ export class Rock extends Sprite {
 		}
 		else if (actor.tool.constructor.name === 'Pickaxe') {
 			actor.interacting = true;
+			this.state = (this.state + 1) % 8;
+			css(this.element,{
+				transform: this.state < 4 ? 'skewX(0.5deg) translateX(-1px)' : '',
+			});
+			clearTimeout(this.timeout);
+			this.timeout = setTimeout(() => {
+				this.state = 0;
+				css(this.element,{
+					transform: ''
+				});
+			}, 500);
 		}
 	}
 }

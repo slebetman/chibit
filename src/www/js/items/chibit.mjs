@@ -37,6 +37,9 @@ export class Chibit extends Character {
 		this.interacting = false;
 		this.interactingCycle = 0;
 
+		/** @type {Sprite | null} */
+		this.interactingItem = null;
+
 		/** @type {Tool | null} */
 		this.tool = null;
 
@@ -79,6 +82,7 @@ export class Chibit extends Character {
 							itemCenter.x > this.x &&
 							itemCenter.x < this.x + CHARACTER_SIZE
 						) {
+							this.interactingItem = item;
 							item.interact(this);
 							return;
 						}
@@ -91,6 +95,7 @@ export class Chibit extends Character {
 							itemCenter.x > this.x &&
 							itemCenter.x < this.x + CHARACTER_SIZE
 						) {
+							this.interactingItem = item;
 							item.interact(this);
 							return;
 						}
@@ -101,6 +106,7 @@ export class Chibit extends Character {
 							itemCenter.y > this.y &&
 							itemCenter.y < this.y + CHARACTER_SIZE
 						) {
+							this.interactingItem = item;
 							item.interact(this);
 							return;
 						}
@@ -111,6 +117,7 @@ export class Chibit extends Character {
 							itemCenter.y > this.y &&
 							itemCenter.y < this.y + CHARACTER_SIZE
 						) {
+							this.interactingItem = item;
 							item.interact(this);
 							return;
 						}
@@ -120,7 +127,14 @@ export class Chibit extends Character {
 		}
 	}
 
+	continueInteraction () {
+		if (this.interacting) {
+			this.interactingItem.interact(this);
+		}
+	}
+
 	stopInteraction () {
+		this.interactingItem = null;
 		this.interacting = false;
 	}
 
@@ -197,6 +211,7 @@ export class Chibit extends Character {
 				if (this.interactingCycle === 0) {
 					this.tool.state = this.tool.state ? 0 : 1;
 					this.tool.update(this);
+					this.continueInteraction();
 				}
 			}
 			else {

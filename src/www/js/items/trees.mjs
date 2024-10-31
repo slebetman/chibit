@@ -40,6 +40,9 @@ export class Trees extends Sprite {
 			x1: 108, x2: 132,
 			y1: 265, y2: 280,
 		}, offsetX, offsetY);
+
+		this.state = 0;
+
 		this.setXY(x,y);
 
 		// attachDebugBounds(this, 'cyan');
@@ -51,6 +54,17 @@ export class Trees extends Sprite {
 		}
 		else if (actor.tool.constructor.name === 'Axe') {
 			actor.interacting = true;
+			this.state = (this.state + 1) % 8;
+			css(this.element,{
+				transform: this.state < 4 ? 'skewX(0.5deg) translateX(-1px)' : '',
+			});
+			clearTimeout(this.timeout);
+			this.timeout = setTimeout(() => {
+				this.state = 0;
+				css(this.element,{
+					transform: ''
+				});
+			}, 500);
 		}
 	}
 }
