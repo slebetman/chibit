@@ -37,8 +37,8 @@ export class Chibit extends Character {
 		this.interacting = false;
 		this.interactingCycle = 0;
 
-		this.tool = new Pickaxe();
-		this.element.appendChild(this.tool.element);
+		/** @type {Tool | null} */
+		this.tool = null;
 
 		// css(this.element,{
 		// 	border: '1px dashed magenta',
@@ -157,6 +157,23 @@ export class Chibit extends Character {
 		},10);
 
 		return this;
+	}
+
+	/**
+	 * 
+	 * @param {Tool | null} tool
+	 */
+	useTool (tool) {
+		this.tool = tool;
+		for (const c of this.element.children) {
+			if (c.className === 'tool') {
+				this.element.removeChild(c);
+			}
+		}
+
+		if (tool) {
+			this.element.appendChild(tool.element);
+		}
 	}
 
 	update () {

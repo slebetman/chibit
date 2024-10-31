@@ -4,6 +4,7 @@ import { drawMap } from "./map-reader.mjs";
 import { getNearestItems } from "./collision-detection.mjs";
 import { dialogIsActive } from "./dialog.mjs";
 import { Hotbar } from "./hotbar.mjs";
+import { Axe, Pickaxe } from "./items/tools.mjs";
 
 async function main () {
 	const map = await (await fetch('/data/map.txt')).text();
@@ -12,7 +13,10 @@ async function main () {
 
 	const chibit = items.find(x => x instanceof Chibit);
 
-	const hotbar = new Hotbar();
+	const hotbar = new Hotbar(chibit);
+
+	hotbar.addTool(0, new Pickaxe());
+	hotbar.addTool(1, new Axe());
 
 	const savedState = localStorage.getItem('saved-state');
 	if (savedState) {

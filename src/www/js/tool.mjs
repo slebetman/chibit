@@ -11,16 +11,19 @@ export class Tool extends Sprite {
 	 * @param {number} offsetY 
 	 */
 	constructor (spriteSheet) {
-		super(spriteSheet, CHARACTER_SIZE, CHARACTER_SIZE,{
+		super(spriteSheet, CHARACTER_SIZE, 70,{
 			x1: 0, x2: 0,
 			y1: 0, y2: 0,
 		});
 
 		this.state = 0;
+		this.spriteSheet = spriteSheet;
+
+		this.element.className = 'tool';
 
 		css(this.element,{
 			position: 'relative',
-			top: 0,
+			top: '25px',
 			left: 0,
 		});
 	}
@@ -30,7 +33,7 @@ export class Tool extends Sprite {
 	 */
 	update (actor) {
 		css(this.element,{
-			backgroundPosition: `${actor.direction * -CHARACTER_SIZE}px ${this.state * -CHARACTER_SIZE}px`,
+			backgroundPosition: `${actor.direction * -CHARACTER_SIZE}px ${this.state * -70 - 50}px`,
 		});
 	}
 }
