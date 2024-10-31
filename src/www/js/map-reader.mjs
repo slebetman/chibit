@@ -101,7 +101,7 @@ function parseMap (map) {
 		row++;
 	}
 
-	console.log(itemType);
+	// console.log(itemType);
 
 	return {
 		mapHeaders,

@@ -81,30 +81,30 @@ export class Ball extends Movable {
 export class Box1 extends Movable {
 	static base = {
 		x: 32,
-		y: 70,
+		y: 59,
 	}
 
 	constructor (x, y) {
 		super('./images/box1.png', 75, 100,{
 			x1: 0, x2: 64,
-			y1: 40, y2: 91,
+			y1: 52, y2: 91,
 		});
 		this.setXY(x,y);
 
-		// attachDebugBounds(this, 'yellow');
+		// attachDebugBounds(this, 'orange');
 	}
 }
 
 export class Box2 extends Movable {
 	static base = {
 		x: 25,
-		y: 60,
+		y: 50,
 	}
 
 	constructor (x, y) {
 		super('./images/box2.png', 60, 85,{
 			x1: 0, x2: 50,
-			y1: 40, y2: 77,
+			y1: 44, y2: 77,
 		});
 		this.setXY(x,y);
 
@@ -119,13 +119,13 @@ export class Box2 extends Movable {
 export class Barrel extends Movable {
 	static base = {
 		x: 25,
-		y: 55,
+		y: 45,
 	}
 
 	constructor (x, y) {
 		super('./images/barrel.png', 60, 85,{
 			x1: 0, x2: 50,
-			y1: 40, y2: 77,
+			y1: 42, y2: 72,
 		});
 		this.setXY(x,y);
 

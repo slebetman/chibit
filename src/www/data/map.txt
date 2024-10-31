@@ -68,9 +68,9 @@ T     ####S_SmS# * ####   T    T   T
 r T   #/##_____# *  p*p      @  r  x  r
          #_____# ***b*p  T       r   r   T
    @ l   ###\### *l pbb*****      r*r      T
-     @      *    *         *********
- T       z  *******r        T
-        dzd *@@   ***                      T
+     @   dzp*    *         *********
+ T       dzp*******r        T
+            *@@   ***                      T
   T   T     *  ww   *** T              T  T
           o *wwwww    *** T    T     T   T
    T       l*wwwwww     **        T T T
