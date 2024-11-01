@@ -50,7 +50,7 @@ route.get('/edit/:file', async (req, res) => {
 			<head>
 				<style>
 					* {
-						font-family: 'Courier New', Courier, monospace;
+						font-family: monospace;
 						margin: 0;
 						padding: 0;
 					}
@@ -70,14 +70,17 @@ route.get('/edit/:file', async (req, res) => {
 						font-size: 18px;
 					}
 					pre#headers {
-						width: 40vw;
+						width: 30vw;
 						border-right: 1px solid #000;
 						border-top: 1px solid #000;
+						font-size: 10px;
 					}
 					pre#map {
 						transform: scaleX(2) translateX(25%);
-						width: 28.5vw;
+						width: 33.5vw;
 						border-top: 1px solid #000;
+						letter-spacing: 0.3em;
+						font-size: 8px;
 					}
 				</style>
 			</head>
