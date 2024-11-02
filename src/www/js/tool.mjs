@@ -1,6 +1,6 @@
 import { Sprite } from "./sprite.mjs";
 import { attachDebugBounds, css } from "./util.mjs";
-import { Character, CHARACTER_SIZE, DIRECTION } from "./character.mjs";
+import { Character, CHARACTER_SIZE } from "./character.mjs";
 import { dialog } from "./dialog.mjs";
 
 export class Tool extends Sprite {

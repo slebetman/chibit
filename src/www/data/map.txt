@@ -7,6 +7,7 @@ background = grass.png;
 / = Door, WoodFloor;
 A = Chibit, WoodFloor;
 a = DroppedAxe;
+i = DroppedPickaxe;
 l = Lamp;
 I = Lamp, StoneFloor;
 . = WoodFloor;
@@ -85,7 +86,7 @@ T        r  *wwwwww T    ** T    T         T wwwwwwwwwwwwwwwwwww
        T    * wwwwwww     *  T     T   T  T wwwwwwwwwwwwwwwwwwww
    T        *   wwwww T  T*     T     T  T  wwwwwwwwwwwwwwwwwww
      T    a ** l  www  T  *       T     T    wwwwwwwwwwwwwwww
-  T          **** T  T  ##]####      T   T      wwwwwwwwwww
+  T      i   **** T  T  ##]####      T   T      wwwwwwwwwww
     T       @  r*       #S-ScS#        T          wwwwww
       T         ***     #-----#   T T@   T
   T               **T   #-----#      @@
