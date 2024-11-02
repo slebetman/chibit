@@ -18,14 +18,14 @@ route.post('/edit/:file', async (req, res) => {
 		}
 		catch (err) {
 			console.error(err);
-			res.status(400).end('Error saving map file! ' + err.message);
+			res.end('Error saving map file! ' + err.message);
 			return;	
 		}
 
-		res.redirect(`/edit/${fileName}`);
+		res.end(`Saved ${fileName}`);
 	}
 	else {
-		res.status(400).end('Error saving map file!');
+		res.end('Error saving map file!');
 	}
 });
 
@@ -48,92 +48,24 @@ route.get('/edit/:file', async (req, res) => {
 	res.end(html`
 		<html>
 			<head>
-				<style>
-					* {
-						font-family: monospace;
-						margin: 0;
-						padding: 0;
-					}
-					body {
-						display: flex;
-						flex-direction: row;
-					}
-					pre {
-						margin: 0;
-						padding: 5px;
-						overflow: auto;
-						outline: none;
-						font-size: 12px;
-						height: 94vh;
-					}
-					h1 {
-						font-size: 18px;
-					}
-					pre#headers {
-						width: 30vw;
-						border-right: 1px solid #000;
-						border-top: 1px solid #000;
-						font-size: 10px;
-					}
-					pre#map {
-						transform: scaleX(2) translateX(25%);
-						width: 33.5vw;
-						border-top: 1px solid #000;
-						letter-spacing: 0.3em;
-						font-size: 8px;
-					}
-				</style>
+				<link rel="stylesheet" href="/editor.css">
 			</head>
 			<body>
 				<div>
 					<h1>Headers</h1>
-					<pre id="headers" contenteditable spellcheck="false">${rawHeaders}</pre>
+					<pre id="headers"
+						contenteditable
+						spellcheck="false"
+					>${rawHeaders}</pre>
 				</div>
 				<div>
 					<h1>Map</h1>
-					<pre id="map" contenteditable spellcheck="false">${rawMap}</pre>
+					<pre id="map"
+						contenteditable
+						spellcheck="false"
+					>${rawMap}</pre>
 				</div>
-				<script>
-					document.onkeydown = function (e) {
-						switch (e.key) {
-							case 's':
-								if (e.ctrlKey) {
-									saveFile();
-								}
-								else {
-									return;
-								}
-								break;
-							default:
-								return;
-						}
-
-						e.preventDefault();
-						e.stopPropagation();
-					}
-
-					async function saveFile () {
-						const headers = document.querySelector('#headers').innerText;
-						const map = document.querySelector('#map').innerText;
-
-						const rawText =
-							headers.trim() +
-							'\\n____________________________________\\n' +
-							map;
-
-						console.log(rawText);
-
-						await fetch("/edit/${fileName}", {
-							method: "POST",
-							body: JSON.stringify({map: rawText}),
-							headers: {
-								"Content-Type": "application/json",
-							},
-						});
-
-						alert('Saved ${fileName}')
-					}
-				</script>
+				<script src="/js/editor/main.mjs" type="module"></script>
 			</body>
 		</html>
 	`);

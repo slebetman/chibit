@@ -43,6 +43,10 @@ function moveWest (movingSprite, targetSprite) {
  * @param {number} direction 
  */
 export function collide (movingSprite, targetSprite, direction) {
+	if (targetSprite.bounds.x2 === 0 && targetSprite.bounds.y2 === 0) {
+		return undefined;
+	}
+
 	const x = movingSprite.x + movingSprite.bounds.x1;
 	const farX = movingSprite.x + movingSprite.bounds.x2;
 	const y = movingSprite.y + movingSprite.bounds.y1;
