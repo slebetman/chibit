@@ -2,6 +2,7 @@ import { Sprite } from "./sprite.mjs";
 import { attachDebugBounds, css } from "./util.mjs";
 import { Character, CHARACTER_SIZE } from "./character.mjs";
 import { dialog } from "./dialog.mjs";
+import { Chibit } from "./items/chibit.mjs";
 
 export class Tool extends Sprite {
 	/**
@@ -66,8 +67,11 @@ export class DroppedTool extends Sprite {
 		this.setXY(x,y);
 	}
 
+	/**
+	 * @param {Chibit} actor 
+	 */
 	interact (actor) {
-		dialog(`${actor.constructor.name} tries to pick up ${this.item.constructor.name}`);
+		actor.pickupItem(this);
 	}
 
 	adjust () {

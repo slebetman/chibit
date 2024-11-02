@@ -7,7 +7,7 @@ background = grass.png;
 / = Door, WoodFloor;
 A = Chibit, WoodFloor;
 a = DroppedAxe;
-i = DroppedPickaxe;
+i = DroppedPickaxe,WoodFloor;
 l = Lamp;
 I = Lamp, StoneFloor;
 . = WoodFloor;
@@ -69,7 +69,7 @@ T          T   T       T                          wwwwww
     T    ##\#### *      T                    wwwwwwwwwwwwwwwwww
 T     ####S_SmS# * ####   T    T   T        wwwwwwwwwwwwwwwwwwwww
    r  #SS#_____# * #SS#  r      T          wwwwwwwwwwwwwwwwwwwwwww
-      #..______# * #..#      T    rrr    wwwwwwwwwwwwwwwwwwwwwwwww
+      #i.______# * #..#      T    rrr    wwwwwwwwwwwwwwwwwwwwwwwww
       #..______# *@#.A#    T     r   r  wwwwwwwwwwwwwwwwwwwwwwwww
  T    #.n#__M__# * #..#       T r     r wwwwwwwwwwwwwwwwwwwwwwwww
       #..#_____# * ##/# T   T   r  Y  r wwwwwwwwwwwwwwwwwwwwwwww
@@ -77,7 +77,7 @@ r T   #/##_____# *  p*p      @  r  x  r   wwwwwwwwwwwwwww
          #_____# ***b*p  T       r   r   T wwwwwwwwwwwwwww
    @ l   ###\### *l pbb*****      r*r      T wwwwwwwwwwwwwwwwww
      @   dzp*    *         *********          wwwwwwwwwwwwwwwwww
- T       dzp*******r        T                wwwwwwwwwwwwwwwwwww
+ T       dzp*******ra       T                wwwwwwwwwwwwwwwwwww
             *@@   ***                      T wwwwwwwwwwwwwwwww
   T   T     *  ww   *** T              T  T   wwwwwwwwwwwwwww
           o *wwwww    *** T    T     T   T     wwwwwwwwwwwwww
@@ -85,8 +85,8 @@ r T   #/##_____# *  p*p      @  r  x  r   wwwwwwwwwwwwwww
 T        r  *wwwwww T    ** T    T         T wwwwwwwwwwwwwwwwwww
        T    * wwwwwww     *  T     T   T  T wwwwwwwwwwwwwwwwwwww
    T        *   wwwww T  T*     T     T  T  wwwwwwwwwwwwwwwwwww
-     T    a ** l  www  T  *       T     T    wwwwwwwwwwwwwwww
-  T      i   **** T  T  ##]####      T   T      wwwwwwwwwww
+     T      ** l  www  T  *       T     T    wwwwwwwwwwwwwwww
+  T          **** T  T  ##]####      T   T      wwwwwwwwwww
     T       @  r*       #S-ScS#        T          wwwwww
       T         ***     #-----#   T T@   T
   T               **T   #-----#      @@

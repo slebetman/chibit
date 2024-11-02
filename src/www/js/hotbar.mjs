@@ -1,4 +1,4 @@
-import { Character } from "./character.mjs";
+import { Chibit } from "./items/chibit.mjs";
 import { Tool } from "./tool.mjs";
 import { $, css, make } from "./util.mjs";
 
@@ -26,7 +26,7 @@ function makeTool (idx) {
 
 export class Hotbar {
 	/**
-	 * @param {Character} player 
+	 * @param {Chibit} player 
 	 */
 	constructor (player) {
 		this.selected = 0;
@@ -37,6 +37,7 @@ export class Hotbar {
 		this.toolSlots = [];
 		this.element = $('hotbar');
 		this.player = player;
+		this.player.inventory = this;
 
 		for (let i=0; i < this.tools.length; i++) {
 			const tool = makeTool(i+1);

@@ -1,6 +1,8 @@
 import { Character, DIRECTION, DIAGONAL_MOVEMENT, CHARACTER_SIZE } from "../character.mjs";
 import { getNearestItems } from "../collision-detection.mjs";
+import { Hotbar } from "../hotbar.mjs";
 import { Sprite } from "../sprite.mjs";
+import { DroppedTool, Tool } from "../tool.mjs";
 import { css, $, attachDebugBounds } from "../util.mjs";
 import { Axe, Pickaxe } from "./tools.mjs";
 
@@ -37,6 +39,9 @@ export class Chibit extends Character {
 		this.interacting = false;
 		this.interactingCycle = 0;
 
+		/** @type {Hotbar | null} */
+		this.inventory = null;
+
 		/** @type {Sprite | null} */
 		this.interactingItem = null;
 
@@ -54,6 +59,29 @@ export class Chibit extends Character {
 		});
 
 		this.setXY(x,y);
+	}
+
+	/**
+	 * @param {DroppedTool} droppedItem 
+	 */
+	pickupItem (droppedItem) {
+		// Find empty spot in inventory:
+		const idx = this.inventory?.tools.findIndex(x => x === null);
+
+		if (idx !== undefined) {
+			this.inventory?.addTool(idx, droppedItem.item);
+			$('world').removeChild(droppedItem.element);
+			return true;
+		}
+		
+		return false;
+	}
+
+	/**
+	 * @param {number} idx
+	 */
+	dropItem (idx) {
+
 	}
 
 	startInteraction () {
