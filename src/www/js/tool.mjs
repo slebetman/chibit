@@ -1,5 +1,5 @@
 import { Sprite } from "./sprite.mjs";
-import { attachDebugBounds, css } from "./util.mjs";
+import { attachDebugBounds, css, make } from "./util.mjs";
 import { Character, CHARACTER_SIZE } from "./character.mjs";
 import { dialog } from "./dialog.mjs";
 import { Chibit } from "./items/chibit.mjs";
@@ -23,6 +23,19 @@ export class Tool extends Sprite {
 
 		/** @type {DroppedTool | null} */
 		this.dropped = null;
+		this.icon = make('div',{
+			className: 'tool-icon',
+			draggable: true,
+			style: {
+				width: '40px',
+				height: '30px',
+				position: 'relative',
+				top: '-3px',
+				left: '5px',
+				backgroundImage: `url("${spriteSheet}")`,
+				backgroundPosition: '-5px -13px',
+			}
+		});
 
 		this.element.className = 'tool';
 

@@ -44,7 +44,6 @@ export class Hotbar {
 			tool.onmousedown = (e) => {
 				this.select(i);
 				e.stopPropagation();
-				e.preventDefault();
 			}
 
 			this.toolSlots.push(tool);
@@ -79,9 +78,20 @@ export class Hotbar {
 	 */
 	addTool (idx, tool) {
 		this.tools[idx] = tool;
-		css(this.toolSlots[idx],{
-			backgroundImage: `url(${tool.spriteSheet})`,
-		});
+		// css(this.toolSlots[idx],{
+		// 	backgroundImage: `url(${tool.spriteSheet})`,
+		// });
+		this.toolSlots[idx].appendChild(tool.icon);
+		tool.icon.ondragstart = (e) => {
+			css(tool.icon,{
+				opacity: 0.5,
+			})
+		}
+		tool.icon.ondragend = (e) => {
+			css(tool.icon,{
+				opacity: 1,
+			})
+		}
 
 		if (this.selected === idx) {
 			this.player.useTool(tool);
@@ -93,9 +103,15 @@ export class Hotbar {
 	 */
 	removeTool (idx) {
 		this.tools[idx] = null;
-		css(this.toolSlots[idx],{
-			backgroundImage: '',
-		});
+		// css(this.toolSlots[idx],{
+		// 	backgroundImage: '',
+		// });
+		const icon = Array.from(this.toolSlots[idx].children)
+			.find(x => x.className === 'tool-icon');
+		
+		if (icon) {
+			this.toolSlots[idx].removeChild(icon);
+		}
 
 		if (this.selected === idx) {
 			this.player.useTool(null);

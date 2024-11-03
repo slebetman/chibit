@@ -1,3 +1,10 @@
+import { items } from "./items.mjs";
+import { Sprite } from "./sprite.mjs";
+
+/**
+ * @param {HTMLElement | string} el 
+ * @returns 
+ */
 export function $ (el) {
 	if (typeof el === 'string') return document.getElementById(el);
 	return el;
@@ -63,4 +70,26 @@ export function make (el, props) {
 	}
 
 	return element;
+}
+
+const world = $('world');
+
+/**
+ * @param {Sprite} item 
+ */
+export function appendItemToWorld (item) {
+	items.push(item);
+	world.appendChild(item.element);
+}
+
+/**
+ * @param {Sprite} item 
+ */
+export function removeItemFromWorld (item) {
+	const idx = items.findIndex(x => x === item);
+
+	console.log('removing', idx);
+
+	items.splice(idx,1);
+	world.removeChild(item.element);
 }
