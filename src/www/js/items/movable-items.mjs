@@ -1,7 +1,7 @@
-import { DIAGONAL_MOVEMENT } from "../character.mjs";
-import { collisionDetection } from "../collision-detection.mjs";
-import { Movable } from "../movable.mjs";
-import { attachDebugBounds, css } from "../util.mjs";
+import { DIAGONAL_MOVEMENT } from "../lib/character.mjs";
+import { collisionDetection } from "../lib/collision-detection.mjs";
+import { Movable } from "../lib/movable.mjs";
+import { attachDebugBounds, css } from "../lib/util.mjs";
 
 export class Ball extends Movable {
 	static base = {

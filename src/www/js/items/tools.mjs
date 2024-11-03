@@ -1,6 +1,6 @@
-import { Sprite } from "../sprite.mjs";
-import { DroppedTool, Tool } from "../tool.mjs";
-import { attachDebugBounds } from "../util.mjs";
+import { Sprite } from "../lib/sprite.mjs";
+import { DroppedTool, Tool } from "../lib/tool.mjs";
+import { attachDebugBounds } from "../lib/util.mjs";
 
 export class Pickaxe extends Tool {
 	constructor () {

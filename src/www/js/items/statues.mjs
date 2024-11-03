@@ -1,6 +1,6 @@
-import { dialog } from "../dialog.mjs";
-import { Sprite } from "../sprite.mjs";
-import { css } from "../util.mjs";
+import { dialog } from "../lib/ui/dialog.mjs";
+import { Sprite } from "../lib/sprite.mjs";
+import { css } from "../lib/util.mjs";
 
 export class Statue1 extends Sprite {
 	static base = {

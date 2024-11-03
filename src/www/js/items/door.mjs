@@ -1,7 +1,7 @@
-import { Character } from "../character.mjs";
-import { collide } from "../collision-detection.mjs";
-import { Sprite } from "../sprite.mjs";
-import { attachDebugBounds, css } from "../util.mjs";
+import { Character } from "../lib/character.mjs";
+import { collide } from "../lib/collision-detection.mjs";
+import { Sprite } from "../lib/sprite.mjs";
+import { attachDebugBounds, css } from "../lib/util.mjs";
 
 export class Door extends Sprite {
 	static base = {

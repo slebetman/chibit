@@ -1,8 +1,8 @@
 import { Sprite } from "./sprite.mjs";
 import { attachDebugBounds, css, make } from "./util.mjs";
 import { Character, CHARACTER_SIZE } from "./character.mjs";
-import { dialog } from "./dialog.mjs";
-import { Chibit } from "./items/chibit.mjs";
+import { dialog } from "./ui/dialog.mjs";
+import { Chibit } from "../items/chibit.mjs";
 
 export class Tool extends Sprite {
 	/**

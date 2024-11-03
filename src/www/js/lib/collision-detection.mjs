@@ -1,5 +1,5 @@
 import { Character, DIRECTION } from "./character.mjs";
-import { items } from "./items.mjs";
+import { items } from "../items.mjs";
 import { Sprite } from "./sprite.mjs";
 import { css } from "./util.mjs";
 

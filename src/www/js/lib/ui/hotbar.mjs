@@ -1,6 +1,6 @@
-import { Chibit } from "./items/chibit.mjs";
-import { Tool } from "./tool.mjs";
-import { $, css, make } from "./util.mjs";
+import { Chibit } from "../../items/chibit.mjs";
+import { Tool } from "../tool.mjs";
+import { $, css, make } from "../util.mjs";
 
 const TOOLS = [
 	null,null,null,

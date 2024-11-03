@@ -1,4 +1,4 @@
-import { items } from "./items.mjs";
+import { items } from "../items.mjs";
 import { Sprite } from "./sprite.mjs";
 
 /**

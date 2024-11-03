@@ -1,9 +1,9 @@
-import { Character, DIRECTION, DIAGONAL_MOVEMENT, CHARACTER_SIZE } from "../character.mjs";
-import { getNearestItems } from "../collision-detection.mjs";
-import { Hotbar } from "../hotbar.mjs";
-import { Sprite } from "../sprite.mjs";
-import { DroppedTool, Tool } from "../tool.mjs";
-import { css, $, attachDebugBounds, removeItemFromWorld } from "../util.mjs";
+import { Character, DIRECTION, DIAGONAL_MOVEMENT, CHARACTER_SIZE } from "../lib/character.mjs";
+import { getNearestItems } from "../lib/collision-detection.mjs";
+import { Hotbar } from "../lib/ui/hotbar.mjs";
+import { Sprite } from "../lib/sprite.mjs";
+import { DroppedTool, Tool } from "../lib/tool.mjs";
+import { css, $, attachDebugBounds, removeItemFromWorld } from "../lib/util.mjs";
 import { Axe, Pickaxe } from "./tools.mjs";
 
 const ANIMATION_LOOP = 20;

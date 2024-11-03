@@ -1,19 +1,19 @@
-import { items } from './items.mjs';
-import * as floor from './items/floor.mjs';
-import * as furniture from './items/furniture.mjs';
-import * as roads from './items/roads.mjs';
-import * as movables from './items/movable-items.mjs';
-import * as trees from './items/trees.mjs';
-import * as doors from './items/door.mjs';
-import * as tools from './items/tools.mjs';
-import { Chibit } from './items/chibit.mjs';
-import { CampFire } from './items/fire.mjs';
-import { Lamp } from './items/lamp.mjs';
-import { Rock } from './items/rocks.mjs';
-import { Statue1 } from './items/statues.mjs';
-import { Wall } from './items/wall.mjs';
+import { items } from '../items.mjs';
+import * as floor from '../items/floor.mjs';
+import * as furniture from '../items/furniture.mjs';
+import * as roads from '../items/roads.mjs';
+import * as movables from '../items/movable-items.mjs';
+import * as trees from '../items/trees.mjs';
+import * as doors from '../items/door.mjs';
+import * as tools from '../items/tools.mjs';
+import { Chibit } from '../items/chibit.mjs';
+import { CampFire } from '../items/fire.mjs';
+import { Lamp } from '../items/lamp.mjs';
+import { Rock } from '../items/rocks.mjs';
+import { Statue1 } from '../items/statues.mjs';
+import { Wall } from '../items/wall.mjs';
 import { Sprite } from './sprite.mjs';
-import { Water } from './items/water.mjs';
+import { Water } from '../items/water.mjs';
 import { $, css } from './util.mjs';
 
 const types = {

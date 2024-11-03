@@ -1,4 +1,4 @@
-import { Sprite } from "./sprite.mjs";
+import { Sprite } from "./lib/sprite.mjs";
 
 /** @type {Sprite[]} */
 export const items = [];

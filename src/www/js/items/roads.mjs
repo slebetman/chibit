@@ -1,5 +1,5 @@
-import { Sprite } from "../sprite.mjs";
-import { css } from "../util.mjs";
+import { Sprite } from "../lib/sprite.mjs";
+import { css } from "../lib/util.mjs";
 import { Floor } from "./floor.mjs";
 
 export class Road extends Floor {

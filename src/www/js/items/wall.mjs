@@ -1,5 +1,5 @@
-import { Sprite } from "../sprite.mjs";
-import { attachDebugBounds, css } from "../util.mjs";
+import { Sprite } from "../lib/sprite.mjs";
+import { attachDebugBounds, css } from "../lib/util.mjs";
 
 export class Wall extends Sprite {
 	static base = {

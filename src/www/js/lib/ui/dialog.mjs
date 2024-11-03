@@ -1,4 +1,4 @@
-import { $ } from "./util.mjs";
+import { $ } from "../util.mjs";
 
 let dialogActive = false;
 

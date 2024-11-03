@@ -1,7 +1,7 @@
-import { Character, DIRECTION } from "../character.mjs";
-import { dialog } from "../dialog.mjs";
-import { Sprite } from "../sprite.mjs";
-import { attachDebugBounds, css, make } from "../util.mjs";
+import { Character, DIRECTION } from "../lib/character.mjs";
+import { dialog } from "../lib/ui/dialog.mjs";
+import { Sprite } from "../lib/sprite.mjs";
+import { attachDebugBounds, css, make } from "../lib/util.mjs";
 
 const shelfSprites = [0, 100, 200, 300, 400, 500, 600, 700];
 export class Shelf extends Sprite {

@@ -1,6 +1,6 @@
-import { dialog } from "../dialog.mjs";
-import { Sprite } from "../sprite.mjs";
-import { attachDebugBounds, attachDebugCenter, css } from "../util.mjs";
+import { dialog } from "../lib/ui/dialog.mjs";
+import { Sprite } from "../lib/sprite.mjs";
+import { attachDebugBounds, attachDebugCenter, css } from "../lib/util.mjs";
 
 const rockSprites = [
 	[0,0], [-100,0], [-200,0],

@@ -1,5 +1,5 @@
-import { Sprite } from "../sprite.mjs";
-import { css } from "../util.mjs";
+import { Sprite } from "../lib/sprite.mjs";
+import { css } from "../lib/util.mjs";
 
 const animationFrame = [
 	[0, 0], [-50, 0], [-100, 0], [-150, 0], [-200, 0], [-250, 0],

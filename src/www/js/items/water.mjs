@@ -1,6 +1,6 @@
-import { dialog } from "../dialog.mjs";
-import { Sprite } from "../sprite.mjs";
-import { attachDebugBounds, css, make } from "../util.mjs";
+import { dialog } from "../lib/ui/dialog.mjs";
+import { Sprite } from "../lib/sprite.mjs";
+import { attachDebugBounds, css, make } from "../lib/util.mjs";
 
 const ANIMATION_LOOP = 30;
 

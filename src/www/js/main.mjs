@@ -1,10 +1,9 @@
 import { Chibit } from "./items/chibit.mjs";
 import { items } from "./items.mjs";
-import { drawMap } from "./map-reader.mjs";
-import { getNearestItems } from "./collision-detection.mjs";
-import { dialogIsActive } from "./dialog.mjs";
-import { Hotbar } from "./hotbar.mjs";
-import { DroppedAxe, DroppedPickaxe } from "./items/tools.mjs";
+import { drawMap } from "./lib/map-reader.mjs";
+import { getNearestItems } from "./lib/collision-detection.mjs";
+import { dialogIsActive } from "./lib/ui/dialog.mjs";
+import { Hotbar } from "./lib/ui/hotbar.mjs";
 
 async function main () {
 	let started = false;
