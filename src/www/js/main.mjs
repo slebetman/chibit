@@ -23,17 +23,8 @@ async function main () {
 	};
 	world.ondrop = (e) => {
 		const idx = parseInt(e.dataTransfer.getData('application/tool-index'),10);
-		const itemToDrop = hotbar.tools[idx];
-		hotbar.removeTool(idx);
-		itemToDrop.dropped.setXY(chibit.x + 24, chibit.y + chibit.bounds.y1);
-		appendItemToWorld(itemToDrop.dropped);
+		chibit.dropItem(idx);
 	}
-
-	// const pickaxe = new DroppedPickaxe(0, 0);
-	// const axe = new DroppedAxe(0, 0);
-
-	// hotbar.addTool(1, pickaxe.item);
-	// hotbar.addTool(2, axe.item);
 
 	const savedState = localStorage.getItem('saved-state');
 	if (savedState) {
@@ -117,6 +108,9 @@ async function main () {
 					started = true;
 					chibit.startInteraction();
 				}
+				break;
+			case 'q':
+				chibit.dropItem();
 				break;
 			case 'Escape':
 				if (e.ctrlKey) {

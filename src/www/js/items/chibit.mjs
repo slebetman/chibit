@@ -3,7 +3,7 @@ import { getNearestItems } from "../lib/collision-detection.mjs";
 import { Hotbar } from "../lib/ui/hotbar.mjs";
 import { Sprite } from "../lib/sprite.mjs";
 import { DroppedTool, Tool } from "../lib/tool.mjs";
-import { css, $, attachDebugBounds, removeItemFromWorld } from "../lib/util.mjs";
+import { css, $, attachDebugBounds, removeItemFromWorld, appendItemToWorld } from "../lib/util.mjs";
 import { Axe, Pickaxe } from "./tools.mjs";
 
 const ANIMATION_LOOP = 20;
@@ -78,10 +78,24 @@ export class Chibit extends Character {
 	}
 
 	/**
-	 * @param {number} idx
+	 * @param {number | undefined} idx
 	 */
 	dropItem (idx) {
+		let i = idx;
 
+		if (i === undefined) {
+			i = this.inventory?.selected;
+		}
+
+		if (i !== undefined) {
+			const itemToDrop = this.inventory?.tools[i];
+
+			if (itemToDrop) {
+				this.inventory.removeTool(i);
+				itemToDrop.dropped.setXY(this.x + 24, this.y + this.bounds.y1);
+				appendItemToWorld(itemToDrop.dropped);
+			}
+		}
 	}
 
 	startInteraction () {
