@@ -46,12 +46,10 @@ export class Hotbar {
 				e.stopPropagation();
 			}
 			tool.ondragover = (e) => {
-				console.log('drag', i);
 				e.dataTransfer.dropEffect = 'move';
 				e.preventDefault();
 			};
 			tool.ondrop = (e) => {
-				console.log('drop', i);
 				const idx = parseInt(e.dataTransfer.getData('application/tool-index'),10);
 				const itemToMove = this.tools[idx];
 				this.removeTool(idx);

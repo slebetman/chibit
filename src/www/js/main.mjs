@@ -4,6 +4,7 @@ import { drawMap } from "./lib/map-reader.mjs";
 import { getNearestItems } from "./lib/collision-detection.mjs";
 import { dialogIsActive } from "./lib/ui/dialog.mjs";
 import { Hotbar } from "./lib/ui/hotbar.mjs";
+import { $, appendItemToWorld } from "./lib/util.mjs";
 
 async function main () {
 	let started = false;
@@ -14,6 +15,19 @@ async function main () {
 	const chibit = items.find(x => x instanceof Chibit);
 
 	const hotbar = new Hotbar(chibit);
+
+	const world = $('world');
+	world.ondragover = (e) => {
+		e.dataTransfer.dropEffect = 'move';
+		e.preventDefault();
+	};
+	world.ondrop = (e) => {
+		const idx = parseInt(e.dataTransfer.getData('application/tool-index'),10);
+		const itemToDrop = hotbar.tools[idx];
+		hotbar.removeTool(idx);
+		itemToDrop.dropped.setXY(chibit.x + 24, chibit.y + chibit.bounds.y1);
+		appendItemToWorld(itemToDrop.dropped);
+	}
 
 	// const pickaxe = new DroppedPickaxe(0, 0);
 	// const axe = new DroppedAxe(0, 0);
